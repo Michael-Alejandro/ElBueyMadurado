@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>El Buey Madurado — Alta cocina a domicilio</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .bg-brown {
+      background-color: #1a1410;
+    }
+
+    .accent {
+      color: #d4b06a;
+    }
+
+    .glass {
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(6px);
+    }
+
+    .title {
+      font-family: 'Georgia', serif;
+      letter-spacing: 1px;
+    }
+
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 1s ease;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+
+<body class="bg-brown text-gray-100 antialiased leading-relaxed">
+  <header id="mainHeader" class="fixed top-0 w-full z-30 bg-white/5 backdrop-blur-md transition-all duration-500">
+    <nav class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+
+      <!-- Logo clicable -->
+      <a href="index.html" class="flex items-center gap-3">
+        <img src="/assets/logo-oZihQK_c.jpeg" alt="El Buey Madurado"
+          class="h-12 w-12 object-cover rounded-full border border-gray-700" />
+        <span class="font-bold text-lg accent">El Buey Madurado</span>
+      </a>
+
+      <!-- Menú centrado -->
+      <ul class="hidden md:flex items-center gap-10 text-gray-200 font-medium">
+        <li>
+          <a href="carta.html"
+            class="hover:text-amber-400 transform hover:scale-110 transition-all duration-300">Carta</a>
+        </li>
+        <li>
+          <a href="sobre-nosotros.html"
+            class="hover:text-amber-400 transform hover:scale-110 transition-all duration-300">Sobre Nosotros</a>
+        </li>
+        <li>
+          <a href="#contact"
+            class="hover:text-amber-400 transform hover:scale-110 transition-all duration-300">Contacto</a>
+        </li>
+        <li>
+          <a href="reserva.html"
+            class="hover:text-amber-400 transform hover:scale-110 transition-all duration-300">Reservar</a>
+        </li>
+      </ul>
+
+      <!-- Botón principal -->
+      <div class="hidden md:flex items-center gap-3">
+        <a href="pedido.html"
+          class="px-6 py-2 rounded-full font-semibold bg-amber-500 text-[#1a1410] hover:bg-[#1a1410] hover:text-amber-500 transform hover:scale-110 transition-all duration-300 border-2 border-transparent hover:border-amber-500 shadow-md">
+          Pedir Online
+        </a>
+      </div>
+
+      <!-- Botón móvil -->
+      <button id="btnMobile" class="md:hidden p-2 rounded-md border border-gray-700">☰</button>
+    </nav>
+
+    <!-- Menú móvil desplegable -->
+    <div id="mobileMenu" class="md:hidden hidden px-6 pb-4 bg-[#1a1410] border-t border-gray-800">
+      <a href="carta.html"
+        class="block py-2 hover:text-amber-400 transform hover:scale-105 transition-all duration-300">Carta</a>
+      <a href="sobre-nosotros.html"
+        class="block py-2 hover:text-amber-400 transform hover:scale-105 transition-all duration-300">Sobre Nosotros</a>
+      <a href="#contact"
+        class="block py-2 hover:text-amber-400 transform hover:scale-105 transition-all duration-300">Contacto</a>
+      <a href="reserva.html"
+        class="block py-2 hover:text-amber-400 transform hover:scale-105 transition-all duration-300">Reservar</a>
+      <hr class="my-2 border-gray-700" />
+      <a href="pedido.html"
+        class="block text-center mt-2 py-2 rounded-full font-semibold bg-amber-500 text-[#1a1410] hover:bg-[#1a1410] hover:text-amber-500 transform hover:scale-105 transition-all duration-300 border-2 border-transparent hover:border-amber-500 shadow-md">
+        Pedir Online
+      </a>
+    </div>
+  </header>
+
+  <main class="pt-16">
+    <section id="home" class="relative w-full h-[calc(100vh-4rem)] flex items-center px-6 md:px-16">
+
+      <!-- 🔹 Imagen de fondo -->
+      <div class="absolute inset-0">
+        <img src="/assets/hamburgesa-inicio-CQrH9cd4.png" alt="Hamburguesa destacada" class="w-full h-full object-cover">
+        <div class="absolute inset-0 bg-black/30"></div> <!-- capa oscura opcional -->
+      </div>
+
+      <!-- 🔹 Contenedor de texto y botones -->
+      <div class="relative flex flex-col justify-center items-start flex-1 space-y-6 z-10 max-w-lg">
+        <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-tight">
+          No hablamos de comida rápida…<br>
+          <span class="accent">…hablamos de alta cocina a domicilio.</span>
+        </h1>
+        <p class="text-lg md:text-xl text-gray-200">
+          Carne madurada, ingredientes locales y un sabor que trasciende.
+        </p>
+        <div class="flex flex-wrap gap-4 mt-4">
+          <a href="carta.html"
+            class="px-6 py-3 rounded-full font-semibold bg-amber-500 text-[#1a1410] hover:bg-[#1a1410] hover:text-amber-500 transform hover:scale-105 transition-all duration-300 border-2 border-transparent hover:border-amber-500 shadow-md">
+            Ver Carta
+          </a>
+          <a href="pedido.html"
+            class="px-6 py-3 rounded-full font-semibold bg-amber-500 text-[#1a1410] hover:bg-[#1a1410] hover:text-amber-500 transform hover:scale-105 transition-all duration-300 border-2 border-transparent hover:border-amber-500 shadow-md">
+            Pedir Ahora
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section id="menu" class="max-w-6xl mx-auto px-6 py-12 fade-in">
+      <h2 class="text-3xl font-bold mb-6 title">Nuestra Carta</h2>
+      <p class="text-gray-300 mb-6">Alta cocina entre panes. Selección de nuestras hamburguesas y acompañamientos,
+        creadas para que cada bocado sea memorable.</p>
+      <div class="grid md:grid-cols-3 gap-6">
+        <article class="bg-[#121212] p-6 rounded-xl border border-gray-800 hover:scale-105 transition-transform">
+          <img src="/mnt/data/WhatsApp Image 2025-10-21 at 19.25.45 (1).jpeg" alt="La Madurada"
+            class="h-40 w-full object-cover rounded-md mb-4" />
+          <h3 class="text-xl font-semibold accent">La Madurada</h3>
+          <p class="text-gray-400 text-sm mb-3">Carne madurada, queso curado y cebolla caramelizada. El equilibrio
+            perfecto entre potencia y suavidad.</p>
+          <div class="flex items-center justify-between">
+            <div class="font-bold">8.50€</div>
+            <button class="px-3 py-1 rounded-md border border-gray-700 hover:bg-amber-600 transition">Pedir</button>
+          </div>
+        </article>
+        <article class="bg-[#121212] p-6 rounded-xl border border-gray-800 hover:scale-105 transition-transform">
+          <h3 class="text-xl font-semibold accent">Buey BBQ</h3>
+          <p class="text-gray-400 text-sm mb-3">Salsa BBQ casera, bacon crujiente, queso cheddar y carne de buey
+            madurado.</p>
+          <div class="flex items-center justify-between">
+            <div class="font-bold">9.00€</div>
+            <button class="px-3 py-1 rounded-md border border-gray-700 hover:bg-amber-600 transition">Pedir</button>
+          </div>
+        </article>
+        <article class="bg-[#121212] p-6 rounded-xl border border-gray-800 hover:scale-105 transition-transform">
+          <h3 class="text-xl font-semibold accent">Veggie Madurado</h3>
+          <p class="text-gray-400 text-sm mb-3">Hamburguesa vegetal gourmet, pan artesanal y alioli de ajo suave.</p>
+          <div class="flex items-center justify-between">
+            <div class="font-bold">7.50€</div>
+            <button class="px-3 py-1 rounded-md border border-gray-700 hover:bg-amber-600 transition">Pedir</button>
+          </div>
+        </article>
+      </div>
+      <div class="mt-10">
+        <h4 class="text-2xl font-semibold mb-4 title accent">Entrantes y acompañamientos</h4>
+        <ul class="grid md:grid-cols-3 gap-4">
+          <li class="bg-[#0f0f0f] p-4 rounded-md border border-gray-800">Patatas deluxe — 3.50€</li>
+          <li class="bg-[#0f0f0f] p-4 rounded-md border border-gray-800">Aros de cebolla — 3.00€</li>
+          <li class="bg-[#0f0f0f] p-4 rounded-md border border-gray-800">Ensalada fresca — 2.80€</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="about" class="max-w-6xl mx-auto px-6 py-12 grid md:grid-cols-2 gap-8 items-center fade-in">
+      <div>
+        <h2 class="text-3xl font-bold title">El Arte de la Maduración</h2>
+        <p class="text-gray-300 mt-4">En <strong>El Buey Madurado</strong>, creemos que la paciencia es un ingrediente
+          más. Cada pieza de carne es tratada con respeto, madurada el tiempo justo para alcanzar su máxima expresión
+          de
+          sabor y ternura.</p>
+        <ul class="mt-4 text-gray-300 list-disc pl-6">
+          <li>Carne madurada en cámaras controladas</li>
+          <li>Pan artesanal horneado a diario</li>
+          <li>Ingredientes locales y de temporada</li>
+          <li>Una experiencia gastronómica completa, incluso a domicilio</li>
+        </ul>
+      </div>
+      <div>
+        <div class="rounded-xl overflow-hidden border border-gray-800 shadow-lg">
+          <img src="/mnt/data/WhatsApp Image 2025-10-21 at 19.25.45.jpeg" alt="foto restaurante"
+            class="w-full h-64 object-cover" />
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="max-w-6xl mx-auto px-6 py-12 fade-in">
+      <h2 class="text-3xl font-bold title mb-4">Contacto y Localización</h2>
+      <div class="grid md:grid-cols-2 gap-6">
+        <div class="bg-[#0f0f0f] p-6 rounded-md border border-gray-800">
+          <h3 class="font-semibold accent mb-2">Reservas / Pedidos</h3>
+          <p class="text-gray-300">Teléfono: <strong class="accent">+34 600 000 000</strong></p>
+          <p class="text-gray-300">Dirección: <strong class="accent">Tu localidad, Calle Principal 1</strong></p>
+          <p class="text-gray-300 mt-2">Instagram: <a href="https://instagram.com/restaurante_el_buey_madurado"
+              target="_blank" class="accent">@restaurante_el_buey_madurado</a></p>
+        </div>
+        <div class="bg-[#0f0f0f] p-6 rounded-md border border-gray-800">
+          <h3 class="font-semibold accent mb-2">Visítanos</h3>
+          <p class="text-gray-300">Próximamente podrás encontrarnos en el mapa. Hasta entonces, síguenos para no
+            perderte nuestra apertura oficial.</p>
+          <div class="mt-4">
+            <a class="px-4 py-2 rounded-md bg-amber-600 hover:bg-amber-700 transition" href="#">Ver en Google Maps</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="border-t border-gray-800 mt-12 fade-in">
+      <div class="max-w-6xl mx-auto px-6 py-6 flex flex-col md:flex-row items-center justify-between">
+        <div class="text-sm text-gray-400">© <span id="year"></span> El Buey Madurado — No es delivery, es experiencia
+          gastronómica.</div>
+        <div class="flex gap-4 mt-3 md:mt-0">
+          <a href="https://instagram.com/restaurante_el_buey_madurado" target="_blank">Instagram</a>
+          <a href="#contact">Contacto</a>
+        </div>
+      </div>
+    </footer>
+  </main>
+</body>
+<script src="script.js"></script>
+
+</html>
