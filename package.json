@@ -1,0 +1,13 @@
+{
+  "name": "el-buey-madurado",
+  "version": "1.0.0",
+  "description": "El Buey Madurado - Alta cocina a domicilio",
+  "scripts": {
+    "dev": "npx vite",
+    "build": "npx vite build",
+    "preview": "npx vite preview"
+  },
+  "devDependencies": {
+    "vite": "^5.0.0"
+  }
+}
