@@ -1,0 +1,21 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .btn-primary {
+    @apply px-6 py-3 rounded-full font-semibold bg-wine-600 text-white hover:bg-wine-700 transition-all duration-300 transform hover:scale-105;
+  }
+
+  .btn-secondary {
+    @apply px-6 py-3 rounded-full font-semibold border-2 border-wine-600 text-wine-600 hover:bg-wine-600 hover:text-white transition-all duration-300 transform hover:scale-105;
+  }
+
+  .section-title {
+    @apply text-4xl md:text-5xl font-bold font-serif text-gray-900;
+  }
+
+  .section-subtitle {
+    @apply text-lg text-gray-600 mt-4 max-w-2xl;
+  }
+}
