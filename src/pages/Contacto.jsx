@@ -8,6 +8,8 @@ export default function Contacto() {
     mensaje: "",
   });
 
+  const [submitted, setSubmitted] = useState(false);
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({
@@ -18,9 +20,9 @@ export default function Contacto() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("Formulario enviado:", formData);
+    setSubmitted(true);
     setFormData({ nombre: "", email: "", mensaje: "" });
-    alert("Gracias por tu mensaje. Nos pondremos en contacto pronto.");
+    setTimeout(() => setSubmitted(false), 4000);
   };
 
   const containerVariants = {
@@ -35,7 +37,7 @@ export default function Contacto() {
   };
 
   const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
+    hidden: { opacity: 0, y: 30 },
     visible: {
       opacity: 1,
       y: 0,
@@ -47,35 +49,40 @@ export default function Contacto() {
     <div className="min-h-screen bg-white">
       {/* Header */}
       <motion.section
-        className="bg-gradient-to-r from-gray-900 to-gray-800 text-white py-20 px-6 md:px-16"
+        className="relative bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white py-32 px-6 md:px-16 overflow-hidden"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.6 }}
       >
-        <div className="max-w-6xl mx-auto">
+        <div className="absolute inset-0 opacity-20">
+          <div className="absolute top-20 left-20 w-96 h-96 bg-wine-600 rounded-full blur-3xl" />
+          <div className="absolute bottom-20 right-20 w-96 h-96 bg-wine-700 rounded-full blur-3xl" />
+        </div>
+
+        <div className="max-w-6xl mx-auto relative z-10">
           <motion.h1
-            className="text-5xl md:text-6xl font-serif font-bold mb-4"
-            initial={{ opacity: 0, y: 20 }}
+            className="text-6xl md:text-7xl lg:text-8xl font-serif font-bold mb-6"
+            initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2, duration: 0.6 }}
           >
             Contacto
           </motion.h1>
           <motion.p
-            className="text-xl text-gray-300"
-            initial={{ opacity: 0, y: 20 }}
+            className="text-2xl text-gray-300 max-w-2xl font-light"
+            initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4, duration: 0.6 }}
           >
-            Hablemos. Estamos aquí para ti.
+            Hablemos. Estamos aquí para ti, siempre.
           </motion.p>
         </div>
       </motion.section>
 
       {/* Content */}
-      <section className="max-w-6xl mx-auto px-6 md:px-16 py-20">
+      <section className="max-w-6xl mx-auto px-6 md:px-16 py-28">
         <motion.div
-          className="grid md:grid-cols-2 gap-12"
+          className="grid md:grid-cols-2 gap-16"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
@@ -83,14 +90,22 @@ export default function Contacto() {
         >
           {/* Formulario */}
           <motion.div variants={itemVariants}>
-            <h2 className="text-3xl font-serif font-bold text-gray-900 mb-2">
+            <h2 className="text-4xl md:text-5xl font-serif font-bold text-gray-900 mb-6">
               Envíanos un mensaje
             </h2>
-            <div className="h-1 w-12 bg-wine-600 mb-8" />
+            <div className="h-1 w-16 bg-gradient-to-r from-wine-600 to-wine-700 mb-8 rounded-full" />
 
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+            <motion.form
+              onSubmit={handleSubmit}
+              className="space-y-6"
+              variants={containerVariants}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+            >
+              {/* Nombre */}
+              <motion.div variants={itemVariants}>
+                <label className="block text-sm font-semibold text-gray-700 mb-3">
                   Nombre
                 </label>
                 <input
@@ -99,13 +114,14 @@ export default function Contacto() {
                   value={formData.nombre}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-wine-600 focus:ring-1 focus:ring-wine-600 transition"
+                  className="w-full px-6 py-3 border border-gray-200 rounded-xl focus:outline-none focus:border-wine-600 focus:ring-2 focus:ring-wine-600/20 transition bg-white placeholder-gray-400"
                   placeholder="Tu nombre"
                 />
-              </div>
+              </motion.div>
 
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+              {/* Email */}
+              <motion.div variants={itemVariants}>
+                <label className="block text-sm font-semibold text-gray-700 mb-3">
                   Email
                 </label>
                 <input
@@ -114,13 +130,14 @@ export default function Contacto() {
                   value={formData.email}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-wine-600 focus:ring-1 focus:ring-wine-600 transition"
+                  className="w-full px-6 py-3 border border-gray-200 rounded-xl focus:outline-none focus:border-wine-600 focus:ring-2 focus:ring-wine-600/20 transition bg-white placeholder-gray-400"
                   placeholder="tu@email.com"
                 />
-              </div>
+              </motion.div>
 
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+              {/* Mensaje */}
+              <motion.div variants={itemVariants}>
+                <label className="block text-sm font-semibold text-gray-700 mb-3">
                   Mensaje
                 </label>
                 <textarea
@@ -129,91 +146,137 @@ export default function Contacto() {
                   onChange={handleChange}
                   required
                   rows="5"
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-wine-600 focus:ring-1 focus:ring-wine-600 transition resize-none"
+                  className="w-full px-6 py-3 border border-gray-200 rounded-xl focus:outline-none focus:border-wine-600 focus:ring-2 focus:ring-wine-600/20 transition bg-white placeholder-gray-400 resize-none"
                   placeholder="Tu mensaje..."
                 />
-              </div>
+              </motion.div>
 
-              <button
+              {/* Submit Button */}
+              <motion.button
                 type="submit"
-                className="w-full btn-primary justify-center font-semibold"
+                className="w-full bg-wine-600 text-white py-4 rounded-xl font-bold text-lg hover:bg-wine-700 transition shadow-lg hover:shadow-xl"
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+                variants={itemVariants}
               >
-                Enviar
-              </button>
-            </form>
+                Enviar Mensaje
+              </motion.button>
+
+              {/* Success Message */}
+              {submitted && (
+                <motion.div
+                  className="p-4 bg-green-100 border border-green-300 rounded-xl text-green-800 font-medium"
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -10 }}
+                >
+                  ✓ Gracias por tu mensaje. Nos pondremos en contacto pronto.
+                </motion.div>
+              )}
+            </motion.form>
           </motion.div>
 
           {/* Información de Contacto */}
           <motion.div
-            className="space-y-8"
+            className="space-y-6"
             variants={containerVariants}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
           >
+            {/* Card Info */}
             <motion.div
-              className="bg-gray-50 p-8 rounded-xl border border-gray-200"
+              className="bg-gradient-to-br from-gray-50 to-white p-8 rounded-3xl border border-gray-100 shadow-md hover:shadow-xl transition"
               variants={itemVariants}
+              whileHover={{ y: -5 }}
             >
-              <h3 className="text-2xl font-serif font-bold text-gray-900 mb-4">
+              <h3 className="text-2xl font-serif font-bold text-gray-900 mb-8">
                 Información de Contacto
               </h3>
 
-              <div className="space-y-4 text-gray-700">
-                <div>
-                  <p className="text-sm text-gray-600 font-medium mb-1">
+              <div className="space-y-6">
+                {/* Teléfono */}
+                <div className="pb-6 border-b border-gray-100">
+                  <p className="text-sm text-gray-600 font-semibold mb-2 uppercase tracking-wide">
                     Teléfono
                   </p>
                   <a
                     href="tel:+34600000000"
-                    className="text-lg text-wine-600 hover:text-wine-700 font-medium"
+                    className="text-2xl font-serif text-wine-600 hover:text-wine-700 font-bold transition"
                   >
                     +34 600 000 000
                   </a>
                 </div>
 
-                <div>
-                  <p className="text-sm text-gray-600 font-medium mb-1">
+                {/* Email */}
+                <div className="pb-6 border-b border-gray-100">
+                  <p className="text-sm text-gray-600 font-semibold mb-2 uppercase tracking-wide">
                     Email
                   </p>
                   <a
                     href="mailto:elbueymadurado@gmail.com"
-                    className="text-lg text-wine-600 hover:text-wine-700 font-medium"
+                    className="text-lg font-serif text-wine-600 hover:text-wine-700 font-bold transition break-all"
                   >
                     elbueymadurado@gmail.com
                   </a>
                 </div>
 
+                {/* Dirección */}
                 <div>
-                  <p className="text-sm text-gray-600 font-medium mb-1">
+                  <p className="text-sm text-gray-600 font-semibold mb-2 uppercase tracking-wide">
                     Dirección
                   </p>
-                  <p className="text-lg">Av. de Selgas, 5</p>
-                  <p className="text-lg">46800 Xàtiva, Valencia</p>
+                  <p className="text-lg text-gray-800 font-medium">Av. de Selgas, 5</p>
+                  <p className="text-lg text-gray-800 font-medium">46800 Xàtiva, Valencia</p>
                 </div>
               </div>
             </motion.div>
 
-            {/* Horario */}
+            {/* Horario Card */}
             <motion.div
-              className="bg-wine-600 text-white p-8 rounded-xl"
+              className="bg-gradient-to-br from-wine-600 to-wine-700 text-white p-8 rounded-3xl shadow-lg hover:shadow-xl transition"
+              variants={itemVariants}
+              whileHover={{ y: -5 }}
+            >
+              <h3 className="text-2xl font-serif font-bold mb-8">Horario de Atención</h3>
+
+              <div className="space-y-4">
+                {[
+                  { day: "Lunes - Viernes", time: "12:00 - 23:00" },
+                  { day: "Sábados", time: "13:00 - 00:00" },
+                  { day: "Domingos", time: "13:00 - 22:00" },
+                ].map((schedule, idx) => (
+                  <div
+                    key={idx}
+                    className="flex justify-between items-center pb-4 border-b border-white/20 last:border-0"
+                  >
+                    <span className="font-medium">{schedule.day}</span>
+                    <span className="font-semibold text-lg">{schedule.time}</span>
+                  </div>
+                ))}
+              </div>
+            </motion.div>
+
+            {/* Social Links */}
+            <motion.div
+              className="bg-gradient-to-br from-gray-50 to-white p-8 rounded-3xl border border-gray-100 shadow-md"
               variants={itemVariants}
             >
-              <h3 className="text-2xl font-serif font-bold mb-4">Horario</h3>
-
-              <div className="space-y-2">
-                <div className="flex justify-between">
-                  <span>Lunes - Viernes:</span>
-                  <span className="font-semibold">12:00 - 23:00</span>
-                </div>
-                <div className="flex justify-between">
-                  <span>Sábados:</span>
-                  <span className="font-semibold">13:00 - 00:00</span>
-                </div>
-                <div className="flex justify-between">
-                  <span>Domingos:</span>
-                  <span className="font-semibold">13:00 - 22:00</span>
-                </div>
+              <h3 className="text-xl font-serif font-bold text-gray-900 mb-6">Síguenos</h3>
+              <div className="flex gap-4">
+                {[
+                  { name: "Instagram", icon: "📷" },
+                  { name: "Facebook", icon: "👍" },
+                ].map((social, idx) => (
+                  <motion.a
+                    key={idx}
+                    href="#"
+                    className="w-14 h-14 bg-wine-600 text-white rounded-2xl flex items-center justify-center text-2xl hover:bg-wine-700 transition shadow-md"
+                    whileHover={{ scale: 1.1 }}
+                  >
+                    {social.icon}
+                  </motion.a>
+                ))}
               </div>
             </motion.div>
           </motion.div>
@@ -221,18 +284,22 @@ export default function Contacto() {
 
         {/* Mapa */}
         <motion.div
-          className="mt-20"
+          className="mt-32"
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
         >
-          <h2 className="text-3xl font-serif font-bold text-gray-900 mb-2">
+          <h2 className="text-4xl md:text-5xl font-serif font-bold text-gray-900 mb-6">
             Ubicación
           </h2>
-          <div className="h-1 w-12 bg-wine-600 mb-8" />
+          <div className="h-1 w-16 bg-gradient-to-r from-wine-600 to-wine-700 mb-12 rounded-full" />
 
-          <div className="w-full h-96 bg-gray-100 rounded-xl border border-gray-200 flex items-center justify-center overflow-hidden">
+          <motion.div
+            className="w-full h-96 bg-gray-100 rounded-3xl border border-gray-200 overflow-hidden shadow-lg"
+            whileHover={{ scale: 1.01 }}
+            transition={{ duration: 0.3 }}
+          >
             <iframe
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3040.136233277889!2d-0.524513524260092!3d38.99106167171492!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd61b0eaa6a4e7fb%3A0x62750eead409c4e0!2sAv.%20de%20Selgas%2C%205%2C%2046800%20X%C3%A0tiva%2C%20Valencia!5e0!3m2!1ses!2ses!4v1730028289000!5m2!1ses!2ses"
               width="100%"
@@ -242,7 +309,7 @@ export default function Contacto() {
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
             />
-          </div>
+          </motion.div>
         </motion.div>
       </section>
     </div>

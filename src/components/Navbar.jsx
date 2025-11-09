@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
+import logo from "../../img/logo.jpeg";
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -23,11 +24,13 @@ export default function Navbar() {
       animate={{ y: 0 }}
       transition={{ duration: 0.6 }}
     >
-      <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+      <div className="max-w-7xl mx-auto px-6 py-3 flex items-center justify-between">
         <Link to="/" className="flex items-center gap-3 group">
-          <div className="w-12 h-12 bg-wine-600 rounded-full flex items-center justify-center text-white font-bold text-lg group-hover:scale-110 transition-transform">
-            EB
-          </div>
+          <img
+            src={logo}
+            alt="Logo El Buey Madurado"
+            className="w-14 h-14 object-cover rounded-full border-2 border-wine-600 group-hover:scale-110 transition-transform shadow-md"
+          />
           <span className="font-serif text-xl font-bold text-gray-900 hidden md:block">
             El Buey Madurado
           </span>
