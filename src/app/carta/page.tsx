@@ -101,25 +101,15 @@ export default function CartaPage() {
                 <div className="carta-product-info">
                   <div className="carta-product-header">
                     <h3 className="carta-product-name">{producto.nombre}</h3>
-                    <span className="carta-product-price">
-                      €{producto.precio.toFixed(2)}
-                    </span>
                   </div>
 
                   <p className="carta-product-description">
                     {producto.descripcion}
                   </p>
 
-                  <div className="carta-product-details">
-                    {producto.detalle && (
-                      <p className="carta-detail-item">• {producto.detalle}</p>
-                    )}
-                    {producto.incluye && (
-                      <p className="carta-detail-item">• {producto.incluye}</p>
-                    )}
-                    {producto.tipo && (
-                      <p className="carta-detail-item">• {producto.tipo}</p>
-                    )}
+                  {/* Precio abajo a la derecha */}
+                  <div className="carta-product-price-bottom">
+                    €{producto.precio.toFixed(2)}
                   </div>
                 </div>
               </button>
@@ -133,7 +123,7 @@ export default function CartaPage() {
 
         <div className="carta-footer">
           <p className="carta-footer-text">
-            Av. de Selgas, 5 - 46800 Xàtiva, Valencia • +34 600 000 000
+            Restaurante el Buey Madurado
           </p>
         </div>
       </div>
@@ -171,7 +161,11 @@ export default function CartaPage() {
           <div className="carta-wrapper" ref={cartaWrapperRef}>
             <div className="carta-page-wrapper">
               <div className="carta-page carta-page-bottom">
-                {renderCartaContent(nextCategoria, nextTitulo, nextProductosFiltrados)}
+                {renderCartaContent(
+                  nextCategoria,
+                  nextTitulo,
+                  nextProductosFiltrados
+                )}
               </div>
 
               <div
@@ -183,7 +177,11 @@ export default function CartaPage() {
                     : ''
                 }`}
               >
-                {renderCartaContent(activeCategoria, activoTitulo, productosFiltrados)}
+                {renderCartaContent(
+                  activeCategoria,
+                  activoTitulo,
+                  productosFiltrados
+                )}
               </div>
             </div>
           </div>
@@ -205,7 +203,7 @@ export default function CartaPage() {
           </div>
         </div>
 
-        {/* MODAL */}
+        {/* MODAL
         {productoSeleccionado && (
           <div className="carta-modal-overlay" onClick={handleCerrarProducto}>
             <div className="carta-modal" onClick={(e) => e.stopPropagation()}>
@@ -249,43 +247,6 @@ export default function CartaPage() {
                     </p>
                   </div>
 
-                  {(productoSeleccionado.detalle ||
-                    productoSeleccionado.incluye ||
-                    productoSeleccionado.tipo) && (
-                    <div className="carta-modal-details-box">
-                      {productoSeleccionado.detalle && (
-                        <div>
-                          <span className="carta-modal-details-label">
-                            INFORMACIÓN
-                          </span>
-                          <p className="carta-modal-details-text">
-                            {productoSeleccionado.detalle}
-                          </p>
-                        </div>
-                      )}
-
-                      {productoSeleccionado.incluye && (
-                        <div>
-                          <span className="carta-modal-details-label">
-                            INCLUYE
-                          </span>
-                          <p className="carta-modal-details-text">
-                            {productoSeleccionado.incluye}
-                          </p>
-                        </div>
-                      )}
-
-                      {productoSeleccionado.tipo && (
-                        <div>
-                          <span className="carta-modal-details-label">TIPO</span>
-                          <p className="carta-modal-details-text">
-                            {productoSeleccionado.tipo}
-                          </p>
-                        </div>
-                      )}
-                    </div>
-                  )}
-
                   <button
                     onClick={handleCerrarProducto}
                     className="carta-modal-button"
@@ -296,7 +257,7 @@ export default function CartaPage() {
               </div>
             </div>
           </div>
-        )}
+        )} */}
       </section>
     </>
   );

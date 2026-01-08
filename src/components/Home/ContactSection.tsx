@@ -5,7 +5,7 @@ const ContactSection = () => {
   return (
     <section
       id="contact"
-      className="max-w-6xl mx-auto px-6 py-20 fade-in"
+      className="max-w-6xl mx-auto px-6 pt-10 pb-20 fade-in"
     >
       <h2 className="text-amber-600 text-4xl font-bold text-beige-100 mb-8">
         Contacto y Localización
@@ -20,7 +20,7 @@ const ContactSection = () => {
               Hablemos
             </h3>
             <a
-              href="https://www.google.com/maps/dir/?api=1&destination=Av.+de+Selgas,+5,+46800+Xátiva,+Valencia"
+              href="https://www.google.com/maps/dir/?api=1&destination=Calle+Reina+41,+46800+Xátiva,+Valencia"
               target="_blank"
               rel="noreferrer"
               className="px-4 py-1.5 text-sm text-amber-500 border border-amber-600 rounded-md hover:bg-amber-600 hover:text-black transition"
@@ -32,7 +32,10 @@ const ContactSection = () => {
           {/* Contenido de contacto */}
           <div className="flex-1 space-y-4 text-gray-300">
             <p>
-              <strong>Teléfono:</strong> +34 600 000 000
+              <strong>Teléfono:</strong>{' '}
+              <a href="tel:+34670777586" aria-label="Llamar al 670 77 75 86">
+                +34 670 77 75 86
+              </a>
             </p>
             <p>
               <strong>Correo:</strong>{' '}
@@ -44,7 +47,7 @@ const ContactSection = () => {
               </a>
             </p>
             <p>
-              <strong>Dirección:</strong> Av. de Selgas, 5, 46800 Xátiva,
+              <strong>Dirección:</strong> Calle Reina, 41. Xátiva,
               Valencia
             </p>
 
@@ -61,27 +64,6 @@ const ContactSection = () => {
                 </a>
               </p>
 
-              <p>
-                <strong>Facebook:</strong>{' '}
-                <a
-                  href="https://facebook.com"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="text-amber-600 hover:underline"
-                >
-                  facebook.com/elbueymadurado
-                </a>
-              </p>
-
-              <p>
-                <strong>Gmail:</strong>{' '}
-                <a
-                  href="mailto:elbueymadurado@gmail.com"
-                  className="text-amber-600 hover:underline"
-                >
-                  elbueymadurado@gmail.com
-                </a>
-              </p>
             </div>
           </div>
         </div>

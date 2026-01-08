@@ -4,6 +4,7 @@
 import { useEffect } from 'react';
 import HeroSectionHome from '@/components/Home/HeroSectionHome';
 import ContactSection from '@/components/Home/ContactSection';
+import Marquee from '@/components/Home/Marquee';
 
 export default function ContactoPage() {
   useEffect(() => {
@@ -19,6 +20,7 @@ export default function ContactoPage() {
   return (
     <>
       <HeroSectionHome />
+      <Marquee />
       <ContactSection />
     </>
   );

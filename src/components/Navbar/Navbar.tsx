@@ -41,14 +41,8 @@ export default function Navbar() {
         <ul className="hidden md:flex items-center gap-10 text-gray-200 font-semibold text-lg md:text-xl lg:text-xl flex-1 justify-center">
           <NavLink href="/">Home</NavLink>
           <NavLink href="/carta">Carta</NavLink>
-          <NavLink href="/sobre-nosotros">Sobre Nosotros</NavLink>
           <NavLink href="/contacto">Contacto</NavLink>
         </ul>
-
-        {/* Botón desktop - Derecha */}
-        <div className="hidden md:block">
-          <Button variant="primary">Pedir Online</Button>
-        </div>
 
         {/* Botón hamburguesa móvil */}
         <div className="md:hidden">
@@ -74,11 +68,7 @@ export default function Navbar() {
         <ul className="flex flex-col items-start p-6 space-y-4" onClick={() => setMenuOpen(false)}>
           <NavLink href="/">Home</NavLink>
           <NavLink href="/carta">Carta</NavLink>
-          <NavLink href="/sobre-nosotros">Sobre Nosotros</NavLink>
           <NavLink href="/contacto">Contacto</NavLink>
-          <Button variant="primary" size="md" onClick={() => setMenuOpen(false)}>
-            Pedir Online
-          </Button>
         </ul>
       </div>
     </nav>

@@ -530,6 +530,32 @@
   gap: 0.5rem;
 }
 
+/* Mantener estructura y permitir empujar el precio al fondo */
+.carta-product-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  height: 100%;
+}
+
+/* Precio abajo a la derecha */
+.carta-product-price-bottom {
+  margin-top: auto;      /* empuja el precio al final */
+  align-self: flex-end;  /* lo alinea a la derecha */
+  font-size: 1.1rem;
+  font-weight: 900;
+  color: #b45309;
+  padding-top: 0.75rem;
+  border-top: 1px dashed rgba(180, 83, 9, 0.25);
+}
+
+@media (min-width: 768px) {
+  .carta-product-price-bottom {
+    font-size: 1.25rem;
+  }
+}
+
+
 .carta-product-header {
   display: flex;
   align-items: flex-start;
@@ -560,19 +586,6 @@
   }
 }
 
-.carta-product-price {
-  font-size: 1.05rem;
-  font-weight: 800;
-  color: #b45309;
-  white-space: nowrap;
-  flex-shrink: 0;
-}
-
-@media (min-width: 768px) {
-  .carta-product-price {
-    font-size: 1.2rem;
-  }
-}
 
 .carta-product-description {
   font-size: 0.9rem;
