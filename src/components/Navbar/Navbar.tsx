@@ -4,7 +4,6 @@
 import { useState, useEffect, useRef } from 'react';
 import Logo from './Logo';
 import NavLink from './NavLink';
-import Button from '../ui/Button';
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);

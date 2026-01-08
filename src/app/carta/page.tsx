@@ -1,19 +1,26 @@
 'use client';
 
-import { useState, useMemo, useRef } from 'react';
+import { useState, useMemo, useRef, useEffect } from 'react';
 import { menuItems } from '@/data/menu';
 import './carta.css';
 
 const slides = [
   { key: 'Entrantes', titulo: 'Entrantes' },
   { key: 'Carnes', titulo: 'Carnes' },
-  { key: 'Hamburguesas', titulo: 'Hamburguesas' },
+  { key: 'Hamburguesas', titulo: 'Burgers' },
   { key: 'Postres', titulo: 'Postres' },
 ];
 
 export default function CartaPage() {
+  // Slide "estable" (el que de verdad está activo cuando no hay animación)
   const [currentSlide, setCurrentSlide] = useState(0);
-  const [productoSeleccionado, setProductoSeleccionado] = useState<any>(null);
+
+  // Slide que se va (contenido de la página superior durante la animación)
+  const [prevSlide, setPrevSlide] = useState(0);
+
+  // Slide al que vamos (contenido preparado en la página inferior durante la animación)
+  const [pendingSlide, setPendingSlide] = useState<number | null>(null);
+
   const [animationDirection, setAnimationDirection] = useState<string | null>(
     null
   );
@@ -22,59 +29,89 @@ export default function CartaPage() {
   const cartaSectionRef = useRef<HTMLDivElement>(null);
   const cartaWrapperRef = useRef<HTMLDivElement>(null);
 
+  // Timeout cleanup
+  const timeoutRef = useRef<number | null>(null);
+
+  useEffect(() => {
+    return () => {
+      if (timeoutRef.current) window.clearTimeout(timeoutRef.current);
+    };
+  }, []);
+
+  const ANIMATION_MS = 1000; // ajusta si tu CSS tiene otra duración
+
   const handleNavegaCategoria = (index: number) => {
+    // Si ya estamos en ese slide o animando, no hacemos nada
     if (index === currentSlide || isAnimating) return;
 
+    // 1) La página superior debe seguir mostrando el slide ACTUAL (antes de cambiar)
+    setPrevSlide(currentSlide);
+
+    // 2) Preparamos en la página inferior el slide DESTINO (pero NO lo activamos aún)
+    setPendingSlide(index);
+
+    // 3) Arrancamos animación
     setAnimationDirection(index > currentSlide ? 'left' : 'right');
     setIsAnimating(true);
-    setCurrentSlide(index);
 
-    setTimeout(() => {
+    // 4) Al terminar, ya activamos el slide destino
+    if (timeoutRef.current) window.clearTimeout(timeoutRef.current);
+
+    timeoutRef.current = window.setTimeout(() => {
+      // Aplicamos el cambio real
+      setCurrentSlide(index);
+      setPendingSlide(null);
+
+      // Reseteamos animación
       setAnimationDirection(null);
       setIsAnimating(false);
-    }, 1000);
+
+      // ✅ Y AHORA subimos suave (después del cambio)
+      requestAnimationFrame(() => {
+        scrollToTopSmooth();
+      });
+    }, ANIMATION_MS);
   };
 
-  const activeCategoria = slides[currentSlide].key;
-  const activoTitulo = slides[currentSlide].titulo;
 
-  let nextSlideIndex;
-  if (animationDirection === 'left') {
-    nextSlideIndex = currentSlide === slides.length - 1 ? 0 : currentSlide + 1;
-  } else if (animationDirection === 'right') {
-    nextSlideIndex = currentSlide === 0 ? slides.length - 1 : currentSlide - 1;
-  } else {
-    nextSlideIndex =
-      currentSlide === slides.length - 1 ? 0 : currentSlide + 1;
+  // ✅ TOP (la página que se anima y se va): durante animación = prevSlide, si no = currentSlide
+  const topIndex = isAnimating ? prevSlide : currentSlide;
+
+  // ✅ BOTTOM (la página de abajo): durante animación = pendingSlide, si no = currentSlide
+  const bottomIndex = pendingSlide ?? currentSlide;
+
+  const topCategoria = slides[topIndex].key;
+  const topTitulo = slides[topIndex].titulo;
+
+  const bottomCategoria = slides[bottomIndex].key;
+  const bottomTitulo = slides[bottomIndex].titulo;
+
+  const topProductos = useMemo(
+    () => menuItems.filter((item) => item.categoria === topCategoria),
+    [topCategoria]
+  );
+
+  const bottomProductos = useMemo(
+    () => menuItems.filter((item) => item.categoria === bottomCategoria),
+    [bottomCategoria]
+  );
+
+  const handleAbrirProducto = () => {
+
+  };
+
+  function scrollToTopSmooth() {
+    const el = cartaSectionRef.current;
+    if (!el) return;
+
+    const top = el.getBoundingClientRect().top + window.scrollY - 80;
+    window.scrollTo({ top, behavior: 'smooth' });
   }
-
-  const nextCategoria = slides[nextSlideIndex].key;
-  const nextTitulo = slides[nextSlideIndex].titulo;
-
-  const productosFiltrados = useMemo(
-    () => menuItems.filter((item) => item.categoria === activeCategoria),
-    [activeCategoria]
-  );
-
-  const nextProductosFiltrados = useMemo(
-    () => menuItems.filter((item) => item.categoria === nextCategoria),
-    [nextCategoria]
-  );
-
-  const handleAbrirProducto = (producto: any) => {
-    setProductoSeleccionado(producto);
-    document.documentElement.classList.add('modal-open');
-  };
-
-  const handleCerrarProducto = () => {
-    setProductoSeleccionado(null);
-    document.documentElement.classList.remove('modal-open');
-  };
 
   const renderCartaContent = (
     _categoria: string,
     titulo: string,
-    productos: any
+    productos: any[]
   ) => (
     <div>
       <div className="carta-corner carta-corner-top-left"></div>
@@ -96,7 +133,7 @@ export default function CartaPage() {
                 key={producto.id}
                 type="button"
                 className="carta-product-item carta-product-item--noimage"
-                onClick={() => handleAbrirProducto(producto)}
+                onClick={() => handleAbrirProducto()}
               >
                 <div className="carta-product-info">
                   <div className="carta-product-header">
@@ -107,9 +144,8 @@ export default function CartaPage() {
                     {producto.descripcion}
                   </p>
 
-                  {/* Precio abajo a la derecha */}
                   <div className="carta-product-price-bottom">
-                    €{producto.precio.toFixed(2)}
+                    €{Number(producto.precio).toFixed(2)}
                   </div>
                 </div>
               </button>
@@ -122,9 +158,7 @@ export default function CartaPage() {
         )}
 
         <div className="carta-footer">
-          <p className="carta-footer-text">
-            Restaurante el Buey Madurado
-          </p>
+          <p className="carta-footer-text">Restaurante el Buey Madurado</p>
         </div>
       </div>
     </div>
@@ -160,14 +194,12 @@ export default function CartaPage() {
 
           <div className="carta-wrapper" ref={cartaWrapperRef}>
             <div className="carta-page-wrapper">
+              {/* Página inferior: durante animación ya tiene el contenido destino */}
               <div className="carta-page carta-page-bottom">
-                {renderCartaContent(
-                  nextCategoria,
-                  nextTitulo,
-                  nextProductosFiltrados
-                )}
+                {renderCartaContent(bottomCategoria, bottomTitulo, bottomProductos)}
               </div>
 
+              {/* Página superior: durante animación mantiene contenido anterior y se desplaza */}
               <div
                 className={`carta-page carta-page-top ${
                   isAnimating && animationDirection === 'left'
@@ -177,11 +209,7 @@ export default function CartaPage() {
                     : ''
                 }`}
               >
-                {renderCartaContent(
-                  activeCategoria,
-                  activoTitulo,
-                  productosFiltrados
-                )}
+                {renderCartaContent(topCategoria, topTitulo, topProductos)}
               </div>
             </div>
           </div>
@@ -228,7 +256,7 @@ export default function CartaPage() {
                     <div className="carta-modal-price-group">
                       <span className="carta-modal-label">Precio</span>
                       <span className="carta-modal-price">
-                        €{productoSeleccionado.precio.toFixed(2)}
+                        €{Number(productoSeleccionado.precio).toFixed(2)}
                       </span>
                     </div>
 
