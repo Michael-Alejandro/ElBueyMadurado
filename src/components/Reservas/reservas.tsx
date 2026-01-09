@@ -25,17 +25,20 @@ export default function Reservas() {
         }}
       />
 
-      <div className="rounded-2xl overflow-hidden shadow-lg bg-white">
-        <iframe
-          id="restaurante-el-buey-madurado-xativa"
-          title="Reservas"
-          src="https://www.covermanager.com/reservation/module_restaurant/restaurante-el-buey-madurado-xativa/spanish"
-          allow="payment"
-          frameBorder="0"
-          height="550"
-          width="100%"
-        />
+      <div className="bg-amber-100 p-4 md:p-6 rounded-3xl shadow-xl">
+        <div className="rounded-2xl overflow-hidden bg-white">
+          <iframe
+            id="restaurante-el-buey-madurado-xativa"
+            title="Reservas"
+            src="https://www.covermanager.com/reservation/module_restaurant/restaurante-el-buey-madurado-xativa/spanish"
+            allow="payment"
+            frameBorder="0"
+            height="550"
+            width="100%"
+          />
+        </div>
       </div>
+
     </section>
   );
 }
