@@ -1,85 +1,148 @@
 // components/Home/ContactSection.tsx
 'use client';
 
+const GOOGLE_REVIEWS_URL =
+  "https://www.google.com/search?sca_esv=2e0ce5bd22b7d86a&rlz=1C1UEAD_esES1083ES1083&si=AL3DRZEsmMGCryMMFSHJ3StBhOdZ2-6yYkXd_doETEE1OR-qOZQSB00aZ9I88OJyJo2CaVn39NapAOp2oRtRFPSbooL-VkyvtQ4Aj3t2f9UyQEvOI7IyvclMC-FVOZ18KA_xjmI4EhBRdN1gAUgChJ6eZhUQ7Tu0EQ%3D%3D&q=Restaurante+el+buey+madurado+Rese%C3%B1as&sa=X&ved=2ahUKEwiB7ua3_v6RAxXuVKQEHU-dHooQ0bkNegQINRAE&biw=1536&bih=695&dpr=1.25&aic=0&zx=1767979934420&no_sw_cr=1";
+
+const WRITE_REVIEW_URL =
+  "https://www.google.com/search?sca_esv=2e0ce5bd22b7d86a&rlz=1C1UEAD_esES1083ES1083&si=AL3DRZEsmMGCryMMFSHJ3StBhOdZ2-6yYkXd_doETEE1OR-qOZQSB00aZ9I88OJyJo2CaVn39NapAOp2oRtRFPSbooL-VkyvtQ4Aj3t2f9UyQEvOI7IyvclMC-FVOZ18KA_xjmI4EhBRdN1gAUgChJ6eZhUQ7Tu0EQ%3D%3D&q=Restaurante+el+buey+madurado+Rese%C3%B1as&sa=X&ved=2ahUKEwiB7ua3_v6RAxXuVKQEHU-dHooQ0bkNegQINRAE&biw=1536&bih=695&dpr=1.25&aic=0&zx=1767979934420&no_sw_cr=1";
+
+const MAPS_DIRECTIONS_URL = "https://maps.app.goo.gl/PFgL2Ww84fGHULMp6";
+
 const ContactSection = () => {
   return (
-    <section
-      id="contact"
-      className="max-w-6xl mx-auto px-6 pt-10 pb-20 fade-in"
-    >
-      <h2 className="text-amber-600 text-4xl font-bold text-beige-100 mb-8">
-        Contacto y Localización
-      </h2>
+    <section id="contact" className="max-w-6xl mx-auto px-6 pt-10 pb-20 fade-in">
+      <div className="flex flex-col gap-2 mb-8">
+        <h2 className="text-amber-600 text-4xl font-bold text-beige-100">
+          Contacto y Localización
+        </h2>
+        <p className="text-gray-400">
+          Reserva, dudas o cómo llegar — te lo ponemos fácil.
+        </p>
+      </div>
 
       <div className="grid md:grid-cols-2 gap-10 items-stretch">
         {/* Información de contacto */}
         <div className="bg-[#0f0f0f] p-8 rounded-xl border border-gray-800 shadow-lg flex flex-col">
-          {/* Encabezado con título y botón alineados */}
-          <div className="flex items-center justify-between mb-6">
-            <h3 className="text-2xl font-semibold text-amber-600">
-              Hablemos
-            </h3>
+          {/* Encabezado */}
+          <div className="flex items-start justify-between gap-4 mb-6">
+            <div>
+              <h3 className="text-2xl font-semibold text-amber-600">Hablemos</h3>
+              <p className="text-sm text-gray-400 mt-1">
+                Respuesta rápida por teléfono o email.
+              </p>
+            </div>
+
             <a
-              href="https://www.google.com/maps/dir/?api=1&destination=Calle+Reina+41,+46800+Xátiva,+Valencia"
+              href={MAPS_DIRECTIONS_URL}
               target="_blank"
               rel="noreferrer"
-              className="px-4 py-1.5 text-sm text-amber-500 border border-amber-600 rounded-md hover:bg-amber-600 hover:text-black transition"
+              className="shrink-0 px-4 py-2 text-sm font-semibold text-amber-500 border border-amber-600 rounded-md hover:bg-amber-600 hover:text-black transition"
             >
               Cómo llegar →
             </a>
           </div>
 
-          {/* Contenido de contacto */}
+          {/* Contenido */}
           <div className="flex-1 space-y-4 text-gray-300">
             <p>
-              <strong>Teléfono:</strong>{' '}
-              <a href="tel:+34670777586" aria-label="Llamar al 670 77 75 86">
+              <strong className="text-gray-200">Teléfono:</strong>{" "}
+              <a
+                href="tel:+34670777586"
+                aria-label="Llamar al 670 77 75 86"
+                className="text-amber-500 hover:underline"
+              >
                 +34 670 77 75 86
               </a>
             </p>
+
             <p>
-              <strong>Correo:</strong>{' '}
+              <strong className="text-gray-200">Correo:</strong>{" "}
               <a
                 href="mailto:elbueymadurado@gmail.com"
-                className="text-amber-600 hover:underline"
+                className="text-amber-500 hover:underline"
               >
                 elbueymadurado@gmail.com
               </a>
             </p>
+
             <p>
-              <strong>Dirección:</strong> Calle Reina, 41. Xátiva,
-              Valencia
+              <strong className="text-gray-200">Dirección:</strong>{" "}
+              Calle Reina, 41. Xátiva, Valencia
             </p>
 
-            <div className="mt-6 space-y-2">
-              <p>
-                <strong>Instagram:</strong>{' '}
+            <p>
+              <strong className="text-gray-200">Instagram:</strong>{" "}
+              <a
+                href="https://instagram.com/restaurante_el_buey_madurado"
+                target="_blank"
+                rel="noreferrer"
+                className="text-amber-500 hover:underline"
+              >
+                @restaurante_el_buey_madurado
+              </a>
+            </p>
+
+            {/* Bloque reseñas */}
+            <div className="mt-6 rounded-xl border border-white/10 bg-black/20 p-5">
+              <div className="flex items-center justify-between gap-4">
+                <div>
+                  <p className="text-sm text-gray-400">Opiniones</p>
+                  <p className="text-white font-semibold">
+                    Ver reseñas en Google
+                  </p>
+                </div>
+                <div className="text-amber-500 text-lg" aria-hidden="true">
+                  ★★★★★
+                </div>
+              </div>
+
+              <div className="mt-4 flex flex-wrap gap-3">
                 <a
-                  href="https://instagram.com/restaurante_el_buey_madurado"
+                  href={GOOGLE_REVIEWS_URL}
                   target="_blank"
                   rel="noreferrer"
-                  className="text-amber-600 hover:underline"
+                  className="px-4 py-2 text-sm font-semibold text-white border border-white/15 rounded-md hover:bg-white/5 transition"
                 >
-                  @restaurante_el_buey_madurado
+                  Ver reseñas →
                 </a>
-              </p>
 
+                <a
+                  href={WRITE_REVIEW_URL}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="px-4 py-2 text-sm font-semibold bg-amber-500 text-[#1a1410] rounded-md hover:bg-amber-400 transition"
+                >
+                  Escribir reseña
+                </a>
+              </div>
             </div>
           </div>
         </div>
 
-        {/* Mapa de Google */}
-        <div className="rounded-xl overflow-hidden border text-amber-600 shadow-lg h-[400px] md:h-auto">
+        {/* Mapa */}
+        <div className="relative rounded-xl overflow-hidden border border-gray-800 shadow-lg h-[400px] md:h-auto">
           <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3040.136233277889!2d-0.524513524260092!3d38.99106167171492!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd61b0eaa6a4e7fb%3A0x62750eead409c4e0!2sAv.%20de%20Selgas%2C%205%2C%2046800%20Xátiva%2C%20Valencia!5e0!3m2!1ses!2ses!4v1730028289000!5m2!1ses!2ses"
-            width="100%"
-            height="100%"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d193.823107430763!2d-0.5263494328058195!3d38.988622750395706!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd61a3a2f5215229%3A0x7ecfefdab1c14599!2sRestaurante%20el%20buey%20madurado!5e0!3m2!1ses!2ses!4v1767974032149!5m2!1ses!2ses"
+            className="w-full h-full"
             style={{ border: 0 }}
-            allowFullScreen={true}
+            allowFullScreen
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"
             title="Mapa El Buey Madurado"
           />
+
+          {/* Overlay botones (pro) */}
+          <div className="absolute bottom-4 right-4 flex gap-2">
+            <a
+              href={MAPS_DIRECTIONS_URL}
+              target="_blank"
+              rel="noreferrer"
+              className="px-3 py-2 text-xs font-semibold rounded-md bg-black/60 text-white border border-white/15 hover:bg-black/70 backdrop-blur transition"
+            >
+              Abrir Maps
+            </a>
+          </div>
         </div>
       </div>
     </section>

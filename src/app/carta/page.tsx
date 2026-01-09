@@ -128,34 +128,62 @@ export default function CartaPage() {
 
         {productos.length > 0 ? (
           <div className="carta-products-grid">
-            {productos.map((producto: any) => (
-              <button
-                key={producto.id}
-                type="button"
-                className="carta-product-item carta-product-item--noimage"
-                onClick={() => handleAbrirProducto()}
-              >
-                <div className="carta-product-info">
-                  <div className="carta-product-header">
-                    <h3 className="carta-product-name">{producto.nombre}</h3>
-                  </div>
+            {productos.map((producto: any) => {
+              // Verificar si es el suplemento
+              const esSuplemento =
+                producto.nombre === "Suplemento carne de buey 500 días de maduración" ||
+                producto.tipo === "Suplemento";
 
-                  <p className="carta-product-description">
-                    {producto.descripcion}
-                  </p>
+              return (
+                <button
+                  key={producto.id}
+                  type="button"
+                  className={`carta-product-item carta-product-item--noimage ${
+                    esSuplemento
+                      ? "bg-gradient-to-br from-amber-50 to-amber-100 border-2 border-amber-500 shadow-lg shadow-amber-300 ring-2 ring-amber-400"
+                      : ""
+                  }`}
+                  onClick={() => handleAbrirProducto()}
+                >
+                  <div className="carta-product-info">
+                    <div className="carta-product-header">
+                      <h3
+                        className={`carta-product-name ${
+                          esSuplemento ? "text-amber-900 font-bold text-lg" : ""
+                        }`}
+                      >
+                        {esSuplemento && "👑 "}
+                        {producto.nombre}
+                      </h3>
+                    </div>
 
-                  <div className="carta-product-price-bottom">
-                    €{Number(producto.precio).toFixed(2)}
+                    <p
+                      className={`carta-product-description ${
+                        esSuplemento ? "text-amber-800 italic" : ""
+                      }`}
+                      style={{ whiteSpace: "pre-line" }}
+                    >
+                      {producto.descripcion}
+                    </p>
+
+                    <div
+                      className={`carta-product-price-bottom ${
+                        esSuplemento ? "text-amber-700 font-bold text-lg" : ""
+                      }`}
+                    >
+                      {producto.precio}
+                    </div>
                   </div>
-                </div>
-              </button>
-            ))}
+                </button>
+              );
+            })}
           </div>
         ) : (
           <div className="carta-empty">
             <p>No hay productos en esta categoría</p>
           </div>
         )}
+
 
         <div className="carta-footer">
           <p className="carta-footer-text">Restaurante el Buey Madurado</p>

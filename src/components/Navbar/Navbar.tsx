@@ -40,6 +40,7 @@ export default function Navbar() {
         <ul className="hidden md:flex items-center gap-10 text-gray-200 font-semibold text-lg md:text-xl lg:text-xl flex-1 justify-center">
           <NavLink href="/">Home</NavLink>
           <NavLink href="/carta">Carta</NavLink>
+          <NavLink href="/reservas">Reservar</NavLink>
           <NavLink href="/contacto">Contacto</NavLink>
         </ul>
 
@@ -67,6 +68,7 @@ export default function Navbar() {
         <ul className="flex flex-col items-start p-6 space-y-4" onClick={() => setMenuOpen(false)}>
           <NavLink href="/">Home</NavLink>
           <NavLink href="/carta">Carta</NavLink>
+          <NavLink href="/reservas">Reservar</NavLink>
           <NavLink href="/contacto">Contacto</NavLink>
         </ul>
       </div>

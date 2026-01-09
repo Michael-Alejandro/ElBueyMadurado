@@ -58,10 +58,18 @@ export default function HeroSectionHome() {
               variant="primary"
               className="px-6 md:px-8 py-2 md:py-3 text-sm md:text-base font-semibold rounded-full"
             >
-              Ver Carta
+            Carta
             </Button>
           </Link>
 
+          <Link href="/reservas">
+            <Button
+              variant="secondary"
+              className="px-6 md:px-8 py-2 md:py-3 text-sm md:text-base font-semibold rounded-full"
+            >
+              Reservar
+            </Button>
+          </Link>
         </div>
       </div>
     </section>
