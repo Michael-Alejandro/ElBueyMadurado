@@ -1,5 +1,5 @@
 // src/components/Footer/FooterSocial.tsx
-import { FaInstagram, FaFacebookF, FaEnvelope } from "react-icons/fa";
+import { FaInstagram, FaEnvelope } from "react-icons/fa";
 import SocialButton from "./SocialButtom";
 
 export default function FooterSocial() {
