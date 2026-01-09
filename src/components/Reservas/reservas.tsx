@@ -25,8 +25,8 @@ export default function Reservas() {
         }}
       />
 
-      <div className="bg-amber-100 p-4 md:p-6 rounded-3xl shadow-xl">
-        <div className="rounded-2xl overflow-hidden bg-white">
+        <div className="bg-amber-100 p-2 md:p-6 rounded-3xl shadow-xl">
+          <div className="rounded-2xl overflow-hidden bg-white">
           <iframe
             id="restaurante-el-buey-madurado-xativa"
             title="Reservas"
