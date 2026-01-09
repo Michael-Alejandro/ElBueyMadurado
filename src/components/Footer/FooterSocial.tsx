@@ -11,10 +11,6 @@ export default function FooterSocial() {
           <FaInstagram className="text-lg" />
         </SocialButton>
 
-        <SocialButton href="https://facebook.com" ariaLabel="Facebook">
-          <FaFacebookF className="text-lg" />
-        </SocialButton>
-
         <SocialButton href="mailto:restauranteelbueymadurado@gmail.com" ariaLabel="Email">
           <FaEnvelope className="text-lg" />
         </SocialButton>

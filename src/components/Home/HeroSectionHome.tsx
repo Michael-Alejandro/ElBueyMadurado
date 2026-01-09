@@ -52,7 +52,7 @@ export default function HeroSectionHome() {
 
 
         {/* Botones abajo */}
-        <div className="flex gap-3 md:gap-4 pb-6 md:pb-8 -translate-y-3">
+        <div className="flex gap-3 md:gap-4 pb-6 md:pb-8 -translate-y-4">
           <Link href="/carta">
             <Button
               variant="primary"
