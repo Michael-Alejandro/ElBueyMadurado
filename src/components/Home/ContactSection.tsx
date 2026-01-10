@@ -137,7 +137,7 @@ const ContactSection = () => {
                   rel="noreferrer"
                   className="px-4 py-2 text-sm font-semibold bg-amber-500 text-[#1a1410] rounded-md hover:bg-amber-400 transition"
                 >
-                  Dejanos tu opinión
+                  Déjanos tu opinión
                 </a>
               </div>
             </div>
