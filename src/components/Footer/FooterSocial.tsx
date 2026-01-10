@@ -14,7 +14,7 @@ export default function FooterSocial() {
         </SocialButton>
 
         <SocialButton
-          href="https://www.tiktok.com/@el.buey.madurado?_r=1&_t=ZN-92xDBLMkMD8"
+          href="https://www.tiktok.com/@el.buey.madurado"
           ariaLabel="TikTok"
         >
           <FaTiktok className="text-lg" />
