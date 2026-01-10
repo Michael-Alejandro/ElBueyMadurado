@@ -55,19 +55,10 @@ export default function HeroSectionHome() {
         <div className="flex gap-3 md:gap-4 pb-6 md:pb-8 -translate-y-4">
           <Link href="/carta">
             <Button
-              variant="primary"
-              className="px-6 md:px-8 py-2 md:py-3 text-sm md:text-base font-semibold rounded-full"
-            >
-            Carta
-            </Button>
-          </Link>
-
-          <Link href="/reservas">
-            <Button
               variant="secondary"
               className="px-6 md:px-8 py-2 md:py-3 text-sm md:text-base font-semibold rounded-full"
             >
-              Reservar
+              Nuestra Carta
             </Button>
           </Link>
         </div>

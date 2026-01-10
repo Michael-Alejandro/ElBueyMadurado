@@ -152,7 +152,7 @@ export default function CartaPage() {
                           esSuplemento ? "text-amber-900 font-bold text-lg" : ""
                         }`}
                       >
-                        {esSuplemento && "👑 "}
+                        {esSuplemento && "⭐ "}
                         {producto.nombre}
                       </h3>
                     </div>

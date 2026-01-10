@@ -159,6 +159,15 @@ export const menuItems: MenuItem[] = [
       "Calamar de playa XXL en dos texturas, acompañado con mayonesa de ajo puerro y cecina.",
     precio: "19€",
   },
+  {
+    id: "ent-16",
+    categoria: "Entrantes",
+    tipo: "Entrante",
+    nombre: "Cesta de panes gourmet.",
+    descripcion:
+      "Pan de tomate. Pan de cereales. Pan tradicional. Pan de aceitunas.",
+    precio: "6€",
+  },
 
   // =========================
   // HAMBURGUESAS
@@ -231,7 +240,7 @@ export const menuItems: MenuItem[] = [
     id: "ham-7",
     categoria: "Hamburguesas",
     tipo: "Hamburguesa",
-    nombre: "The Golden Burger",
+    nombre: " 👑 The Golden Burger",
     descripcion:
       "200 g de auténtico buey gallego (cárnicas LYO) con maduración extrema de 500 días, auténtico wagyu japonés A5, queso ahumado, toque de mayonesa yakitori con grasa de vaca madurada, brioche envuelto en oro de 24k.",
     precio: "28€",
@@ -276,40 +285,37 @@ export const menuItems: MenuItem[] = [
     detalle: "€/kg",
   },
 
-  // =========================
-  // POSTRES (no indicados en la nueva carta)
-  // =========================
-    // =========================
   // POSTRES
   // =========================
   {
     id: "pos-1",
     categoria: "Postres",
-    nombre: "Tarta de queso dulce de leche",
-    descripcion: "Tarta de queso con dulce de leche.",
-    precio:"7.5€",
+    nombre: "Tarta de queso de dulce de leche",
+    descripcion: "⭐ Tarta del mes · Cremosa y suave, con un irresistible toque de dulce de leche.",
+    precio: "7.5€",
   },
   {
     id: "pos-2",
     categoria: "Postres",
     nombre: "Tarta de queso Kinder",
-    descripcion: "Tarta de queso sabor Kinder.",
-    precio:"7.5€",
+    descripcion: "Base cremosa con el inconfundible sabor a chocolate Kinder.",
+    precio: "7.5€",
   },
   {
     id: "pos-3",
     categoria: "Postres",
     nombre: "Tarta de queso Donuts",
-    descripcion: "Tarta de queso sabor Donuts.",
+    descripcion: "Inspirada en el clásico Donuts, dulce y sorprendente.",
     precio: "7.5€",
   },
   {
     id: "pos-4",
     categoria: "Postres",
     nombre: "Tarta de queso TostaRica",
-    descripcion: "Tarta de queso con toque de galleta TostaRica.",
+    descripcion: "Con un delicado aroma y sabor a galleta TostaRica.",
     precio: "7.5€",
   },
+
 ];
 
 export const getMenuByCategory = (categoria: MenuItem["categoria"]) => {

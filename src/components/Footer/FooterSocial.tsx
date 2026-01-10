@@ -1,6 +1,8 @@
 // src/components/Footer/FooterSocial.tsx
-import { FaInstagram, FaEnvelope } from "react-icons/fa";
+import { FaInstagram } from "react-icons/fa";
 import SocialButton from "./SocialButtom";
+import { FaTiktok } from "react-icons/fa";
+
 
 export default function FooterSocial() {
   return (
@@ -11,8 +13,11 @@ export default function FooterSocial() {
           <FaInstagram className="text-lg" />
         </SocialButton>
 
-        <SocialButton href="mailto:restauranteelbueymadurado@gmail.com" ariaLabel="Email">
-          <FaEnvelope className="text-lg" />
+        <SocialButton
+          href="https://www.tiktok.com/@el.buey.madurado?_r=1&_t=ZN-92xDBLMkMD8"
+          ariaLabel="TikTok"
+        >
+          <FaTiktok className="text-lg" />
         </SocialButton>
       </div>
     </div>

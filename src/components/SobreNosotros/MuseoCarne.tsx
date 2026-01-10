@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from "framer-motion";
-import carneImg from "../../assets/images/carne.webp";
+import carneImg from "/assets/images/carne1.jpeg";
 
 type PiezaCarneProps = {
   title: string;
