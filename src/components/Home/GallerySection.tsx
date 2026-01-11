@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import { useEffect, useMemo, useRef, useState } from 'react';
 
 const SLIDE_MS = 3200;
@@ -30,94 +31,139 @@ export default function GallerySection() {
       { src: '/assets/images/carne7.PNG', alt: 'Carne' },
       { src: '/assets/images/carne9.PNG', alt: 'Carne' },
       { src: '/assets/images/carne10.jpeg', alt: 'Carne' },
-
     ],
     []
   );
 
+  // SSR/CSR primer render determinista
   const [images, setImages] = useState<Slide[]>(baseImages);
 
   // Desktop crossfade
   const [index, setIndex] = useState(0);
+  const desktopDirRef = useRef<1 | -1>(1);
 
-  // Mobile swipe + autoplay
+  // Mobile scroller
   const scrollerRef = useRef<HTMLDivElement | null>(null);
+  const mobileIndexRef = useRef(0);
+  const mobileDirRef = useRef<1 | -1>(1);
+
+  // Pause on user interaction
   const pauseRef = useRef(false);
   const resumeTimerRef = useRef<number | null>(null);
 
-  // Mezcla solo en cliente
+  // Throttle scroll
+  const rafRef = useRef<number | null>(null);
+
+  // Shuffle solo en cliente
   useEffect(() => {
-    setImages(shuffle(baseImages));
+    const shuffled = shuffle(baseImages);
+    setImages(shuffled);
+
     setIndex(0);
+    desktopDirRef.current = 1;
+
+    mobileIndexRef.current = 0;
+    mobileDirRef.current = 1;
+
+    scrollerRef.current?.scrollTo({ left: 0, behavior: 'auto' });
   }, [baseImages]);
 
-  // Autoplay desktop
+  // Desktop ping-pong
   useEffect(() => {
-    if (!images.length) return;
-    const id = window.setInterval(() => {
-      setIndex((prev) => (prev + 1) % images.length);
-    }, SLIDE_MS);
-    return () => window.clearInterval(id);
-  }, [images]);
-
-  // Autoplay móvil (scroll)
-  useEffect(() => {
-    if (!images.length) return;
+    const n = images.length;
+    if (n <= 1) return;
 
     const id = window.setInterval(() => {
-      if (pauseRef.current) return;
-
-      setMobileIndex((prev) => {
-        const next = (prev + 1) % images.length;
-        const el = scrollerRef.current;
-        if (el) {
-          el.scrollTo({
-            left: next * el.clientWidth,
-            behavior: 'smooth',
-          });
-        }
-        return next;
+      setIndex((prev) => {
+        let dir = desktopDirRef.current;
+        if (prev === n - 1) dir = -1;
+        else if (prev === 0) dir = 1;
+        desktopDirRef.current = dir;
+        return prev + dir;
       });
     }, SLIDE_MS);
 
     return () => window.clearInterval(id);
   }, [images.length]);
 
-  // Pausar autoplay cuando el usuario desliza
+  // Mobile ping-pong
+  useEffect(() => {
+    const n = images.length;
+    if (n <= 1) return;
+
+    const id = window.setInterval(() => {
+      if (pauseRef.current) return;
+
+      const el = scrollerRef.current;
+      if (!el) return;
+
+      const cur = mobileIndexRef.current;
+      let dir = mobileDirRef.current;
+      if (cur === n - 1) dir = -1;
+      else if (cur === 0) dir = 1;
+
+      const next = cur + dir;
+      mobileDirRef.current = dir;
+      mobileIndexRef.current = next;
+
+      el.scrollTo({ left: next * el.clientWidth, behavior: 'smooth' });
+    }, SLIDE_MS);
+
+    return () => window.clearInterval(id);
+  }, [images.length]);
+
+  // User interaction / scroll handling (throttled)
   useEffect(() => {
     const el = scrollerRef.current;
-    if (!el) return;
+    const n = images.length;
+    if (!el || n <= 1) return;
 
-    const onUserInteract = () => {
+    const pauseTemporarily = () => {
       pauseRef.current = true;
-      if (resumeTimerRef.current) clearTimeout(resumeTimerRef.current);
+      if (resumeTimerRef.current) window.clearTimeout(resumeTimerRef.current);
       resumeTimerRef.current = window.setTimeout(() => {
         pauseRef.current = false;
       }, 2500);
     };
 
-    const onScroll = () => {
+    const updateIndexFromScroll = () => {
+      rafRef.current = null;
       const w = el.clientWidth || 1;
-      setMobileIndex(Math.round(el.scrollLeft / w));
-      onUserInteract();
+      const raw = Math.round(el.scrollLeft / w);
+      const i = Math.max(0, Math.min(n - 1, raw));
+      mobileIndexRef.current = i;
+
+      // prepara dirección “natural” al llegar a extremos
+      if (i === n - 1) mobileDirRef.current = -1;
+      else if (i === 0) mobileDirRef.current = 1;
     };
 
+    const onScroll = () => {
+      pauseTemporarily();
+      if (rafRef.current != null) return;
+      rafRef.current = window.requestAnimationFrame(updateIndexFromScroll);
+    };
+
+    const onPointer = () => pauseTemporarily();
+
     el.addEventListener('scroll', onScroll, { passive: true });
-    el.addEventListener('touchstart', onUserInteract, { passive: true });
-    el.addEventListener('pointerdown', onUserInteract, { passive: true });
+    el.addEventListener('touchstart', onPointer, { passive: true });
+    el.addEventListener('pointerdown', onPointer, { passive: true });
 
     return () => {
       el.removeEventListener('scroll', onScroll);
-      el.removeEventListener('touchstart', onUserInteract);
-      el.removeEventListener('pointerdown', onUserInteract);
-      if (resumeTimerRef.current) clearTimeout(resumeTimerRef.current);
+      el.removeEventListener('touchstart', onPointer);
+      el.removeEventListener('pointerdown', onPointer);
+
+      if (resumeTimerRef.current) window.clearTimeout(resumeTimerRef.current);
+      if (rafRef.current != null) window.cancelAnimationFrame(rafRef.current);
+      rafRef.current = null;
     };
   }, [images.length]);
 
   return (
     <section className="w-full px-4 md:px-6 py-10 md:py-14">
       <div className="max-w-6xl mx-auto">
-        {/* Header */}
         <div className="mb-5 md:mb-7">
           <h2 className="text-white text-2xl md:text-4xl font-bold leading-tight">
             El producto mas exclusivo.
@@ -128,10 +174,8 @@ export default function GallerySection() {
           </p>
         </div>
 
-        {/* ===== FRAME REDONDO ===== */}
         <div className="relative overflow-hidden rounded-3xl ring-1 ring-white/10 shadow-2xl">
-
-          {/* ===== MÓVIL ===== */}
+          {/* MÓVIL */}
           <div className="md:hidden -mx-4">
             <div
               ref={scrollerRef}
@@ -141,7 +185,6 @@ export default function GallerySection() {
                 scroll-smooth
                 [scrollbar-width:none]
                 overscroll-x-contain
-                touch-pan-y touch-manipulation
               "
               style={{ WebkitOverflowScrolling: 'touch' }}
             >
@@ -149,36 +192,33 @@ export default function GallerySection() {
                 .hide-scrollbar::-webkit-scrollbar { display: none; }
               `}</style>
 
-              {images.map((img) => (
+              {images.map((img, i) => (
                 <div key={img.src} className="hide-scrollbar w-full flex-none snap-center">
-                  <div className="relative w-full aspect-[3/4] md:aspect-[4/5] bg-black">
-                    {/* Fondo blur */}
-                    <img
+                  <div className="relative w-full aspect-[3/4] bg-black">
+                    <Image
                       src={img.src}
                       alt=""
-                      aria-hidden="true"
-                      className="absolute inset-0 w-full h-full object-cover blur-2xl scale-110 opacity-55"
-                      loading="lazy"
+                      fill
+                      sizes="100vw"
+                      priority={i === 0}
+                      className="object-cover blur-2xl scale-110 opacity-55"
                     />
-
-                    {/* Imagen real */}
-                    <img
+                    <Image
                       src={img.src}
                       alt={img.alt}
-                      className="absolute inset-0 w-full h-full object-cover object-center"
-                      loading="lazy"
+                      fill
+                      sizes="100vw"
+                      priority={i === 0}
+                      className="object-cover object-center"
                     />
-
                     <div className="absolute inset-0 bg-gradient-to-t from-black/35 via-transparent to-transparent" />
                   </div>
                 </div>
               ))}
             </div>
-
-
           </div>
 
-          {/* ===== DESKTOP ===== */}
+          {/* DESKTOP */}
           <div className="hidden md:block">
             <div className="relative w-full aspect-[16/7] bg-black">
               {images.map((img, i) => (
@@ -188,16 +228,19 @@ export default function GallerySection() {
                     i === index ? 'opacity-100' : 'opacity-0'
                   }`}
                 >
-                  <img
+                  <Image
                     src={img.src}
                     alt=""
-                    aria-hidden="true"
-                    className="absolute inset-0 w-full h-full object-cover blur-2xl scale-110 opacity-50"
+                    fill
+                    sizes="(min-width: 768px) 1200px, 100vw"
+                    className="object-cover blur-2xl scale-110 opacity-50"
                   />
-                  <img
+                  <Image
                     src={img.src}
                     alt={img.alt}
-                    className="absolute inset-0 w-full h-full object-contain"
+                    fill
+                    sizes="(min-width: 768px) 1200px, 100vw"
+                    className="object-cover object-center"
                   />
                 </div>
               ))}
@@ -206,7 +249,7 @@ export default function GallerySection() {
         </div>
 
         <p className="md:hidden text-white/60 text-sm mt-4">
-           Un vistazo rápido al local y nuestro producto. Puro disfrute.
+          Un vistazo rápido al local y nuestro producto. Puro disfrute.
         </p>
       </div>
     </section>
