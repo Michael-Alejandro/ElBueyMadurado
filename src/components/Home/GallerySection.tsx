@@ -30,7 +30,6 @@ export default function GallerySection() {
       { src: '/assets/images/carne7.PNG', alt: 'Carne' },
       { src: '/assets/images/carne9.PNG', alt: 'Carne' },
       { src: '/assets/images/carne10.jpeg', alt: 'Carne' },
-
     ],
     []
   );
@@ -40,9 +39,9 @@ export default function GallerySection() {
   // Desktop crossfade
   const [index, setIndex] = useState(0);
 
-  // Mobile swipe + autoplay
+  // Mobile swipe + autoplay (sin state para evitar unused)
   const scrollerRef = useRef<HTMLDivElement | null>(null);
-  const [mobileIndex, setMobileIndex] = useState(0);
+  const mobileIndexRef = useRef(0);
   const pauseRef = useRef(false);
   const resumeTimerRef = useRef<number | null>(null);
 
@@ -50,7 +49,7 @@ export default function GallerySection() {
   useEffect(() => {
     setImages(shuffle(baseImages));
     setIndex(0);
-    setMobileIndex(0);
+    mobileIndexRef.current = 0;
   }, [baseImages]);
 
   // Autoplay desktop
@@ -69,17 +68,15 @@ export default function GallerySection() {
     const id = window.setInterval(() => {
       if (pauseRef.current) return;
 
-      setMobileIndex((prev) => {
-        const next = (prev + 1) % images.length;
-        const el = scrollerRef.current;
-        if (el) {
-          el.scrollTo({
-            left: next * el.clientWidth,
-            behavior: 'smooth',
-          });
-        }
-        return next;
-      });
+      mobileIndexRef.current = (mobileIndexRef.current + 1) % images.length;
+
+      const el = scrollerRef.current;
+      if (el) {
+        el.scrollTo({
+          left: mobileIndexRef.current * el.clientWidth,
+          behavior: 'smooth',
+        });
+      }
     }, SLIDE_MS);
 
     return () => window.clearInterval(id);
@@ -100,7 +97,7 @@ export default function GallerySection() {
 
     const onScroll = () => {
       const w = el.clientWidth || 1;
-      setMobileIndex(Math.round(el.scrollLeft / w));
+      mobileIndexRef.current = Math.round(el.scrollLeft / w);
       onUserInteract();
     };
 
@@ -132,7 +129,6 @@ export default function GallerySection() {
 
         {/* ===== FRAME REDONDO ===== */}
         <div className="relative overflow-hidden rounded-3xl ring-1 ring-white/10 shadow-2xl">
-
           {/* ===== MÓVIL ===== */}
           <div className="md:hidden -mx-4">
             <div
@@ -145,15 +141,18 @@ export default function GallerySection() {
                 overscroll-x-contain
                 touch-pan-y touch-manipulation
               "
-              style={{ WebkitOverflowScrolling: 'touch' }}
+              style={{ WebkitOverflowScrolling: 'touch', touchAction: 'pan-y' }}
             >
               <style>{`
                 .hide-scrollbar::-webkit-scrollbar { display: none; }
               `}</style>
 
               {images.map((img) => (
-                <div key={img.src} className="hide-scrollbar w-full flex-none snap-center">
-                  <div className="relative w-full aspect-[3/4] md:aspect-[4/5] bg-black">
+                <div
+                  key={img.src}
+                  className="hide-scrollbar w-full flex-none snap-center"
+                >
+                  <div className="relative w-full aspect-[3/4] bg-black">
                     {/* Fondo blur */}
                     <img
                       src={img.src}
@@ -176,8 +175,6 @@ export default function GallerySection() {
                 </div>
               ))}
             </div>
-
-
           </div>
 
           {/* ===== DESKTOP ===== */}
@@ -195,11 +192,13 @@ export default function GallerySection() {
                     alt=""
                     aria-hidden="true"
                     className="absolute inset-0 w-full h-full object-cover blur-2xl scale-110 opacity-50"
+                    loading="lazy"
                   />
                   <img
                     src={img.src}
                     alt={img.alt}
-                    className="absolute inset-0 w-full h-full object-contain"
+                    className="absolute inset-0 w-full h-full object-cover object-center"
+                    loading={i === index ? 'eager' : 'lazy'}
                   />
                 </div>
               ))}
@@ -208,7 +207,7 @@ export default function GallerySection() {
         </div>
 
         <p className="md:hidden text-white/60 text-sm mt-4">
-           Un vistazo rápido al local y nuestro producto. Puro disfrute.
+          Un vistazo rápido al local y nuestro producto. Puro disfrute.
         </p>
       </div>
     </section>
