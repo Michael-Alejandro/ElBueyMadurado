@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 
 const SLIDE_MS = 3200;
 
@@ -16,7 +16,6 @@ function shuffle<T>(arr: T[]) {
 }
 
 export default function GallerySection() {
-  // Base (orden fijo)
   const baseImages: Slide[] = useMemo(
     () => [
       { src: '/assets/images/local1img.jpeg', alt: 'El local' },
@@ -25,86 +24,191 @@ export default function GallerySection() {
       { src: '/assets/images/carne1.jpeg', alt: 'Carne' },
       { src: '/assets/images/carne2.jpeg', alt: 'Carne' },
       { src: '/assets/images/carne3.jpeg', alt: 'Carne' },
-      { src: '/assets/images/carne4.jpeg', alt: 'Carne' },
+      { src: '/assets/images/carne4.PNG', alt: 'Carne' },
       { src: '/assets/images/carne5.jpeg', alt: 'Carne' },
       { src: '/assets/images/carne6.jpeg', alt: 'Carne' },
+      { src: '/assets/images/carne7.PNG', alt: 'Carne' },
+      { src: '/assets/images/carne9.PNG', alt: 'Carne' },
+      { src: '/assets/images/carne10.jpeg', alt: 'Carne' },
+
     ],
     []
   );
 
-  // 👇 Imágenes render inicial = baseImages (determinista)
   const [images, setImages] = useState<Slide[]>(baseImages);
+
+  // Desktop crossfade
   const [index, setIndex] = useState(0);
 
-  // 👇 Mezcla SOLO en cliente tras montar (evita hydration mismatch)
+  // Mobile swipe + autoplay
+  const scrollerRef = useRef<HTMLDivElement | null>(null);
+  const [mobileIndex, setMobileIndex] = useState(0);
+  const pauseRef = useRef(false);
+  const resumeTimerRef = useRef<number | null>(null);
+
+  // Mezcla solo en cliente
   useEffect(() => {
     setImages(shuffle(baseImages));
     setIndex(0);
+    setMobileIndex(0);
   }, [baseImages]);
 
-  // Intervalo del carrusel
+  // Autoplay desktop
   useEffect(() => {
-    if (images.length === 0) return;
-
+    if (!images.length) return;
     const id = window.setInterval(() => {
       setIndex((prev) => (prev + 1) % images.length);
     }, SLIDE_MS);
-
     return () => window.clearInterval(id);
   }, [images]);
+
+  // Autoplay móvil (scroll)
+  useEffect(() => {
+    if (!images.length) return;
+
+    const id = window.setInterval(() => {
+      if (pauseRef.current) return;
+
+      setMobileIndex((prev) => {
+        const next = (prev + 1) % images.length;
+        const el = scrollerRef.current;
+        if (el) {
+          el.scrollTo({
+            left: next * el.clientWidth,
+            behavior: 'smooth',
+          });
+        }
+        return next;
+      });
+    }, SLIDE_MS);
+
+    return () => window.clearInterval(id);
+  }, [images.length]);
+
+  // Pausar autoplay cuando el usuario desliza
+  useEffect(() => {
+    const el = scrollerRef.current;
+    if (!el) return;
+
+    const onUserInteract = () => {
+      pauseRef.current = true;
+      if (resumeTimerRef.current) clearTimeout(resumeTimerRef.current);
+      resumeTimerRef.current = window.setTimeout(() => {
+        pauseRef.current = false;
+      }, 2500);
+    };
+
+    const onScroll = () => {
+      const w = el.clientWidth || 1;
+      setMobileIndex(Math.round(el.scrollLeft / w));
+      onUserInteract();
+    };
+
+    el.addEventListener('scroll', onScroll, { passive: true });
+    el.addEventListener('touchstart', onUserInteract, { passive: true });
+    el.addEventListener('pointerdown', onUserInteract, { passive: true });
+
+    return () => {
+      el.removeEventListener('scroll', onScroll);
+      el.removeEventListener('touchstart', onUserInteract);
+      el.removeEventListener('pointerdown', onUserInteract);
+      if (resumeTimerRef.current) clearTimeout(resumeTimerRef.current);
+    };
+  }, [images.length]);
 
   return (
     <section className="w-full px-4 md:px-6 py-10 md:py-14">
       <div className="max-w-6xl mx-auto">
-        {/* Header fino */}
+        {/* Header */}
         <div className="mb-5 md:mb-7">
-          <div className="mt-2 flex items-end justify-between gap-4">
-            <h2 className="text-white text-2xl md:text-4xl font-bold leading-tight">
-              El producto mas exlusivo.
-              <span className="text-amber-500"> Todo por vosotros.</span>
-            </h2>
-          </div>
-
+          <h2 className="text-white text-2xl md:text-4xl font-bold leading-tight">
+            El producto mas exclusivo.
+            <span className="text-amber-500"> Todo por vosotros.</span>
+          </h2>
           <p className="text-white/70 text-sm md:text-base mt-3 max-w-2xl">
             Maduración · Experiencia · Pasión
           </p>
         </div>
 
-        {/* Carrusel “fino” */}
+        {/* ===== FRAME REDONDO ===== */}
         <div className="relative overflow-hidden rounded-3xl ring-1 ring-white/10 shadow-2xl">
-          <div className="relative w-full aspect-[4/3] md:aspect-[16/7] bg-black">
-            {/* Crossfade */}
-            {images.map((img, i) => (
-              <img
-                key={img.src}
-                src={img.src}
-                alt={img.alt}
-                className={[
-                  'absolute inset-0 w-full h-full object-cover transition-opacity duration-700',
-                  i === index ? 'opacity-100' : 'opacity-0',
-                ].join(' ')}
-                loading={i === index ? 'eager' : 'lazy'}
-              />
-            ))}
 
-            {/* Overlays finos */}
-            <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-black/10 to-transparent" />
-            <div className="absolute inset-0 bg-gradient-to-r from-black/20 via-transparent to-black/20" />
+          {/* ===== MÓVIL ===== */}
+          <div className="md:hidden -mx-4">
+            <div
+              ref={scrollerRef}
+              className="
+                flex overflow-x-auto overflow-y-hidden
+                snap-x snap-mandatory
+                scroll-smooth
+                [scrollbar-width:none]
+                overscroll-x-contain
+                touch-pan-y touch-manipulation
+              "
+              style={{ WebkitOverflowScrolling: 'touch' }}
+            >
+              <style>{`
+                .hide-scrollbar::-webkit-scrollbar { display: none; }
+              `}</style>
 
-            {/* Corazón estilo Instagram (sin click, sincronizado con slide) */}
-            <div className="absolute right-1 bottom-1 md:right-4 md:bottom-4 pointer-events-none z-10">
-              <div className="relative h-16 w-16 md:h-20 md:w-20 flex items-center justify-center">
-                <span key={index} className="ig-heart text-3xl md:text-4xl">
-                  ❤️
-                </span>
-              </div>
+              {images.map((img) => (
+                <div key={img.src} className="hide-scrollbar w-full flex-none snap-center">
+                  <div className="relative w-full aspect-[3/4] md:aspect-[4/5] bg-black">
+                    {/* Fondo blur */}
+                    <img
+                      src={img.src}
+                      alt=""
+                      aria-hidden="true"
+                      className="absolute inset-0 w-full h-full object-cover blur-2xl scale-110 opacity-55"
+                      loading="lazy"
+                    />
+
+                    {/* Imagen real */}
+                    <img
+                      src={img.src}
+                      alt={img.alt}
+                      className="absolute inset-0 w-full h-full object-cover object-center"
+                      loading="lazy"
+                    />
+
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/35 via-transparent to-transparent" />
+                  </div>
+                </div>
+              ))}
+            </div>
+
+
+          </div>
+
+          {/* ===== DESKTOP ===== */}
+          <div className="hidden md:block">
+            <div className="relative w-full aspect-[16/7] bg-black">
+              {images.map((img, i) => (
+                <div
+                  key={img.src}
+                  className={`absolute inset-0 transition-opacity duration-700 ${
+                    i === index ? 'opacity-100' : 'opacity-0'
+                  }`}
+                >
+                  <img
+                    src={img.src}
+                    alt=""
+                    aria-hidden="true"
+                    className="absolute inset-0 w-full h-full object-cover blur-2xl scale-110 opacity-50"
+                  />
+                  <img
+                    src={img.src}
+                    alt={img.alt}
+                    className="absolute inset-0 w-full h-full object-contain"
+                  />
+                </div>
+              ))}
             </div>
           </div>
         </div>
 
-        {/* línea de texto móvil */}
         <p className="md:hidden text-white/60 text-sm mt-4">
-          Un vistazo rápido al local y nuestro producto. Puro disfrute.
+           Un vistazo rápido al local y nuestro producto. Puro disfrute.
         </p>
       </div>
     </section>
