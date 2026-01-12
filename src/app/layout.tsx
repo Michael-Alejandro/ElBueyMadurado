@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from 'next';
+import { Analytics } from "@vercel/analytics/react";
 import './globals.css';
 import Navbar from '@/components/Navbar/Navbar';
 import Footer from '@/components/Footer/Footer';
@@ -31,6 +32,9 @@ export default function RootLayout({
         </main>
         <Footer />
         <WhatsAppButton />
+
+        {/* Vercel Analytics */}
+        <Analytics />
       </body>
     </html>
   );
