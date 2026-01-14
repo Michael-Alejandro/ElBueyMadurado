@@ -5,11 +5,13 @@ import { menuItems } from '@/data/menu';
 import './carta.css';
 
 const slides = [
+  { key: 'Bebidas', titulo: 'Bebidas' },   
   { key: 'Entrantes', titulo: 'Entrantes' },
   { key: 'Carnes', titulo: 'Carnes' },
   { key: 'Hamburguesas', titulo: 'Burgers' },
   { key: 'Postres', titulo: 'Postres' },
 ];
+
 
 export default function CartaPage() {
   // Slide "estable" (el que de verdad está activo cuando no hay animación)
@@ -111,105 +113,183 @@ export default function CartaPage() {
   const renderCartaContent = (
     _categoria: string,
     titulo: string,
-    productos: any[]
-  ) => (
-    <div>
-      <div className="carta-corner carta-corner-top-left"></div>
-      <div className="carta-corner carta-corner-top-right"></div>
-      <div className="carta-corner carta-corner-bottom-left"></div>
-      <div className="carta-corner carta-corner-bottom-right"></div>
+    productos: any[]  
+  ) => {
+    const esBebidas = _categoria === "Bebidas";
 
-      <div className="carta-content">
-        <div className="carta-category-header">
-          <div className="carta-decorative-line"></div>
-          <h2 className="carta-category-title">{titulo}</h2>
-          <div className="carta-decorative-line"></div>
-        </div>
+    return (
+      <div>
+        <div className="carta-corner carta-corner-top-left"></div>
+        <div className="carta-corner carta-corner-top-right"></div>
+        <div className="carta-corner carta-corner-bottom-left"></div>
+        <div className="carta-corner carta-corner-bottom-right"></div>
 
-        {productos.length > 0 ? (
-          <div className="carta-products-grid">
-            {productos.map((producto: any) => {
-              // Verificar si es el suplemento
-              const esSuplemento =
-                producto.nombre === "Suplemento carne de buey 500 días de maduración" ||
-                producto.tipo === "Suplemento";
-
-              return (
-                <button
-                  key={producto.id}
-                  type="button"
-                  className={`carta-product-item carta-product-item--noimage ${
-                    esSuplemento
-                      ? "bg-gradient-to-br from-amber-50 to-amber-100 border-2 border-amber-500 shadow-lg shadow-amber-300 ring-2 ring-amber-400"
-                      : ""
-                  }`}
-                  onClick={() => handleAbrirProducto()}
-                >
-                  <div className="carta-product-info">
-                    <div className="carta-product-header">
-                      <h3
-                        className={`carta-product-name ${
-                          esSuplemento ? "text-amber-900 font-bold text-lg" : ""
-                        }`}
-                      >
-                        {esSuplemento && "⭐ "}
-                        {producto.nombre}
-                      </h3>
-                    </div>
-
-                    <p
-                      className={`carta-product-description ${
-                        esSuplemento ? "text-amber-800 italic" : ""
-                      }`}
-                      style={{ whiteSpace: "pre-line" }}
-                    >
-                      {producto.descripcion}
-                    </p>
-
-                    <div
-                      className={`carta-product-price-bottom ${
-                        esSuplemento ? "text-amber-700 font-bold text-lg" : ""
-                      }`}
-                    >
-                      {producto.precio}
-                    </div>
-                  </div>
-                </button>
-              );
-            })}
+        <div className="carta-content">
+          <div className="carta-category-header">
+            <div className="carta-decorative-line"></div>
+            <h2 className="carta-category-title">{titulo}</h2>
+            <div className="carta-decorative-line"></div>
           </div>
-        ) : (
-          <div className="carta-empty">
-            <p>No hay productos en esta categoría</p>
+
+          {/* ✅ BLOQUE ÚNICO DE GUARNICIÓN (solo Burgers) */}
+          {_categoria === 'Hamburguesas' && (
+            <div className="carta-guarnicion">
+              <div className="carta-guarnicion-title">Guarnición a elegir</div>
+
+              <ul className="carta-guarnicion-list">
+                <li className="carta-guarnicion-item">
+                  <span className="carta-guarnicion-name">Patatas fritas artesanas</span>
+                  <span className="carta-guarnicion-price">2,5€</span>
+                </li>
+
+                <li className="carta-guarnicion-item">
+                  <span className="carta-guarnicion-name">Boniato frito</span>
+                  <span className="carta-guarnicion-price">3€</span>
+                </li>
+              </ul>
+            </div>
+          )}
+
+          {productos.length > 0 ? (
+            esBebidas ? (
+              /* =========================
+                BEBIDAS – PRESENTACIÓN FINA
+                ========================= */
+              <div className="bebidas-wrapper">
+                {["Cervezas", "Refrescos", "Vinos"].map((subcat) => {
+                  const items = productos.filter(
+                    (p) => p.subcategoria === subcat
+                  );
+
+                  if (items.length === 0) return null;
+
+                  return (
+                    <div key={subcat} className="bebidas-block">
+                      <h3 className="bebidas-title">{subcat}</h3>
+
+                      <ul className="bebidas-list">
+                        {items.map((bebida: any) => (
+                          <li key={bebida.id} className="bebidas-item">
+                            <div className="bebidas-info">
+                              <span className="bebidas-name">
+                                {bebida.nombre}
+                              </span>
+
+                              {bebida.descripcion && (
+                                <span className="bebidas-desc">
+                                  {bebida.descripcion}
+                                </span>
+                              )}
+                            </div>
+
+                            <span className="bebidas-price">
+                              {bebida.precio}
+                            </span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  );
+                })}
+              </div>
+            ) : (
+              /* =========================
+                COMIDA – TU GRID ORIGINAL
+                ========================= */
+              <div className="carta-products-grid">
+                {productos.map((producto: any) => {
+                  const esSuplemento =
+                    producto.nombre ===
+                      "Suplemento carne de buey 500 días de maduración" ||
+                    producto.tipo === "Suplemento";
+
+                  return (
+                    <button
+                      key={producto.id}
+                      type="button"
+                      className={`carta-product-item carta-product-item--noimage ${
+                        esSuplemento
+                          ? "bg-gradient-to-br from-amber-50 to-amber-100 border-2 border-amber-500 shadow-lg shadow-amber-300 ring-2 ring-amber-400"
+                          : ""
+                      }`}
+                      onClick={() => handleAbrirProducto()}
+                    >
+                      <div className="carta-product-info">
+                        <div className="carta-product-header">
+                          <h3
+                            className={`carta-product-name ${
+                              esSuplemento
+                                ? "text-amber-900 font-bold text-lg"
+                                : ""
+                            }`}
+                          >
+                            {esSuplemento && "⭐ "}
+                            {producto.nombre}
+                          </h3>
+                        </div>
+
+                        <p
+                          className={`carta-product-description ${
+                            esSuplemento ? "text-amber-800 italic" : ""
+                          }`}
+                          style={{ whiteSpace: "pre-line" }}
+                        >
+                          {producto.descripcion}
+                        </p>
+
+                        <div
+                          className={`carta-product-price-bottom ${
+                            esSuplemento
+                              ? "text-amber-700 font-bold text-lg"
+                              : ""
+                          }`}
+                        >
+                          {producto.precio}
+                        </div>
+                      </div>
+                    </button>
+                  );
+                })}
+              </div>
+            )
+          ) : (
+            <div className="carta-empty">
+              <p>No hay productos en esta categoría</p>
+            </div>
+          )}
+
+          <div className="carta-footer">
+            <p className="carta-footer-text">Restaurante el Buey Madurado</p>
           </div>
-        )}
-
-
-        <div className="carta-footer">
-          <p className="carta-footer-text">Restaurante el Buey Madurado</p>
         </div>
       </div>
-    </div>
-  );
+    );
+  };
+
 
   return (
     <>
       {/* NAVBAR FIJA CON BOTONES DE CATEGORÍAS */}
-      <nav className="carta-nav-categorias">
-        {slides.map((slide, index) => (
-          <button
-            key={slide.key}
-            onClick={() => handleNavegaCategoria(index)}
-            className={`carta-nav-btn ${
-              index === currentSlide ? 'carta-nav-btn-active' : ''
-            }`}
-            aria-label={`Ver categoría ${slide.titulo}`}
-            disabled={isAnimating}
-          >
-            {slide.titulo}
-          </button>
-        ))}
+      <nav className="carta-nav-categorias carta-nav-grid">
+        {slides.map((slide, index) => {
+          const isBebidas = slide.key === 'Bebidas';
+
+          return (
+            <button
+              key={slide.key}
+              onClick={() => handleNavegaCategoria(index)}
+              className={`carta-nav-btn ${
+                index === currentSlide ? 'carta-nav-btn-active' : ''
+              } ${isBebidas ? 'carta-nav-btn-bebidas' : ''}`}
+              disabled={isAnimating}
+              aria-label={`Ver categoría ${slide.titulo}`}
+            >
+              {slide.titulo}
+            </button>
+          );
+        })}
       </nav>
+
 
       <section className="carta-section" ref={cartaSectionRef}>
         <div className="carta-container">

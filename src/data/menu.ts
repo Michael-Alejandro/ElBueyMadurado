@@ -1,9 +1,8 @@
-// src/data/menu.ts (o donde lo tengas ahora)
-// Mantengo la misma interfaz y helpers para no romper el código.
+// src/data/menu.ts 
 
 export interface MenuItem {
   id: string;
-  categoria: "Entrantes" | "Carnes" | "Hamburguesas" | "Postres";
+  categoria: "Entrantes" | "Carnes" | "Hamburguesas" | "Postres" | "Bebidas";
   nombre: string;
   descripcion: string;
   precio: string;
@@ -12,7 +11,11 @@ export interface MenuItem {
   detalle?: string;
   incluye?: string;
   tipo?: string;
+
+  // ✅ Nuevo (opcional, solo lo usaremos en Bebidas)
+  subcategoria?: "Cervezas" | "Refrescos" | "Vinos";
 }
+
 
 export const menuItems: MenuItem[] = [
   // =========================
@@ -315,6 +318,207 @@ export const menuItems: MenuItem[] = [
     descripcion: "Con un delicado aroma y sabor a galleta TostaRica.",
     precio: "7.5€",
   },
+
+    // =========================
+  // BEBIDAS
+  // =========================
+
+  // 🍺 CERVEZAS
+  {
+    id: "beb-cer-1",
+    categoria: "Bebidas",
+    subcategoria: "Cervezas",
+    nombre: "Founders Porter",
+    descripcion: "Cerveza negra.",
+    precio: "4,30€",
+  },
+  {
+    id: "beb-cer-2",
+    categoria: "Bebidas",
+    subcategoria: "Cervezas",
+    nombre: "Mahou Maestra Doble Lúpulo",
+    descripcion: "",
+    precio: "3,20€",
+  },
+  {
+    id: "beb-cer-3",
+    categoria: "Bebidas",
+    subcategoria: "Cervezas",
+    nombre: "Mahou Barrica Bourbon",
+    descripcion: "",
+    precio: "4,30€",
+  },
+  {
+    id: "beb-cer-4",
+    categoria: "Bebidas",
+    subcategoria: "Cervezas",
+    nombre: "Mahou 5 Estrellas",
+    descripcion: "",
+    precio: "2,80€",
+  },
+  {
+    id: "beb-cer-5",
+    categoria: "Bebidas",
+    subcategoria: "Cervezas",
+    nombre: "Mahou 0,0 Tostada",
+    descripcion: "",
+    precio: "2,80€",
+  },
+  {
+    id: "beb-cer-6",
+    categoria: "Bebidas",
+    subcategoria: "Cervezas",
+    nombre: "Mahou Sin Gluten",
+    descripcion: "",
+    precio: "2,80€",
+  },
+  {
+    id: "beb-cer-7",
+    categoria: "Bebidas",
+    subcategoria: "Cervezas",
+    nombre: "Mahou Radler",
+    descripcion: "",
+    precio: "2,80€",
+  },
+  {
+    id: "beb-cer-8",
+    categoria: "Bebidas",
+    subcategoria: "Cervezas",
+    nombre: "Mahou Rosé (fresa)",
+    descripcion: "",
+    precio: "3,20€",
+  },
+
+  // 🥤 REFRESCOS & AGUAS
+  {
+    id: "beb-ref-1",
+    categoria: "Bebidas",
+    subcategoria: "Refrescos",
+    nombre: "Agua",
+    descripcion: "",
+    precio: "2,20€",
+  },
+  {
+    id: "beb-ref-2",
+    categoria: "Bebidas",
+    subcategoria: "Refrescos",
+    nombre: "Agua con gas",
+    descripcion: "",
+    precio: "2,50€",
+  },
+  {
+    id: "beb-ref-3",
+    categoria: "Bebidas",
+    subcategoria: "Refrescos",
+    nombre: "Refrescos",
+    descripcion: "",
+    precio: "2,80€",
+  },
+  {
+    id: "beb-ref-4",
+    categoria: "Bebidas",
+    subcategoria: "Refrescos",
+    nombre: "Tónica Royal Bliss",
+    descripcion: "",
+    precio: "2,50€",
+  },
+  {
+    id: "beb-ref-5",
+    categoria: "Bebidas",
+    subcategoria: "Refrescos",
+    nombre: "Tónica Royal Bliss Berry",
+    descripcion: "",
+    precio: "2,50€",
+  },
+
+  // 🍷 VINOS
+  // Copas
+  {
+    id: "beb-vin-1",
+    categoria: "Bebidas",
+    subcategoria: "Vinos",
+    tipo: "Copa",
+    nombre: "Vino blanco Portia Verdejo (Rueda)",
+    descripcion: "Copa.",
+    precio: "3,50€",
+  },
+  {
+    id: "beb-vin-2",
+    categoria: "Bebidas",
+    subcategoria: "Vinos",
+    tipo: "Copa",
+    nombre: "Vino tinto Mucho Más",
+    descripcion: "Copa.",
+    precio: "3,50€",
+  },
+
+  // Botella - Blanco
+  {
+    id: "beb-vin-3",
+    categoria: "Bebidas",
+    subcategoria: "Vinos",
+    tipo: "Blanco",
+    nombre: "Castillo de Miraflores (Verdejo)",
+    descripcion: "Botella.",
+    precio: "16€",
+  },
+  {
+    id: "beb-vin-4",
+    categoria: "Bebidas",
+    subcategoria: "Vinos",
+    tipo: "Blanco",
+    nombre: "Quinta do Sil (Godello)",
+    descripcion: "Botella.",
+    precio: "22€",
+  },
+  {
+    id: "beb-vin-5",
+    categoria: "Bebidas",
+    subcategoria: "Vinos",
+    tipo: "Blanco",
+    nombre: "Gran Bazán Etiqueta Verde (Albariño)",
+    descripcion: "D.O. Rías Baixas · 100% Albariño · Botella.",
+    precio: "25€",
+  },
+
+  // Botella - Tinto
+  {
+    id: "beb-vin-6",
+    categoria: "Bebidas",
+    subcategoria: "Vinos",
+    tipo: "Tinto",
+    nombre: "Protos 27",
+    descripcion: "Botella.",
+    precio: "33€",
+  },
+  {
+    id: "beb-vin-7",
+    categoria: "Bebidas",
+    subcategoria: "Vinos",
+    tipo: "Tinto",
+    nombre: "Abadía San Quirce (Crianza)",
+    descripcion: "Botella.",
+    precio: "30€",
+  },
+  {
+    id: "beb-vin-8",
+    categoria: "Bebidas",
+    subcategoria: "Vinos",
+    tipo: "Tinto",
+    nombre: "Álvarez Notting",
+    descripcion: "Botella.",
+    precio: "28€",
+  },
+  {
+    id: "beb-vin-9",
+    categoria: "Bebidas",
+    subcategoria: "Vinos",
+    tipo: "Tinto",
+    nombre: "Bordón (Crianza)",
+    descripcion: "Botella.",
+    precio: "16€",
+  },
+
 
 ];
 

@@ -996,3 +996,128 @@ html.modal-open {
   overflow-y: scroll;
   padding-right: 0 !important;
 }
+.carta-nav-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+/* Estructura principal */
+.bebidas-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  color: #4a2c1d; /* Color oscuro base para nombres y precios */
+}
+
+.bebidas-block {
+  padding-top: 4px;
+}
+
+/* Títulos de secciones (Cervezas, Refrescos...) */
+.bebidas-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #92400E; /* El color ámbar oscuro que querías */
+  margin-bottom: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.bebidas-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  border-top: 1px solid rgba(0,0,0,0.1);
+}
+
+.bebidas-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 12px 0;
+  border-bottom: 1px dashed rgba(0,0,0,0.15);
+}
+
+.bebidas-name {
+  font-weight: 500;
+}
+
+.bebidas-desc {
+  display: block;
+  font-size: 0.85rem;
+  color: #6b7280; /* Gris para la descripción */
+}
+
+.bebidas-price {
+  font-weight: 700;
+  color: #92400e; /* Color ámbar para destacar el precio */
+  white-space: nowrap;
+}
+
+/* Navegación y Grilla */
+.carta-nav-btn-bebidas {
+  grid-column: 1 / -1;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+}
+
+.carta-nav-categorias.carta-nav-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+/* --- Bloque guarnición (Rediseño Elegante) --- */
+.carta-guarnicion {
+  margin: 30px auto;
+  padding: 15px 0;
+  max-width: 400px; /* Más estrecho para que sea una nota central */
+  border-top: 1px double rgba(120, 53, 15, 0.2); /* Doble línea fina muy clásica */
+  border-bottom: 1px double rgba(120, 53, 15, 0.2);
+  background: transparent; /* Quitamos el gris para que no "manche" la carta */
+}
+
+.carta-guarnicion-title {
+  text-align: center;
+  font-weight: 700;
+  font-size: 0.8rem;
+  letter-spacing: 0.2em; /* Mucho aire entre letras para lujo */
+  margin-bottom: 12px;
+  text-transform: uppercase;
+  color: #92400e;
+}
+
+.carta-guarnicion-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center; /* En línea para ahorrar espacio */
+  gap: 20px;
+}
+
+.carta-guarnicion-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.carta-guarnicion-name {
+  font-size: 0.9rem;
+  color: #4a2c1d;
+  font-style: italic; /* Cursiva para que parezca una sugerencia */
+}
+
+.carta-guarnicion-price {
+  font-weight: 700;
+  color: #78350f;
+  font-size: 0.85rem;
+}
+
+/* Separador visual entre opciones si caben en una fila */
+.carta-guarnicion-item:not(:last-child)::after {
+  content: "|";
+  margin-left: 20px;
+  color: rgba(120, 53, 15, 0.2);
+  font-style: normal;
+}

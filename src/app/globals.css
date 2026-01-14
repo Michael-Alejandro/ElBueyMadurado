@@ -79,55 +79,32 @@ body {
     transform: translateX(-50%);
   }
 }
-@keyframes igLike {
-  0% {
-    transform: scale(0.75);
-    opacity: 0;
-  }
-  18% {
-    transform: scale(1.3);
-    opacity: 1;
-  }
-  32% {
-    transform: scale(1);
-  }
-  75% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
-    transform: scale(1);
-  }
-}
 
 .ig-heart {
   animation: igLike 4.8s ease-in-out infinite;
   filter: drop-shadow(0 6px 18px rgba(255, 0, 0, 0.45));
 }
-@keyframes logoSlideIn {
+/* ✅ NUEVA animación: aparece de arriba a abajo */
+@keyframes logoSlideDown {
   0% {
     opacity: 0;
-    transform: translateX(18px);
+    transform: translateY(-10px);
   }
   100% {
     opacity: 1;
-    transform: translateX(0);
+    transform: translateY(0);
   }
 }
 
+/* ✅ Reemplaza el comportamiento actual de .logo-slide */
 .logo-slide {
   opacity: 0;
-  animation: logoSlideIn 1.05s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  animation: logoSlideDown 0.55s cubic-bezier(0.22, 1, 0.36, 1) forwards;
 }
 
-.logo-slide-1 {
-  animation-delay: 0.25s;
-}
+/* ✅ Delays en orden de arriba a abajo */
+.logo-slide-1 { animation-delay: 0.10s; }
+.logo-slide-2 { animation-delay: 0.30s; }
+.logo-slide-3 { animation-delay: 0.50s; }
+.logo-slide-4 { animation-delay: 0.60s; }
 
-.logo-slide-2 {
-  animation-delay: 0.55s;
-}
-
-.logo-slide-3 {
-  animation-delay: 0.85s;
-}
