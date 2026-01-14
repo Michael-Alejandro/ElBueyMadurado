@@ -93,7 +93,7 @@ export const menuItems: MenuItem[] = [
     tipo: "Entrante",
     nombre: "La croqueta del buey",
     descripcion:
-      "Croqueta de cecina de buey con leche de oveja envuelta con cecina de buey, sobre palomitas de torrezno deshidratado. Pídela y nosotros te diremos cómo comértela.",
+      "Croqueta de cecina de buey con leche de oveja envuelta con cecina de buey, sobre palomitas de torrezno deshidratado. Pídela y nosotros te diremos cómo comértela.\nMínimo 2 unidades.",
     precio: "4€/ud",
     unidad: true,
   },
@@ -102,7 +102,7 @@ export const menuItems: MenuItem[] = [
     categoria: "Entrantes",
     tipo: "Entrante",
     nombre: "Croquetas de gamba roja al ajillo con kimchi",
-    descripcion: "Croquetas de gamba roja al ajillo con kimchi.",
+    descripcion: "Croquetas de gamba roja al ajillo con kimchi. Mínimo 2 unidades.",
     precio: "3€/ud",
     unidad: true,
   },
@@ -112,7 +112,7 @@ export const menuItems: MenuItem[] = [
     tipo: "Entrante",
     nombre: "Gyozas de vaca rubia gallega con demiglace",
     descripcion:
-      "Gyozas de vaca rubia gallega con demiglace de huesos de su mismo chuletón.",
+      "Gyozas de vaca rubia gallega con demiglace de Pedro Ximenéz.",
     precio: "12€",
     detalle: "4 unidades",
   },
