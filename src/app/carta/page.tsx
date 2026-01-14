@@ -5,11 +5,11 @@ import { menuItems } from '@/data/menu';
 import './carta.css';
 
 const slides = [
-  { key: 'Bebidas', titulo: 'Bebidas' },   
   { key: 'Entrantes', titulo: 'Entrantes' },
   { key: 'Carnes', titulo: 'Carnes' },
   { key: 'Hamburguesas', titulo: 'Burgers' },
   { key: 'Postres', titulo: 'Postres' },
+  { key: 'Bebidas', titulo: 'Bebidas' },   
 ];
 
 
@@ -143,7 +143,7 @@ export default function CartaPage() {
                 </li>
 
                 <li className="carta-guarnicion-item">
-                  <span className="carta-guarnicion-name">Boniato frito</span>
+                  <span className="carta-guarnicion-name">Patatas de boniato frito</span>
                   <span className="carta-guarnicion-price">3€</span>
                 </li>
               </ul>

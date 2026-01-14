@@ -190,7 +190,7 @@ export const menuItems: MenuItem[] = [
     tipo: "Hamburguesa",
     nombre: "Hamburguesa BÚFALO",
     descripcion:
-      "Carne de vaca rubia gallega con 200 días de maduración (selección especial LYO), costilla de vaca rubia gallega, queso ahumado y glaseado de barbacoa de Coca-Cola.",
+      "180gr de carne de vaca rubia gallega con +150 días de maduración (selección especial LYO), costilla de vaca rubia gallega, queso ahumado y glaseado de barbacoa de Coca-Cola.",
     precio: "17€",
   },
   {
@@ -199,7 +199,7 @@ export const menuItems: MenuItem[] = [
     tipo: "Hamburguesa",
     nombre: "Hamburguesa EsMMY BUEY",
     descripcion:
-      "Carne de vaca rubia gallega con 200 días de maduración (selección especial LYO), cebolla caramelizada, queso ahumado, salsa EMMY, envuelta en picaña de buey gallego con 500 días de maduración.",
+      "180gr de carne de vaca rubia gallega con +150 días de maduración (selección especial LYO), cebolla caramelizada, queso ahumado, salsa EMMY, envuelta en picaña de buey gallego con 500 días de maduración.",
     precio: "18€",
   },
   {
@@ -208,7 +208,7 @@ export const menuItems: MenuItem[] = [
     tipo: "Hamburguesa",
     nombre: "Hamburguesa LA SUPREMA",
     descripcion:
-      "Carne de vaca rubia gallega con 200 días de maduración (selección especial LYO), cecina de buey, queso de tetilla estilo raclette y mayonesa de ajo puerro y cecina.",
+      "180gr de carne de vaca rubia gallega con +150 días de maduración (selección especial LYO), cecina de buey, queso de tetilla estilo raclette y mayonesa de ajo puerro y cecina.",
     precio: "18€",
   },
   {
@@ -217,7 +217,7 @@ export const menuItems: MenuItem[] = [
     tipo: "Hamburguesa",
     nombre: "Hamburguesa BUEY",
     descripcion:
-      "Carne de vaca rubia gallega con 120 días de maduración (selección especial LYO), pastrami de vaca selección LYO, queso cheddar inglés madurado y crema de trufa negra.",
+      "180gr de carne de vaca rubia gallega con +150 días de maduración (selección especial LYO), pastrami de vaca selección LYO, queso cheddar inglés madurado y crema de trufa negra.",
     precio: "17€",
   },
   {
@@ -226,7 +226,7 @@ export const menuItems: MenuItem[] = [
     tipo: "Hamburguesa",
     nombre: "Hamburguesa DORITOS CHEESE LOVER",
     descripcion:
-      "Carne de vaca rubia gallega con 200 días de maduración (selección especial LYO), tortita de queso mozzarella, queso ahumado, crema de queso azul, mayonesa de chili dulce y topping de doritos.",
+      "180gr de carne de vaca rubia gallega con +150 días de maduración (selección especial LYO), tortita de queso mozzarella, queso ahumado, crema de queso azul, mayonesa de chili dulce y topping de doritos.",
     precio: "16€",
   },
   {
@@ -235,7 +235,7 @@ export const menuItems: MenuItem[] = [
     tipo: "Hamburguesa",
     nombre: "Hamburguesa CARLOS CATALÁ",
     descripcion:
-      "200 g de vaca rubia gallega con 200 días de maduración (selección especial LYO), panceta cocinada a baja temperatura y ahumada, queso ahumado, salsa hotney y relish de pepinillo.",
+      "180gr de carne de vaca rubia gallega con +150 días de maduración (selección especial LYO), panceta cocinada a baja temperatura y ahumada, queso ahumado, salsa hotney y relish de pepinillo.",
     precio: "18€",
     detalle: "200 g",
   },
@@ -245,7 +245,7 @@ export const menuItems: MenuItem[] = [
     tipo: "Hamburguesa",
     nombre: " 👑 The Golden Burger",
     descripcion:
-      "200 g de auténtico buey gallego (cárnicas LYO) con maduración extrema de 500 días, auténtico wagyu japonés A5, queso ahumado, toque de mayonesa yakitori con grasa de vaca madurada, brioche envuelto en oro de 24k.",
+      "180gr de auténtico buey gallego (cárnicas LYO) con maduración extrema de 500 días, auténtico wagyu japonés A5, queso ahumado, toque de mayonesa yakitori con grasa de vaca madurada, brioche envuelto en oro de 24k.",
     precio: "28€",
     detalle: "200 g",
   },
@@ -438,8 +438,8 @@ export const menuItems: MenuItem[] = [
     categoria: "Bebidas",
     subcategoria: "Vinos",
     tipo: "Copa",
-    nombre: "Vino blanco Portia Verdejo (Rueda)",
-    descripcion: "Copa.",
+    nombre: "Vino Portia Verdejo (Rueda)",
+    descripcion: "Copa, blanco.",
     precio: "3,50€",
   },
   {
@@ -447,8 +447,8 @@ export const menuItems: MenuItem[] = [
     categoria: "Bebidas",
     subcategoria: "Vinos",
     tipo: "Copa",
-    nombre: "Vino tinto Mucho Más",
-    descripcion: "Copa.",
+    nombre: "Vino Mucho Más",
+    descripcion: "Copa, tinto",
     precio: "3,50€",
   },
 
@@ -459,7 +459,7 @@ export const menuItems: MenuItem[] = [
     subcategoria: "Vinos",
     tipo: "Blanco",
     nombre: "Castillo de Miraflores (Verdejo)",
-    descripcion: "Botella.",
+    descripcion: "Botella, blanco.",
     precio: "16€",
   },
   {
@@ -468,7 +468,7 @@ export const menuItems: MenuItem[] = [
     subcategoria: "Vinos",
     tipo: "Blanco",
     nombre: "Quinta do Sil (Godello)",
-    descripcion: "Botella.",
+    descripcion: "Botella, blanco.",
     precio: "22€",
   },
   {
@@ -477,7 +477,7 @@ export const menuItems: MenuItem[] = [
     subcategoria: "Vinos",
     tipo: "Blanco",
     nombre: "Gran Bazán Etiqueta Verde (Albariño)",
-    descripcion: "D.O. Rías Baixas · 100% Albariño · Botella.",
+    descripcion: "D.O. Rías Baixas · 100% Albariño · Botella, blanco.",
     precio: "25€",
   },
 
@@ -488,7 +488,7 @@ export const menuItems: MenuItem[] = [
     subcategoria: "Vinos",
     tipo: "Tinto",
     nombre: "Protos 27",
-    descripcion: "Botella.",
+    descripcion: "Ribera del Duero · Botella, tinto.",
     precio: "33€",
   },
   {
@@ -497,7 +497,7 @@ export const menuItems: MenuItem[] = [
     subcategoria: "Vinos",
     tipo: "Tinto",
     nombre: "Abadía San Quirce (Crianza)",
-    descripcion: "Botella.",
+    descripcion: "Ribera del Duero · Botella, tinto.",
     precio: "30€",
   },
   {
@@ -505,8 +505,8 @@ export const menuItems: MenuItem[] = [
     categoria: "Bebidas",
     subcategoria: "Vinos",
     tipo: "Tinto",
-    nombre: "Álvarez Notting",
-    descripcion: "Botella.",
+    nombre: "Álvarez Nölting",
+    descripcion: "Utiel, Requena · Botella, tinto.",
     precio: "28€",
   },
   {
@@ -515,7 +515,7 @@ export const menuItems: MenuItem[] = [
     subcategoria: "Vinos",
     tipo: "Tinto",
     nombre: "Bordón (Crianza)",
-    descripcion: "Botella.",
+    descripcion: "Rioja · Botella, tinto.",
     precio: "16€",
   },
 

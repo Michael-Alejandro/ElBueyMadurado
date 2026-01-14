@@ -164,21 +164,11 @@
   max-width: 90%;
   text-align: center;
 
-  background: linear-gradient(
-    90deg,
-    #fef3c7 0%,
-    #fcd34d 25%,
-    #fbbf24 50%,
-    #fcd34d 75%,
-    #fef3c7 100%
-  );
-  background-size: 200% 100%;
+  /* 🔥 TEXTO NEGRO */
+  background: none;
+  color: #000;
 
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-
-  animation: subtitleWave 4s linear infinite;
+  animation: none;
 }
 
 @keyframes subtitleWave {
