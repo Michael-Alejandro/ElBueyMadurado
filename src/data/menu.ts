@@ -275,7 +275,7 @@ export const menuItems: MenuItem[] = [
     categoria: "Carnes",
     nombre: "Chuletón de vaca madurada (60 días)",
     descripcion: "Chuletón de vaca madurada con 60 días de maduración.",
-    precio: "60€",
+    precio: "60€/kg",
     detalle: "€/kg",
   },
   {
@@ -284,7 +284,7 @@ export const menuItems: MenuItem[] = [
     nombre: "Chuletón de vaca rubia gallega Old Especial Beef PREMIUM (120 días)",
     descripcion:
       "Chuletón de vaca rubia gallega Old Especial Beef PREMIUM con 120 días de maduración.",
-    precio: "100€",
+    precio: "100€/kg",
     detalle: "€/kg",
   },
 
