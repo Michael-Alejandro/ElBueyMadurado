@@ -104,8 +104,8 @@ export default function MuseoCarne() {
 
         <PiezaCarne
           title="Wagyu"
-          origin="Japón"
-          breed="Wagyu"
+          origin="Kobe, Japón"
+          breed="Tajima-gyu"
           aging="Seleccionada"
           description="Grasa increíblemente fina y sabor intenso: una pieza para probar sin prisas y disfrutar."
           image="/assets/images/carneSobreNosotros3.png"
