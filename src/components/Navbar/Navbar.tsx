@@ -41,6 +41,7 @@ export default function Navbar() {
           <NavLink href="/">Home</NavLink>
           <NavLink href="/carta">Carta</NavLink>
           <NavLink href="/reservas">Reservar</NavLink>
+          <NavLink href="/sobre-nosotros">Sobre Nosotros</NavLink>
           <NavLink href="/contacto">Contacto</NavLink>
         </ul>
 
@@ -69,6 +70,7 @@ export default function Navbar() {
           <NavLink href="/">Home</NavLink>
           <NavLink href="/carta">Carta</NavLink>
           <NavLink href="/reservas">Reservar</NavLink>
+          <NavLink href="/sobre-nosotros">Sobre Nosotros</NavLink>
           <NavLink href="/contacto">Contacto</NavLink>
         </ul>
       </div>
