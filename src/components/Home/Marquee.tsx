@@ -9,7 +9,7 @@ export default function Marquee() {
           <span>
             🍔 BURGER DEL MES 🍔
             LA DROP, <em>by Drop Coffee</em> ☕
-            180 g de vaca rubia gallega +150 días
+            180 g de vaca rubia gallega +150 días · 
             cheddar extra madurado · torreznos crujientes · 
             salsa secreta de café de especialidad ☕
           </span>
@@ -17,7 +17,7 @@ export default function Marquee() {
           <span>
             🍔 BURGER DEL MES 🍔
             LA DROP, <em>by Drop Coffee</em> ☕
-            180 g de vaca rubia gallega +150 días
+            180 g de vaca rubia gallega +150 días · 
             cheddar extra madurado · torreznos crujientes · 
             salsa secreta de café de especialidad ☕
           </span>
