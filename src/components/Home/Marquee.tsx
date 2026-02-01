@@ -7,16 +7,19 @@ export default function Marquee() {
       <div className="marquee">
         <div className="marquee-track">
           <span>
-            ✨ TARTA DEL MES ✨
-            🍰 Tarta de queso con dulce de leche
-            Suave, cremosa y adictiva
-            👉 No te la pierdas
+            🍔 BURGER DEL MES 🍔
+            LA DROP, <em>by Drop Coffee</em> ☕
+            180 g de vaca rubia gallega +150 días
+            cheddar extra madurado · torreznos crujientes · 
+            salsa secreta de café de especialidad ☕
           </span>
+
           <span>
-            ✨ TARTA DEL MES ✨
-            🍰 Tarta de queso con dulce de leche
-            Suave, cremosa y adictiva
-            👉 No te la pierdas
+            🍔 BURGER DEL MES 🍔
+            LA DROP, <em>by Drop Coffee</em> ☕
+            180 g de vaca rubia gallega +150 días
+            cheddar extra madurado · torreznos crujientes · 
+            salsa secreta de café de especialidad ☕
           </span>
         </div>
       </div>

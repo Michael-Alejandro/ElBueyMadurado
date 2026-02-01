@@ -185,10 +185,20 @@ export const menuItems: MenuItem[] = [
     unidad: true,
   },
   {
+    id: "ham-8",
+    categoria: "Hamburguesas",
+    tipo: "Hamburguesa",
+    nombre: "LA DROP (by Drop coffee)",
+    descripcion:
+      "Nuestra burger del mes de Febrero‼️\n180gr de carne de vaca rubia gallega con +150 días de maduración (selección especial LYO), queso cheddar Cathedral extra madurado, torreznos extra crujientes y salsa secreta de café de especialidad de DROP COFFEE.",
+    precio: "19€",
+    detalle: "200 g",
+  },
+  {
     id: "ham-1",
     categoria: "Hamburguesas",
     tipo: "Hamburguesa",
-    nombre: "Hamburguesa BÚFALO",
+    nombre: "BÚFALO",
     descripcion:
       "180gr de carne de vaca rubia gallega con +150 días de maduración (selección especial LYO), costilla de vaca rubia gallega, queso ahumado y glaseado de barbacoa de Coca-Cola.",
     precio: "17€",
@@ -197,7 +207,7 @@ export const menuItems: MenuItem[] = [
     id: "ham-2",
     categoria: "Hamburguesas",
     tipo: "Hamburguesa",
-    nombre: "Hamburguesa EsMMY BUEY",
+    nombre: "EsMMY BUEY",
     descripcion:
       "180gr de carne de vaca rubia gallega con +150 días de maduración (selección especial LYO), cebolla caramelizada, queso ahumado, salsa EMMY, envuelta en picaña de buey gallego con 500 días de maduración.",
     precio: "18€",
@@ -206,7 +216,7 @@ export const menuItems: MenuItem[] = [
     id: "ham-3",
     categoria: "Hamburguesas",
     tipo: "Hamburguesa",
-    nombre: "Hamburguesa LA SUPREMA",
+    nombre: "LA SUPREMA",
     descripcion:
       "180gr de carne de vaca rubia gallega con +150 días de maduración (selección especial LYO), cecina de buey, queso de tetilla estilo raclette y mayonesa de ajo puerro y cecina.",
     precio: "18€",
@@ -215,7 +225,7 @@ export const menuItems: MenuItem[] = [
     id: "ham-4",
     categoria: "Hamburguesas",
     tipo: "Hamburguesa",
-    nombre: "Hamburguesa BUEY",
+    nombre: "BUEY",
     descripcion:
       "180gr de carne de vaca rubia gallega con +150 días de maduración (selección especial LYO), pastrami de vaca selección LYO, queso cheddar inglés madurado y crema de trufa negra.",
     precio: "17€",
@@ -224,7 +234,7 @@ export const menuItems: MenuItem[] = [
     id: "ham-5",
     categoria: "Hamburguesas",
     tipo: "Hamburguesa",
-    nombre: "Hamburguesa DORITOS CHEESE LOVER",
+    nombre: "DORITOS CHEESE LOVER",
     descripcion:
       "180gr de carne de vaca rubia gallega con +150 días de maduración (selección especial LYO), tortita de queso mozzarella, queso ahumado, crema de queso azul, mayonesa de chili dulce y topping de doritos.",
     precio: "16€",
@@ -233,7 +243,7 @@ export const menuItems: MenuItem[] = [
     id: "ham-6",
     categoria: "Hamburguesas",
     tipo: "Hamburguesa",
-    nombre: "Hamburguesa CARLOS CATALÁ",
+    nombre: "CARLOS CATALÁ",
     descripcion:
       "180gr de carne de vaca rubia gallega con +150 días de maduración (selección especial LYO), panceta cocinada a baja temperatura y ahumada, queso ahumado, salsa hotney y relish de pepinillo.",
     precio: "18€",
