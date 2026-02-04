@@ -303,8 +303,8 @@ export const menuItems: MenuItem[] = [
   {
     id: "pos-1",
     categoria: "Postres",
-    nombre: "Tarta de queso de dulce de leche",
-    descripcion: "⭐ Tarta del mes · Cremosa y suave, con un irresistible toque de dulce de leche.",
+    nombre: "Tarta de queso Baileys",
+    descripcion: "⭐ Tarta del mes · Cremosa y suave, con un irresistible toque de Baileys.",
     precio: "7.5€",
   },
   {
