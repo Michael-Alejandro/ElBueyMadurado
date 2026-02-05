@@ -253,7 +253,7 @@ export const menuItems: MenuItem[] = [
     id: "ham-7",
     categoria: "Hamburguesas",
     tipo: "Hamburguesa",
-    nombre: " 👑 The Golden Burger",
+    nombre: "The Golden Burger",
     descripcion:
       "180gr de auténtico buey gallego (cárnicas LYO) con maduración extrema de 500 días, auténtico wagyu japonés A5, queso ahumado, toque de mayonesa yakitori con grasa de vaca madurada, brioche envuelto en oro de 24k.",
     precio: "28€",
@@ -297,6 +297,16 @@ export const menuItems: MenuItem[] = [
     precio: "100€/kg",
     detalle: "€/kg",
   },
+  {
+  id: "car-5",
+  categoria: "Carnes",
+  nombre: "Chuletón Gama TOP LYO",
+  descripcion:
+    "Carne de gama alta selección LYO con 200 días de maduración, raza mestiza que combina las mejores cualidades de cada raza.",
+  precio: "120€/kg",
+  detalle: "€/kg",
+  },
+
 
   // POSTRES
   // =========================
@@ -492,6 +502,15 @@ export const menuItems: MenuItem[] = [
   },
 
   // Botella - Tinto
+    {
+    id: "beb-vin-10",
+    categoria: "Bebidas",
+    subcategoria: "Vinos",
+    tipo: "Tinto",
+    nombre: "BAI GORRI 2023",
+    descripcion: "Rioja · Botella, tinto.",
+    precio: "35€",
+  },
   {
     id: "beb-vin-6",
     categoria: "Bebidas",
