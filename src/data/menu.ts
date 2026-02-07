@@ -131,7 +131,7 @@ export const menuItems: MenuItem[] = [
     tipo: "Entrante",
     nombre: "Buñuelos de vaca madurada",
     descripcion:
-      "Masa de buñuelo valenciano relleno de vaca madurada y queso de tetilla, 2 unidades.",
+      "Masa de buñuelo valenciano relleno de vaca madurada y queso de tetilla con reducción de Pedro Ximénez, 2 unidades.",
     precio: "10€",
     detalle: "2 unidades",
   },
@@ -253,7 +253,7 @@ export const menuItems: MenuItem[] = [
     id: "ham-7",
     categoria: "Hamburguesas",
     tipo: "Hamburguesa",
-    nombre: "The Golden Burger",
+    nombre: "👑 The Golden Burger",
     descripcion:
       "180gr de auténtico buey gallego (cárnicas LYO) con maduración extrema de 500 días, auténtico wagyu japonés A5, queso ahumado, toque de mayonesa yakitori con grasa de vaca madurada, brioche envuelto en oro de 24k.",
     precio: "28€",
@@ -300,7 +300,7 @@ export const menuItems: MenuItem[] = [
   {
   id: "car-5",
   categoria: "Carnes",
-  nombre: "Chuletón Gama TOP LYO",
+  nombre: "👑 Chuletón Gama TOP LYO",
   descripcion:
     "Carne de gama alta selección LYO con 200 días de maduración, raza mestiza que combina las mejores cualidades de cada raza.",
   precio: "120€/kg",
