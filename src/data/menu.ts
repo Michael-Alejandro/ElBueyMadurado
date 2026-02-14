@@ -1,4 +1,4 @@
-// src/data/menu.ts 
+﻿// src/data/menu.ts 
 
 export interface MenuItem {
   id: string;
@@ -12,75 +12,75 @@ export interface MenuItem {
   incluye?: string;
   tipo?: string;
 
-  // ✅ Nuevo (opcional, solo lo usaremos en Bebidas)
+  // âœ… Nuevo (opcional, solo lo usaremos en Bebidas)
   subcategoria?: "Cervezas" | "Refrescos" | "Vinos";
 }
 
 
 export const menuItems: MenuItem[] = [
   // =========================
-  // ENTRANTES FRÍOS Y NO TAN FRÍOS
+  // ENTRANTES FRÃOS Y NO TAN FRÃOS
   // =========================
   {
     id: "ent-1",
     categoria: "Entrantes",
-    tipo: "Frío",
-    nombre: "Tartar de auténtico buey gallego LYO",
+    tipo: "FrÃ­o",
+    nombre: "Tartar de autÃ©ntico buey gallego LYO",
     descripcion:
-      "Carne de auténtico buey gallego selección LYO con maduración extrema, fusionado con emulsión de yema y grasa de buey.",
-    precio: "24€",
+      "Carne de autÃ©ntico buey gallego selecciÃ³n LYO con maduraciÃ³n extrema, fusionado con emulsiÃ³n de yema y grasa de buey.",
+    precio: "24â‚¬",
   },
   {
     id: "ent-2",
     categoria: "Entrantes",
-    tipo: "Frío",
-    nombre: "Trilogía del buey",
+    tipo: "FrÃ­o",
+    nombre: "TrilogÃ­a del buey",
     descripcion:
-      "Secreto de buey gallego selección LYO con 500 días de maduración, picaña de buey gallego selección LYO con 500 días de maduración y cecina de wagyu japonés A5.",
-    precio: "28€",
+      "Secreto de buey gallego selecciÃ³n LYO con 500 dÃ­as de maduraciÃ³n, picaÃ±a de buey gallego selecciÃ³n LYO con 500 dÃ­as de maduraciÃ³n y cecina de wagyu japonÃ©s A5.",
+    precio: "28â‚¬",
   },
   {
     id: "ent-3",
     categoria: "Entrantes",
-    tipo: "Frío",
-    nombre: "Tabla de picaña",
+    tipo: "FrÃ­o",
+    nombre: "Tabla de picaÃ±a",
     descripcion:
-      "Picaña de buey selección LYO con 500 días de maduración, atemperada a 60 grados.",
-    precio: "28€",
+      "PicaÃ±a de buey selecciÃ³n LYO con 500 dÃ­as de maduraciÃ³n, atemperada a 60 grados.",
+    precio: "28â‚¬",
   },
   {
     id: "ent-4",
     categoria: "Entrantes",
-    tipo: "Frío",
-    nombre: "Tabla de cecina de auténtico wagyu japonés A5",
-    descripcion: "Cecina de auténtico wagyu japonés A5.",
-    precio: "27€",
+    tipo: "FrÃ­o",
+    nombre: "Tabla de cecina de autÃ©ntico wagyu japonÃ©s A5",
+    descripcion: "Cecina de autÃ©ntico wagyu japonÃ©s A5.",
+    precio: "27â‚¬",
   },
   {
     id: "ent-5",
     categoria: "Entrantes",
-    tipo: "Frío",
+    tipo: "FrÃ­o",
     nombre: "Rueda de queso",
     descripcion:
       "Queso de leche cruda de oveja con virutas de cecina en su interior.",
-    precio: "12€",
+    precio: "12â‚¬",
   },
   {
     id: "ent-6",
     categoria: "Entrantes",
-    tipo: "Frío",
-    nombre: "Secreto de buey gallego selección LYO",
-    descripcion: "Secreto de buey gallego selección LYO con 500 días de maduración.",
-    precio: "25€",
+    tipo: "FrÃ­o",
+    nombre: "Secreto de buey gallego selecciÃ³n LYO",
+    descripcion: "Secreto de buey gallego selecciÃ³n LYO con 500 dÃ­as de maduraciÃ³n.",
+    precio: "25â‚¬",
     detalle: "150 g",
   },
   {
     id: "ent-7",
     categoria: "Entrantes",
-    tipo: "Frío",
-    nombre: "Trinchado de wagyu japonés A5 (máxima infiltración)",
-    descripcion: "Trinchado de wagyu japonés A5.",
-    precio: "27€",
+    tipo: "FrÃ­o",
+    nombre: "Trinchado de wagyu japonÃ©s A5 (mÃ¡xima infiltraciÃ³n)",
+    descripcion: "Trinchado de wagyu japonÃ©s A5.",
+    precio: "27â‚¬",
     detalle: "100 g",
   },
 
@@ -93,8 +93,8 @@ export const menuItems: MenuItem[] = [
     tipo: "Entrante",
     nombre: "La croqueta del buey",
     descripcion:
-      "Croqueta de cecina de buey con leche de oveja envuelta con cecina de buey, sobre palomitas de torrezno deshidratado. Pídela y nosotros te diremos cómo comértela.\nMínimo 2 unidades.",
-    precio: "4€/ud",
+      "Croqueta de cecina de buey con leche de oveja envuelta con cecina de buey, sobre palomitas de torrezno deshidratado. PÃ­dela y nosotros te diremos cÃ³mo comÃ©rtela.\nMÃ­nimo 2 unidades.",
+    precio: "4â‚¬/ud",
     unidad: true,
   },
   {
@@ -102,8 +102,8 @@ export const menuItems: MenuItem[] = [
     categoria: "Entrantes",
     tipo: "Entrante",
     nombre: "Croquetas de gamba roja al ajillo con kimchi",
-    descripcion: "Croquetas de gamba roja al ajillo con kimchi. Mínimo 2 unidades.",
-    precio: "3€/ud",
+    descripcion: "Croquetas de gamba roja al ajillo con kimchi. MÃ­nimo 2 unidades.",
+    precio: "3â‚¬/ud",
     unidad: true,
   },
   {
@@ -112,8 +112,8 @@ export const menuItems: MenuItem[] = [
     tipo: "Entrante",
     nombre: "Gyozas de vaca rubia gallega con demiglace",
     descripcion:
-      "Gyozas de vaca rubia gallega con demiglace de Pedro Ximenéz.",
-    precio: "12€",
+      "Gyozas de vaca rubia gallega con demiglace de Pedro XimenÃ©z.",
+    precio: "12â‚¬",
     detalle: "4 unidades",
   },
   {
@@ -122,17 +122,17 @@ export const menuItems: MenuItem[] = [
     tipo: "Entrante",
     nombre: "Patatas EL BUEY",
     descripcion:
-      "Patata natural, pastrami de vaca madurada premium selección LYO, salsa de trufa negra y queso parmesano.",
-    precio: "15€",
+      "Patata natural, pastrami de vaca madurada premium selecciÃ³n LYO, salsa de trufa negra y queso parmesano.",
+    precio: "15â‚¬",
   },
   {
     id: "ent-12",
     categoria: "Entrantes",
     tipo: "Entrante",
-    nombre: "Buñuelos de vaca madurada",
+    nombre: "BuÃ±uelos de vaca madurada",
     descripcion:
-      "Masa de buñuelo valenciano relleno de vaca madurada y queso de tetilla con reducción de Pedro Ximénez, 2 unidades.",
-    precio: "10€",
+      "Masa de buÃ±uelo valenciano relleno de vaca madurada y queso de tetilla con reducciÃ³n de Pedro XimÃ©nez, 2 unidades.",
+    precio: "10â‚¬",
     detalle: "2 unidades",
   },
   {
@@ -141,17 +141,17 @@ export const menuItems: MenuItem[] = [
     tipo: "Entrante",
     nombre: "Quesadilla de buey gallego",
     descripcion:
-      "Carne de buey gallego con 500 días de maduración, salsa de trufa negra, queso parmesano, topping de doritos y foie fresco rallado.",
-    precio: "15€",
+      "Carne de buey gallego con 500 dÃ­as de maduraciÃ³n, salsa de trufa negra, queso parmesano, topping de doritos y foie fresco rallado.",
+    precio: "15â‚¬",
   },
   {
     id: "ent-14",
     categoria: "Entrantes",
     tipo: "Entrante",
-    nombre: "Tentáculos del buey",
+    nombre: "TentÃ¡culos del buey",
     descripcion:
-      "Tentáculos de pulpo a la brasa sobre parmentier de patata y kimchi, fusionados con picaña de buey de 500 días de maduración.",
-    precio: "28€",
+      "TentÃ¡culos de pulpo a la brasa sobre parmentier de patata y kimchi, fusionados con picaÃ±a de buey de 500 dÃ­as de maduraciÃ³n.",
+    precio: "28â‚¬",
   },
   {
     id: "ent-15",
@@ -159,8 +159,8 @@ export const menuItems: MenuItem[] = [
     tipo: "Entrante",
     nombre: "Calamar de playa XXL",
     descripcion:
-      "Calamar de playa XXL en dos texturas, acompañado con mayonesa de ajo puerro y cecina.",
-    precio: "19€",
+      "Calamar de playa XXL en dos texturas, acompaÃ±ado con mayonesa de ajo puerro y cecina.",
+    precio: "19â‚¬",
   },
   {
     id: "ent-16",
@@ -169,7 +169,7 @@ export const menuItems: MenuItem[] = [
     nombre: "Cesta de panes gourmet.",
     descripcion:
       "Pan de tomate. Pan de cereales. Pan tradicional. Pan de aceitunas.",
-    precio: "6€",
+    precio: "6â‚¬",
   },
 
   // =========================
@@ -180,8 +180,8 @@ export const menuItems: MenuItem[] = [
     categoria: "Hamburguesas",
     tipo: "Suplemento",
     nombre: "LO MEJOR DE LO MEJOR",
-    descripcion: "Suplemento Carne de Buey 500 Días LYO.\nPara paladares exigentes.",
-    precio: "5€",
+    descripcion: "Suplemento Carne de Buey 500 DÃ­as LYO.\nPara paladares exigentes.",
+    precio: "5â‚¬",
     unidad: true,
   },
   {
@@ -190,18 +190,18 @@ export const menuItems: MenuItem[] = [
     tipo: "Hamburguesa",
     nombre: "LA DROP (by Drop coffee)",
     descripcion:
-      "Nuestra burger del mes de Febrero‼️\n180gr de carne de vaca rubia gallega con +150 días de maduración (selección especial LYO), queso cheddar Cathedral extra madurado, torreznos extra crujientes y salsa secreta de café de especialidad de DROP COFFEE.",
-    precio: "19€",
+      "Nuestra burger del mes de Febreroâ€¼ï¸\n180gr de carne de vaca rubia gallega con +150 dÃ­as de maduraciÃ³n (selecciÃ³n especial LYO), queso cheddar Cathedral extra madurado, torreznos extra crujientes y salsa secreta de cafÃ© de especialidad de DROP COFFEE.",
+    precio: "19â‚¬",
     detalle: "200 g",
   },
   {
     id: "ham-1",
     categoria: "Hamburguesas",
     tipo: "Hamburguesa",
-    nombre: "BÚFALO",
+    nombre: "BÃšFALO",
     descripcion:
-      "180gr de carne de vaca rubia gallega con +150 días de maduración (selección especial LYO), costilla de vaca rubia gallega, queso ahumado y glaseado de barbacoa de Coca-Cola.",
-    precio: "17€",
+      "180gr de carne de vaca rubia gallega con +150 dÃ­as de maduraciÃ³n (selecciÃ³n especial LYO), costilla de vaca rubia gallega, queso ahumado y glaseado de barbacoa de Coca-Cola.",
+    precio: "17â‚¬",
   },
   {
     id: "ham-2",
@@ -209,8 +209,8 @@ export const menuItems: MenuItem[] = [
     tipo: "Hamburguesa",
     nombre: "EsMMY BUEY",
     descripcion:
-      "180gr de carne de vaca rubia gallega con +150 días de maduración (selección especial LYO), cebolla caramelizada, queso ahumado, salsa EMMY, envuelta en picaña de buey gallego con 500 días de maduración.",
-    precio: "18€",
+      "180gr de carne de vaca rubia gallega con +150 dÃ­as de maduraciÃ³n (selecciÃ³n especial LYO), cebolla caramelizada, queso ahumado, salsa EMMY, envuelta en picaÃ±a de buey gallego con 500 dÃ­as de maduraciÃ³n.",
+    precio: "18â‚¬",
   },
   {
     id: "ham-3",
@@ -218,8 +218,8 @@ export const menuItems: MenuItem[] = [
     tipo: "Hamburguesa",
     nombre: "LA SUPREMA",
     descripcion:
-      "180gr de carne de vaca rubia gallega con +150 días de maduración (selección especial LYO), cecina de buey, queso de tetilla estilo raclette y mayonesa de ajo puerro y cecina.",
-    precio: "18€",
+      "180gr de carne de vaca rubia gallega con +150 dÃ­as de maduraciÃ³n (selecciÃ³n especial LYO), cecina de buey, queso de tetilla estilo raclette y mayonesa de ajo puerro y cecina.",
+    precio: "18â‚¬",
   },
   {
     id: "ham-4",
@@ -227,8 +227,8 @@ export const menuItems: MenuItem[] = [
     tipo: "Hamburguesa",
     nombre: "BUEY",
     descripcion:
-      "180gr de carne de vaca rubia gallega con +150 días de maduración (selección especial LYO), pastrami de vaca selección LYO, queso cheddar inglés madurado y crema de trufa negra.",
-    precio: "17€",
+      "180gr de carne de vaca rubia gallega con +150 dÃ­as de maduraciÃ³n (selecciÃ³n especial LYO), pastrami de vaca selecciÃ³n LYO, queso cheddar inglÃ©s madurado y crema de trufa negra.",
+    precio: "17â‚¬",
   },
   {
     id: "ham-5",
@@ -236,27 +236,27 @@ export const menuItems: MenuItem[] = [
     tipo: "Hamburguesa",
     nombre: "DORITOS CHEESE LOVER",
     descripcion:
-      "180gr de carne de vaca rubia gallega con +150 días de maduración (selección especial LYO), tortita de queso mozzarella, queso ahumado, crema de queso azul, mayonesa de chili dulce y topping de doritos.",
-    precio: "16€",
+      "180gr de carne de vaca rubia gallega con +150 dÃ­as de maduraciÃ³n (selecciÃ³n especial LYO), tortita de queso mozzarella, queso ahumado, crema de queso azul, mayonesa de chili dulce y topping de doritos.",
+    precio: "16â‚¬",
   },
   {
     id: "ham-6",
     categoria: "Hamburguesas",
     tipo: "Hamburguesa",
-    nombre: "CARLOS CATALÁ",
+    nombre: "CARLOS CATALÃ",
     descripcion:
-      "180gr de carne de vaca rubia gallega con +150 días de maduración (selección especial LYO), panceta cocinada a baja temperatura y ahumada, queso ahumado, salsa hotney y relish de pepinillo.",
-    precio: "18€",
+      "180gr de carne de vaca rubia gallega con +150 dÃ­as de maduraciÃ³n (selecciÃ³n especial LYO), panceta cocinada a baja temperatura y ahumada, queso ahumado, salsa hotney y relish de pepinillo.",
+    precio: "18â‚¬",
     detalle: "200 g",
   },
   {
     id: "ham-7",
     categoria: "Hamburguesas",
     tipo: "Hamburguesa",
-    nombre: "👑 The Golden Burger",
+    nombre: "ðŸ‘‘ The Golden Burger",
     descripcion:
-      "180gr de auténtico buey gallego (cárnicas LYO) con maduración extrema de 500 días, auténtico wagyu japonés A5, queso ahumado, toque de mayonesa yakitori con grasa de vaca madurada, brioche envuelto en oro de 24k.",
-    precio: "28€",
+      "180gr de autÃ©ntico buey gallego (cÃ¡rnicas LYO) con maduraciÃ³n extrema de 500 dÃ­as, autÃ©ntico wagyu japonÃ©s A5, queso ahumado, toque de mayonesa yakitori con grasa de vaca madurada, brioche envuelto en oro de 24k.",
+    precio: "28â‚¬",
     detalle: "200 g",
   },
 
@@ -266,45 +266,45 @@ export const menuItems: MenuItem[] = [
   {
     id: "car-1",
     categoria: "Carnes",
-    nombre: "Entrecot de vaca rubia gallega (50 días de maduración)",
-    descripcion: "Entrecot de vaca rubia gallega con 50 días de maduración.",
-    precio: "28€",
-    detalle: "300–350 g",
+    nombre: "Entrecot de vaca rubia gallega (50 dÃ­as de maduraciÃ³n)",
+    descripcion: "Entrecot de vaca rubia gallega con 50 dÃ­as de maduraciÃ³n.",
+    precio: "28â‚¬",
+    detalle: "300â€“350 g",
   },
   {
     id: "car-2",
     categoria: "Carnes",
-    nombre: "Entrecot Old Especial Beef PREMIUM (70 días de maduración)",
+    nombre: "Entrecot Old Especial Beef PREMIUM (70 dÃ­as de maduraciÃ³n)",
     descripcion:
-      "Entrecot Old Especial Beef PREMIUM con 70 días de maduración.",
-    precio: "38€",
-    detalle: "300–350 g",
+      "Entrecot Old Especial Beef PREMIUM con 70 dÃ­as de maduraciÃ³n.",
+    precio: "38â‚¬",
+    detalle: "300â€“350 g",
   },
   {
     id: "car-3",
     categoria: "Carnes",
-    nombre: "Chuletón de vaca madurada (60 días)",
-    descripcion: "Chuletón de vaca madurada con 60 días de maduración.",
-    precio: "60€/kg",
-    detalle: "€/kg",
+    nombre: "ChuletÃ³n de vaca madurada (60 dÃ­as)",
+    descripcion: "ChuletÃ³n de vaca madurada con 60 dÃ­as de maduraciÃ³n.",
+    precio: "60â‚¬/kg",
+    detalle: "â‚¬/kg",
   },
   {
     id: "car-4",
     categoria: "Carnes",
-    nombre: "Chuletón de vaca rubia gallega Old Especial Beef PREMIUM (120 días)",
+    nombre: "ChuletÃ³n de vaca rubia gallega Old Especial Beef PREMIUM (120 dÃ­as)",
     descripcion:
-      "Chuletón de vaca rubia gallega Old Especial Beef PREMIUM con 120 días de maduración.",
-    precio: "100€/kg",
-    detalle: "€/kg",
+      "ChuletÃ³n de vaca rubia gallega Old Especial Beef PREMIUM con 120 dÃ­as de maduraciÃ³n.",
+    precio: "100â‚¬/kg",
+    detalle: "â‚¬/kg",
   },
   {
   id: "car-5",
   categoria: "Carnes",
-  nombre: "👑 Chuletón Gama TOP LYO",
+  nombre: "ðŸ‘‘ ChuletÃ³n Gama TOP LYO",
   descripcion:
-    "Carne de gama alta selección LYO con 200 días de maduración, raza mestiza que combina las mejores cualidades de cada raza.",
-  precio: "120€/kg",
-  detalle: "€/kg",
+    "Carne de gama alta selecciÃ³n LYO con 200 dÃ­as de maduraciÃ³n, raza mestiza que combina las mejores cualidades de cada raza.",
+  precio: "120â‚¬/kg",
+  detalle: "â‚¬/kg",
   },
 
 
@@ -314,51 +314,51 @@ export const menuItems: MenuItem[] = [
     id: "pos-1",
     categoria: "Postres",
     nombre: "Tarta de queso Baileys",
-    descripcion: "⭐ Tarta del mes · Cremosa y suave, con un irresistible toque de Baileys.",
-    precio: "7.5€",
+    descripcion: "â­ Tarta del mes Â· Cremosa y suave, con un irresistible toque de Baileys.",
+    precio: "7.5â‚¬",
   },
   {
     id: "pos-2",
     categoria: "Postres",
     nombre: "Tarta de queso Kinder",
     descripcion: "Base cremosa con el inconfundible sabor a chocolate Kinder.",
-    precio: "7.5€",
+    precio: "7.5â‚¬",
   },
   {
     id: "pos-3",
     categoria: "Postres",
     nombre: "Tarta de queso Donuts",
-    descripcion: "Inspirada en el clásico Donuts, dulce y sorprendente.",
-    precio: "7.5€",
+    descripcion: "Inspirada en el clÃ¡sico Donuts, dulce y sorprendente.",
+    precio: "7.5â‚¬",
   },
   {
     id: "pos-4",
     categoria: "Postres",
     nombre: "Tarta de queso TostaRica",
     descripcion: "Con un delicado aroma y sabor a galleta TostaRica.",
-    precio: "7.5€",
+    precio: "7.5â‚¬",
   },
 
     // =========================
   // BEBIDAS
   // =========================
 
-  // 🍺 CERVEZAS
+  // ðŸº CERVEZAS
   {
     id: "beb-cer-1",
     categoria: "Bebidas",
     subcategoria: "Cervezas",
     nombre: "Founders Porter",
     descripcion: "Cerveza negra.",
-    precio: "4,30€",
+    precio: "4,30â‚¬",
   },
   {
     id: "beb-cer-2",
     categoria: "Bebidas",
     subcategoria: "Cervezas",
-    nombre: "Mahou Maestra Doble Lúpulo",
+    nombre: "Mahou Maestra Doble LÃºpulo",
     descripcion: "",
-    precio: "3,20€",
+    precio: "3,20â‚¬",
   },
   {
     id: "beb-cer-3",
@@ -366,7 +366,7 @@ export const menuItems: MenuItem[] = [
     subcategoria: "Cervezas",
     nombre: "Mahou Barrica Bourbon",
     descripcion: "",
-    precio: "4,30€",
+    precio: "4,30â‚¬",
   },
   {
     id: "beb-cer-4",
@@ -374,7 +374,7 @@ export const menuItems: MenuItem[] = [
     subcategoria: "Cervezas",
     nombre: "Mahou 5 Estrellas",
     descripcion: "",
-    precio: "2,80€",
+    precio: "2,80â‚¬",
   },
   {
     id: "beb-cer-5",
@@ -382,7 +382,7 @@ export const menuItems: MenuItem[] = [
     subcategoria: "Cervezas",
     nombre: "Mahou 0,0 Tostada",
     descripcion: "",
-    precio: "2,80€",
+    precio: "2,80â‚¬",
   },
   {
     id: "beb-cer-6",
@@ -390,7 +390,7 @@ export const menuItems: MenuItem[] = [
     subcategoria: "Cervezas",
     nombre: "Mahou Sin Gluten",
     descripcion: "",
-    precio: "2,80€",
+    precio: "2,80â‚¬",
   },
   {
     id: "beb-cer-7",
@@ -398,25 +398,25 @@ export const menuItems: MenuItem[] = [
     subcategoria: "Cervezas",
     nombre: "Mahou Radler",
     descripcion: "",
-    precio: "2,80€",
+    precio: "2,80â‚¬",
   },
   {
     id: "beb-cer-8",
     categoria: "Bebidas",
     subcategoria: "Cervezas",
-    nombre: "Mahou Rosé (fresa)",
+    nombre: "Mahou RosÃ© (fresa)",
     descripcion: "",
-    precio: "3,20€",
+    precio: "3,20â‚¬",
   },
 
-  // 🥤 REFRESCOS & AGUAS
+  // ðŸ¥¤ REFRESCOS & AGUAS
   {
     id: "beb-ref-1",
     categoria: "Bebidas",
     subcategoria: "Refrescos",
     nombre: "Agua",
     descripcion: "",
-    precio: "2,20€",
+    precio: "2,20â‚¬",
   },
   {
     id: "beb-ref-2",
@@ -424,7 +424,7 @@ export const menuItems: MenuItem[] = [
     subcategoria: "Refrescos",
     nombre: "Agua con gas",
     descripcion: "",
-    precio: "2,50€",
+    precio: "2,50â‚¬",
   },
   {
     id: "beb-ref-3",
@@ -432,26 +432,26 @@ export const menuItems: MenuItem[] = [
     subcategoria: "Refrescos",
     nombre: "Refrescos",
     descripcion: "",
-    precio: "2,80€",
+    precio: "2,80â‚¬",
   },
   {
     id: "beb-ref-4",
     categoria: "Bebidas",
     subcategoria: "Refrescos",
-    nombre: "Tónica Royal Bliss",
+    nombre: "TÃ³nica Royal Bliss",
     descripcion: "",
-    precio: "2,50€",
+    precio: "2,50â‚¬",
   },
   {
     id: "beb-ref-5",
     categoria: "Bebidas",
     subcategoria: "Refrescos",
-    nombre: "Tónica Royal Bliss Berry",
+    nombre: "TÃ³nica Royal Bliss Berry",
     descripcion: "",
-    precio: "2,50€",
+    precio: "2,50â‚¬",
   },
 
-  // 🍷 VINOS
+  // ðŸ· VINOS
   // Copas
   {
     id: "beb-vin-1",
@@ -460,16 +460,16 @@ export const menuItems: MenuItem[] = [
     tipo: "Copa",
     nombre: "Vino Portia Verdejo (Rueda)",
     descripcion: "Copa, blanco.",
-    precio: "3,50€",
+    precio: "3,50â‚¬",
   },
   {
     id: "beb-vin-2",
     categoria: "Bebidas",
     subcategoria: "Vinos",
     tipo: "Copa",
-    nombre: "Vino Mucho Más",
+    nombre: "Vino Mucho MÃ¡s",
     descripcion: "Copa, tinto",
-    precio: "3,50€",
+    precio: "3,50â‚¬",
   },
 
   // Botella - Blanco
@@ -480,7 +480,7 @@ export const menuItems: MenuItem[] = [
     tipo: "Blanco",
     nombre: "Castillo de Miraflores (Verdejo)",
     descripcion: "Botella, blanco.",
-    precio: "16€",
+    precio: "16â‚¬",
   },
   {
     id: "beb-vin-4",
@@ -489,45 +489,27 @@ export const menuItems: MenuItem[] = [
     tipo: "Blanco",
     nombre: "Quinta do Sil (Godello)",
     descripcion: "Botella, blanco.",
-    precio: "22€",
+    precio: "22â‚¬",
   },
   {
     id: "beb-vin-5",
     categoria: "Bebidas",
     subcategoria: "Vinos",
     tipo: "Blanco",
-    nombre: "Gran Bazán Etiqueta Verde (Albariño)",
-    descripcion: "D.O. Rías Baixas · 100% Albariño · Botella, blanco.",
-    precio: "25€",
+    nombre: "Gran BazÃ¡n Etiqueta Verde (AlbariÃ±o)",
+    descripcion: "D.O. RÃ­as Baixas Â· 100% AlbariÃ±o Â· Botella, blanco.",
+    precio: "25â‚¬",
   },
 
   // Botella - Tinto
-    {
-    id: "beb-vin-10",
+  {
+    id: "beb-vin-9",
     categoria: "Bebidas",
     subcategoria: "Vinos",
     tipo: "Tinto",
-    nombre: "BAI GORRI 2023",
+    nombre: "Bordón (Crianza)",
     descripcion: "Rioja · Botella, tinto.",
-    precio: "35€",
-  },
-  {
-    id: "beb-vin-6",
-    categoria: "Bebidas",
-    subcategoria: "Vinos",
-    tipo: "Tinto",
-    nombre: "Protos 27",
-    descripcion: "Ribera del Duero · Botella, tinto.",
-    precio: "33€",
-  },
-  {
-    id: "beb-vin-7",
-    categoria: "Bebidas",
-    subcategoria: "Vinos",
-    tipo: "Tinto",
-    nombre: "Abadía San Quirce (Crianza)",
-    descripcion: "Ribera del Duero · Botella, tinto.",
-    precio: "30€",
+    precio: "16€",
   },
   {
     id: "beb-vin-8",
@@ -539,16 +521,95 @@ export const menuItems: MenuItem[] = [
     precio: "28€",
   },
   {
-    id: "beb-vin-9",
+    id: "beb-vin-7",
     categoria: "Bebidas",
     subcategoria: "Vinos",
     tipo: "Tinto",
-    nombre: "Bordón (Crianza)",
-    descripcion: "Rioja · Botella, tinto.",
-    precio: "16€",
+    nombre: "Abadía San Quirce (Crianza)",
+    descripcion: "Ribera del Duero · Botella, tinto.",
+    precio: "30€",
   },
-
-
+  {
+    id: "beb-vin-6",
+    categoria: "Bebidas",
+    subcategoria: "Vinos",
+    tipo: "Tinto",
+    nombre: "Protos 27",
+    descripcion: "Ribera del Duero · Botella, tinto.",
+    precio: "33€",
+  },
+  {
+    id: "beb-vin-10",
+    categoria: "Bebidas",
+    subcategoria: "Vinos",
+    tipo: "Tinto",
+    nombre: "BAI GORRI 2023",
+    descripcion: "Rioja · Botella, tinto.",
+    precio: "35€",
+  },
+  {
+    id: "beb-vin-13",
+    categoria: "Bebidas",
+    subcategoria: "Vinos",
+    tipo: "Tinto",
+    nombre: "Bordón Reserva",
+    descripcion: "Rioja · Botella, tinto.",
+    precio: "35€",
+  },
+  {
+    id: "beb-vin-11",
+    categoria: "Bebidas",
+    subcategoria: "Vinos",
+    tipo: "Tinto",
+    nombre: "Valparaíso Raíces",
+    descripcion: "Ribera del Duero · Botella, tinto.",
+    precio: "45€",
+  },
+  {
+    id: "beb-vin-12",
+    categoria: "Bebidas",
+    subcategoria: "Vinos",
+    tipo: "Tinto",
+    nombre: "Pálpito",
+    descripcion: "Bodegas Franco Españolas · Botella, tinto.",
+    precio: "60€",
+  },
+  {
+    id: "beb-vin-15",
+    categoria: "Bebidas",
+    subcategoria: "Vinos",
+    tipo: "Tinto",
+    nombre: "Clio 2023",
+    descripcion: "Juan Gil Jumilla · Botella, tinto.",
+    precio: "75€",
+  },
+  {
+    id: "beb-vin-14",
+    categoria: "Bebidas",
+    subcategoria: "Vinos",
+    tipo: "Tinto",
+    nombre: "Macán Clásico 2021",
+    descripcion: "Rioja · Botella, tinto.",
+    precio: "95€",
+  },
+  {
+    id: "beb-vin-16",
+    categoria: "Bebidas",
+    subcategoria: "Vinos",
+    tipo: "Tinto",
+    nombre: "El Nido 2023",
+    descripcion: "Juan Gil Jumilla· Botella, tinto.",
+    precio: "180€",
+  },
+  {
+    id: "beb-vin-17",
+    categoria: "Bebidas",
+    subcategoria: "Vinos",
+    tipo: "Tinto",
+    nombre: "Vega Sicilia UNICO 2015",
+    descripcion: "Botella, tinto.",
+    precio: "475€",
+  },
 ];
 
 export const getMenuByCategory = (categoria: MenuItem["categoria"]) => {
@@ -558,3 +619,4 @@ export const getMenuByCategory = (categoria: MenuItem["categoria"]) => {
 export const getMenuItemById = (id: string) => {
   return menuItems.find((item) => item.id === id);
 };
+
