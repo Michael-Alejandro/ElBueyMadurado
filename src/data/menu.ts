@@ -189,11 +189,10 @@ export const menuItems: MenuItem[] = [
     id: "ham-8",
     categoria: "Hamburguesas",
     tipo: "Hamburguesa",
-    nombre: "LA DROP (by Drop coffee)",
+    nombre: "LOS CUÑAOS",
     descripcion:
-      "Nuestra burger del mes de Febrero‼️\n180gr de carne de vaca rubia gallega con +150 días de maduración (selección especial LYO), queso cheddar Cathedral extra madurado, torreznos extra crujientes y salsa secreta de café de especialidad de DROP COFFEE.",
+      "Carne de vaca 150 días y carne de buey 500 días. Mayonesa de tuétano. Secreto de buey gallego 200 días de maduración. Demiglace de buey caramelizada. Queso chedar madurado picante.",
     precio: "19€",
-    detalle: "200 g",
   },
   {
     id: "ham-1",
@@ -314,9 +313,9 @@ export const menuItems: MenuItem[] = [
   {
     id: "pos-1",
     categoria: "Postres",
-    nombre: "Tarta de queso Baileys",
+    nombre: "Tarta de queso con cazalla y naranja",
     descripcion:
-      "⭐ Tarta del mes · Cremosa y suave, con un irresistible toque de Baileys.",
+      "⭐ Tarta del mes de marzo · Tarta de queso con cazalla y naranja con topping de queso blanco.",
     precio: "7.5€",
   },
   {
@@ -336,11 +335,11 @@ export const menuItems: MenuItem[] = [
   {
     id: "pos-4",
     categoria: "Postres",
-    nombre: "Tarta de queso TostaRica",
-    descripcion: "Con un delicado aroma y sabor a galleta TostaRica.",
+    nombre: "Tarta de queso Nutella",
+    descripcion:
+      "Base cremosa con el intenso e irresistible sabor de Nutella.",
     precio: "7.5€",
   },
-
   // =========================
   // BEBIDAS
   // =========================
@@ -536,8 +535,8 @@ export const menuItems: MenuItem[] = [
     categoria: "Bebidas",
     subcategoria: "Vinos",
     tipo: "Tinto",
-    nombre: "Protos 27",
-    descripcion: "Ribera del Duero · Botella, tinto.",
+    nombre: "Pago de Fuentecojo",
+    descripcion: "Ribera del Duero · Tempranillo 2021 · Botella, tinto.",
     precio: "33€",
   },
   {
