@@ -192,7 +192,7 @@ export const menuItems: MenuItem[] = [
     nombre: "LOS CUÑAOS",
     descripcion:
       "Carne de vaca 150 días y carne de buey 500 días. Mayonesa de tuétano. Secreto de buey gallego 200 días de maduración. Demiglace de buey caramelizada. Queso chedar madurado picante.",
-    precio: "19€",
+    precio: "20€",
   },
   {
     id: "ham-1",
@@ -537,7 +537,7 @@ export const menuItems: MenuItem[] = [
     tipo: "Tinto",
     nombre: "Pago de Fuentecojo",
     descripcion: "Ribera del Duero · Tempranillo 2021 · Botella, tinto.",
-    precio: "33€",
+    precio: "28€",
   },
   {
     id: "beb-vin-10",
