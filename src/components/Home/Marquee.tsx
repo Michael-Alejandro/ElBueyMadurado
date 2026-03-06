@@ -1,4 +1,3 @@
-// components/Home/Marquee.tsx
 'use client';
 
 export default function Marquee() {
@@ -8,18 +7,22 @@ export default function Marquee() {
         <div className="marquee-track">
           <span>
             🍔 BURGER DEL MES 🍔
-            LA DROP, <em>by Drop Coffee</em> ☕
-            180 g de vaca rubia gallega +150 días · 
-            cheddar extra madurado · torreznos crujientes · 
-            salsa secreta de café de especialidad ☕
+            LOS CUÑAOS 🔥
+            Carne de vaca 150 días + buey 500 días · 
+            mayonesa de tuétano · 
+            secreto de buey gallego 200 días · 
+            demiglace de buey caramelizada · 
+            queso cheddar madurado picante
           </span>
 
           <span>
             🍔 BURGER DEL MES 🍔
-            LA DROP, <em>by Drop Coffee</em> ☕
-            180 g de vaca rubia gallega +150 días · 
-            cheddar extra madurado · torreznos crujientes · 
-            salsa secreta de café de especialidad ☕
+            LOS CUÑAOS 🔥
+            Carne de vaca 150 días + buey 500 días · 
+            mayonesa de tuétano · 
+            secreto de buey gallego 200 días · 
+            demiglace de buey caramelizada · 
+            queso cheddar madurado picante
           </span>
         </div>
       </div>
