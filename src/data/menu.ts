@@ -35,7 +35,7 @@ export const menuItems: MenuItem[] = [
     tipo: "Frío",
     nombre: "Trilogía del buey",
     descripcion:
-      "Secreto de buey gallego selección LYO con 500 días de maduración, picaña de buey gallego selección LYO con 500 días de maduración y cecina de wagyu japonés A5.",
+      "Secreto de buey gallego selección LYO con 500 días de maduración, picaña de buey gallego selección LYO con 500 días de maduración y cecina de wagyu.",
     precio: "28€",
   },
   {
@@ -51,8 +51,8 @@ export const menuItems: MenuItem[] = [
     id: "ent-4",
     categoria: "Entrantes",
     tipo: "Frío",
-    nombre: "Tabla de cecina de auténtico wagyu japonés A5",
-    descripcion: "Cecina de auténtico wagyu japonés A5.",
+    nombre: "Tabla de cecina de wagyu",
+    descripcion: "Cecina de auténtico wagyu.",
     precio: "27€",
   },
   {
@@ -179,10 +179,30 @@ export const menuItems: MenuItem[] = [
     id: "ham-0",
     categoria: "Hamburguesas",
     tipo: "Suplemento",
-    nombre: "LO MEJOR DE LO MEJOR",
+    nombre: "Mejora a Carne de Buey 500 Días",
     descripcion:
-      "Suplemento Carne de Buey 500 Días LYO.\nPara paladares exigentes.",
+      "Sustituye la carne de vaca de la hamburguesa por carne de buey madurada 500 días LYO.",
     precio: "5€",
+    unidad: true,
+  },
+    {
+    id: "ham-9",
+    categoria: "Hamburguesas",
+    tipo: "Suplemento",
+    nombre: "Carne extra de vaca (200 días)",
+    descripcion:
+      "Añade 180 g extra de carne de vaca madurada 200 días.",
+    precio: "5€",
+    unidad: true,
+  },
+    {
+    id: "ham-10",
+    categoria: "Hamburguesas",
+    tipo: "Suplemento",
+    nombre: "Carne extra de buey (500 días)",
+    descripcion:
+      "Añade 180 g extra de carne de buey madurado 500 días.",
+    precio: "8€",
     unidad: true,
   },
   {
@@ -201,7 +221,7 @@ export const menuItems: MenuItem[] = [
     nombre: "BÚFALO",
     descripcion:
       "180gr de carne de vaca rubia gallega con +150 días de maduración (selección especial LYO), costilla de vaca rubia gallega, queso ahumado y glaseado de barbacoa de Coca-Cola.",
-    precio: "17€",
+    precio: "18€",
   },
   {
     id: "ham-2",
@@ -228,7 +248,7 @@ export const menuItems: MenuItem[] = [
     nombre: "BUEY",
     descripcion:
       "180gr de carne de vaca rubia gallega con +150 días de maduración (selección especial LYO), pastrami de vaca selección LYO, queso cheddar inglés madurado y crema de trufa negra.",
-    precio: "17€",
+    precio: "18€",
   },
   {
     id: "ham-5",
@@ -283,8 +303,8 @@ export const menuItems: MenuItem[] = [
   {
     id: "car-3",
     categoria: "Carnes",
-    nombre: "Chuletón de vaca madurada (60 días)",
-    descripcion: "Chuletón de vaca madurada con 60 días de maduración.",
+    nombre: "Chuletón rubia gallega (50 días)",
+    descripcion: "Chuletón de vaca rubia gallega con 50 días de maduración.",
     precio: "60€/kg",
     detalle: "€/kg",
   },
@@ -292,18 +312,18 @@ export const menuItems: MenuItem[] = [
     id: "car-4",
     categoria: "Carnes",
     nombre:
-      "Chuletón de vaca rubia gallega Old Especial Beef PREMIUM (120 días)",
+      "Chuletón ESMERALDA (100 días)",
     descripcion:
-      "Chuletón de vaca rubia gallega Old Especial Beef PREMIUM con 120 días de maduración.",
+      "Chuletón de vaca ESMERALDA con 100 días de maduración.",
     precio: "100€/kg",
     detalle: "€/kg",
   },
   {
     id: "car-5",
     categoria: "Carnes",
-    nombre: "👑 Chuletón Gama TOP LYO",
+    nombre: "Chuletón DIAMANTE (150 días)",
     descripcion:
-      "Carne de gama alta selección LYO con 200 días de maduración, raza mestiza que combina las mejores cualidades de cada raza.",
+      "Chuletón de vaca DIAMANTE con 150 días de maduración.",
     precio: "120€/kg",
     detalle: "€/kg",
   },
