@@ -303,10 +303,10 @@ export const menuItems: MenuItem[] = [
   {
     id: "car-3",
     categoria: "Carnes",
-    nombre: "Chuletón rubia gallega (50 días)",
-    descripcion: "Chuletón de vaca rubia gallega con 50 días de maduración.",
-    precio: "60€/kg",
-    detalle: "€/kg",
+    nombre: "Entrecot buey de wagyu",
+    descripcion: "Entrecot exclusivo hasta fin de existencias. 500gr aprox.",
+    precio: "50€",
+    detalle: "50€",
   },
   {
     id: "car-4",
