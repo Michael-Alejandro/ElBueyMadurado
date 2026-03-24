@@ -311,19 +311,27 @@ export const menuItems: MenuItem[] = [
   {
     id: "car-4",
     categoria: "Carnes",
-    nombre:
-      "Chuletón ESMERALDA (100 días)",
+    nombre: "Chuletón GOLD (50 días)",
     descripcion:
-      "Chuletón de vaca ESMERALDA con 100 días de maduración.",
-    precio: "100€/kg",
+      "Chuletón de vaca Simmental con 50 días de maduración. Selección especial Juan Navarro.",
+    precio: "70€/kg",
     detalle: "€/kg",
   },
   {
     id: "car-5",
     categoria: "Carnes",
-    nombre: "Chuletón DIAMANTE (150 días)",
+    nombre: "Chuletón ESMERALDA (90 días)",
     descripcion:
-      "Chuletón de vaca DIAMANTE con 150 días de maduración.",
+      "Chuletón de vaca rubia gallega con 90 días de maduración. Selección especial Juan Navarro.",
+    precio: "100€/kg",
+    detalle: "€/kg",
+  },
+  {
+    id: "car-6",
+    categoria: "Carnes",
+    nombre: "Chuletón DIAMANTE TOP (150 días)",
+    descripcion:
+      "Chuletón de vaca Simmental con 150 días de maduración. Selección especial Juan Navarro.",
     precio: "120€/kg",
     detalle: "€/kg",
   },
