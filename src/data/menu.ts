@@ -343,7 +343,7 @@ export const menuItems: MenuItem[] = [
     categoria: "Postres",
     nombre: "Tarta de queso con cazalla y naranja",
     descripcion:
-      "⭐ Tarta del mes de marzo · Tarta de queso con cazalla y naranja con topping de queso blanco.",
+      "⭐ Tarta del mes de marzo · Tarta de queso con cazalla y naranja con topping de chocolate blanco.",
     precio: "7.5€",
   },
   {
