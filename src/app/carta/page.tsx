@@ -190,10 +190,10 @@ export default function CartaPage() {
       { tipo: 'Tinto', titulo: 'Tintos' },
     ] as const;
     const chuletones = productos.filter((item) =>
-      item.nombre.startsWith('Chuletón')
+      item.nombre.startsWith('Chulet')
     );
     const carnesBase = productos.filter(
-      (item) => !item.nombre.startsWith('Chuletón')
+      (item) => !item.nombre.startsWith('Chulet')
     );
 
     return (
@@ -214,18 +214,18 @@ export default function CartaPage() {
             <div className="carta-letis-block">
               <img
                 src="/assets/images/letis.webp"
-                alt="Leti's Pasteleria"
+                alt="Leti's Pastelería"
                 className="carta-letis-logo"
                 loading="lazy"
               />
 
               <div className="carta-letis-text">
                 <span className="carta-letis-title">
-                  Postres de autor by Leti&apos;s Atelier Gourmet
+                  Postres de autor by Leti's Atelier Gourmet
                 </span>
 
                 <p className="carta-letis-description">
-                  Tartas de queso elaboradas artesanalmente en Xativa.
+                  Tartas de queso elaboradas artesanalmente en Xàtiva.
                 </p>
               </div>
             </div>
@@ -233,7 +233,7 @@ export default function CartaPage() {
 
           {categoria === 'Hamburguesas' && (
             <div className="carta-guarnicion">
-              <div className="carta-guarnicion-title">Guarnicion a elegir</div>
+              <div className="carta-guarnicion-title">Guarnición a elegir</div>
 
               <ul className="carta-guarnicion-list">
                 <li className="carta-guarnicion-item">
@@ -278,12 +278,12 @@ export default function CartaPage() {
                     <div className="carta-vinos-block">
                       <div className="carta-vinos-text">
                         <span className="carta-vinos-title">
-                          Selecci&oacute;n de vinos
+                          Selección de vinos
                         </span>
 
                         <p className="carta-vinos-description">
-                          Una propuesta pensada para acompa&ntilde;ar la
-                          maduraci&oacute;n con equilibrio y car&aacute;cter.
+                          Una propuesta pensada para acompañar la maduración con
+                          equilibrio y carácter.
                         </p>
                       </div>
                     </div>
@@ -319,11 +319,12 @@ export default function CartaPage() {
                     <div className="carta-chuletones-block">
                       <div className="carta-chuletones-text">
                         <span className="carta-chuletones-title">
-                          Selecci&oacute;n de chuletones
+                          Selección de chuletones
                         </span>
 
                         <p className="carta-chuletones-description">
-                          Maduraciones largas y cortes nobles.
+                          Maduraciones largas y cortes nobles para una
+                          experiencia más intensa.
                         </p>
                       </div>
                     </div>
@@ -339,7 +340,7 @@ export default function CartaPage() {
             )
           ) : (
             <div className="carta-empty">
-              <p>No hay productos en esta categoria</p>
+              <p>No hay productos en esta categoría</p>
             </div>
           )}
 
@@ -365,7 +366,7 @@ export default function CartaPage() {
                 index === currentSlide ? 'carta-nav-btn-active' : ''
               } ${isBebidas ? 'carta-nav-btn-bebidas' : ''}`}
               disabled={isAnimating}
-              aria-label={`Ver categoria ${slide.titulo}`}
+              aria-label={`Ver categoría ${slide.titulo}`}
             >
               {slide.titulo}
             </button>

@@ -339,6 +339,14 @@ export const menuItems: MenuItem[] = [
   // POSTRES
   // =========================
   {
+    id: "pos-5",
+    categoria: "Postres",
+    nombre: "Postre carnívoro",
+    descripcion:
+      "Helado de queso parmesano con picaña de buey con 500 días de maduración.",
+    precio: "7.5€",
+  },
+  {
     id: "pos-1",
     categoria: "Postres",
     nombre: "Tarta de queso con cazalla y naranja",
