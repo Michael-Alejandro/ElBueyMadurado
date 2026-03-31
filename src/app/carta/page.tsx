@@ -323,8 +323,7 @@ export default function CartaPage() {
                         </span>
 
                         <p className="carta-chuletones-description">
-                          Maduraciones largas y cortes nobles para una
-                          experiencia más intensa.
+                          Maduraciones largas y cortes.
                         </p>
                       </div>
                     </div>
