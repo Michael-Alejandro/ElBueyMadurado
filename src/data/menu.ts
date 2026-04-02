@@ -349,7 +349,7 @@ export const menuItems: MenuItem[] = [
 {
   id: "pos-6",
   categoria: "Postres",
-  nombre: "Tarta de queso de huesitos",
+  nombre: "Tarta de queso huesitos",
   descripcion:
     "⭐ Tarta del mes · Tarta de queso cremosa con sabor a huesitos.",
   precio: "7.5€",
