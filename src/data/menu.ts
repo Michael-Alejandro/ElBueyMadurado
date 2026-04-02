@@ -346,12 +346,20 @@ export const menuItems: MenuItem[] = [
       "Helado de queso parmesano con picaña de buey con 500 días de maduración.",
     precio: "7.5€",
   },
-  {
+{
+  id: "pos-6",
+  categoria: "Postres",
+  nombre: "Tarta de queso de huesitos",
+  descripcion:
+    "⭐ Tarta del mes · Tarta de queso cremosa con sabor a huesitos.",
+  precio: "7.5€",
+},
+    {
     id: "pos-1",
     categoria: "Postres",
     nombre: "Tarta de queso con cazalla y naranja",
     descripcion:
-      "⭐ Tarta del mes de marzo · Tarta de queso con cazalla y naranja con topping de chocolate blanco.",
+      "Tarta de queso con cazalla y naranja con topping de chocolate blanco.",
     precio: "7.5€",
   },
   {
