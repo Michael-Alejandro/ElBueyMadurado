@@ -412,7 +412,7 @@ export const menuItems: MenuItem[] = [
     {
     id: "pos-9",
     categoria: "Postres",
-    nombre: "Helados",
+    nombre: "Helado",
     descripcion:
       "2 bolas de helado a elegir (Vainilla o nata con nueces), combínalas como quieras.",
     precio: "6€",
