@@ -211,7 +211,7 @@ export const menuItems: MenuItem[] = [
     tipo: "Hamburguesa",
     nombre: "LA CAVERNÍCOLA",
     descripcion:
-      "⭐ Burguer del mes · Carne de vaca 150 días y carne de buey 500 días. Queso comté, salsa "Hotbuey" espectacular, picaña de buey gallego, acompañada de tuétano de vaca madurada para que lo untes tu mismo.",
+      '⭐ Burguer del mes · Carne de vaca 150 días y carne de buey 500 días. Queso comté, salsa "Hotbuey" espectacular, picaña de buey gallego, acompañada de tuétano de vaca madurada para que lo untes tu mismo.',
     precio: "20€",
   },
   {
