@@ -61,7 +61,7 @@ export const menuItems: MenuItem[] = [
     tipo: "Frío",
     nombre: "Rueda de queso",
     descripcion:
-      "Queso de leche cruda de oveja con virutas de cecina en su interior.",
+      "Cubos de queso de leche cruda de oveja con virutas de cecina en su interior.",
     precio: "12€",
   },
   {
@@ -204,6 +204,15 @@ export const menuItems: MenuItem[] = [
       "Añade 180 g extra de carne de buey madurado 500 días.",
     precio: "8€",
     unidad: true,
+  },
+    {
+    id: "ham-11",
+    categoria: "Hamburguesas",
+    tipo: "Hamburguesa",
+    nombre: "LA CAVERNÍCOLA",
+    descripcion:
+      "⭐ Burguer del mes · Carne de vaca 150 días y carne de buey 500 días. Queso comté, salsa "Hotbuey" espectacular, picaña de buey gallego, acompañada de tuétano de vaca madurada para que lo untes tu mismo.",
+    precio: "20€",
   },
   {
     id: "ham-8",
@@ -384,19 +393,35 @@ export const menuItems: MenuItem[] = [
       "Base cremosa con el intenso e irresistible sabor de Nutella.",
     precio: "7.5€",
   },
+    {
+    id: "pos-7",
+    categoria: "Postres",
+    nombre: "Coulant de Lotus",
+    descripcion:
+      "Cremoso coulant con sabor a lotus con una bola de helado a elegir (Vainilla o nata con nueces).",
+    precio: "7.5€",
+  },
+  {
+    id: "pos-8",
+    categoria: "Postres",
+    nombre: "Coulant de Baileys",
+    descripcion:
+      "Cremoso coulant con sabor a Baileys con una bola de helado a elegir (Vainilla o nata con nueces).",
+    precio: "7.5€",
+  },
+    {
+    id: "pos-9",
+    categoria: "Postres",
+    nombre: "Helados",
+    descripcion:
+      "2 bolas de helado a elegir (Vainilla o nata con nueces), combínalas como quieras.",
+    precio: "6€",
+  },
   // =========================
   // BEBIDAS
   // =========================
 
   // 🍺 CERVEZAS
-  {
-    id: "beb-cer-1",
-    categoria: "Bebidas",
-    subcategoria: "Cervezas",
-    nombre: "Founders Porter",
-    descripcion: "Cerveza negra.",
-    precio: "4,30€",
-  },
   {
     id: "beb-cer-9",
     categoria: "Bebidas",
