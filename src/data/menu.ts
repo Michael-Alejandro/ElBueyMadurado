@@ -212,7 +212,7 @@ export const menuItems: MenuItem[] = [
     nombre: "LA CAVERNÍCOLA",
     descripcion:
       '⭐ Burguer del mes · Carne de vaca 150 días y carne de buey 500 días. Queso comté, salsa "Hotbuey" espectacular, picaña de buey gallego, acompañada de tuétano de vaca madurada para que lo untes tu mismo.',
-    precio: "20€",
+    precio: "19€",
   },
   {
     id: "ham-8",
@@ -435,6 +435,14 @@ export const menuItems: MenuItem[] = [
     categoria: "Bebidas",
     subcategoria: "Cervezas",
     nombre: "Alhambra Reserva 1925",
+    descripcion: "",
+    precio: "3,20€",
+  },
+    {
+    id: "beb-cer-2",
+    categoria: "Bebidas",
+    subcategoria: "Cervezas",
+    nombre: "Stella Artois",
     descripcion: "",
     precio: "3,20€",
   },
