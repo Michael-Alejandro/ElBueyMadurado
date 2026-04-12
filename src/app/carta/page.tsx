@@ -182,7 +182,16 @@ export default function CartaPage() {
   ) => {
     const esBebidas = categoria === 'Bebidas';
     const esCarnes = categoria === 'Carnes';
-    const bebidasPrincipales = ['Cervezas', 'Refrescos'] as const;
+    const bebidasPrincipales = ['Cervezas', 'Refrescos', 'Cafes', 'Cavas'] as const;
+    const esPostres = categoria === 'Postres';
+
+    const postresLetis = productos.filter((item) =>
+      item.nombre.toLowerCase().includes('tarta de queso')
+    );
+
+    const otrosPostres = productos.filter(
+      (item) => !item.nombre.toLowerCase().includes('tarta de queso')
+    );
     const vinos = productos.filter((item) => item.subcategoria === 'Vinos');
     const vinosPorTipo = [
       { tipo: 'Copa', titulo: 'Por copa' },
@@ -310,33 +319,48 @@ export default function CartaPage() {
                   </div>
                 )}
               </div>
-            ) : esCarnes ? (
-              <div className="carta-carnes-section">
-                {carnesBase.length > 0 && renderProductosGrid(carnesBase)}
+              ) : esCarnes ? (
+                <div className="carta-carnes-section">
+                  {carnesBase.length > 0 && renderProductosGrid(carnesBase)}
 
-                {chuletones.length > 0 && (
-                  <div className="carta-chuletones-section">
-                    <div className="carta-chuletones-block">
-                      <div className="carta-chuletones-text">
-                        <span className="carta-chuletones-title">
-                          Selección de chuletones
-                        </span>
+                  {chuletones.length > 0 && (
+                    <div className="carta-chuletones-section">
+                      <div className="carta-chuletones-block">
+                        <div className="carta-chuletones-text">
+                          <span className="carta-chuletones-title">
+                            Selección de chuletones
+                          </span>
 
-                        <p className="carta-chuletones-description">
-                          Maduraciones largas y cortes nobles.
-                        </p>
+                          <p className="carta-chuletones-description">
+                            Maduraciones largas y cortes nobles.
+                          </p>
+                        </div>
                       </div>
-                    </div>
 
-                    {renderProductosGrid(chuletones, {
-                      itemClassName: 'carta-product-item--premium',
-                    })}
-                  </div>
-                )}
-              </div>
-            ) : (
-              renderProductosGrid(productos)
-            )
+                      {renderProductosGrid(chuletones, {
+                        itemClassName: 'carta-product-item--premium',
+                      })}
+                    </div>
+                  )}
+                </div>
+              ) : esPostres ? (
+                <div className="carta-postres-section">
+                  {postresLetis.length > 0 && renderProductosGrid(postresLetis)}
+
+                  {postresLetis.length > 0 && otrosPostres.length > 0 && (
+                    <div className="carta-postres-divider" />
+                  )}
+
+                  {otrosPostres.length > 0 && (
+                    <>
+                      <div className="carta-postres-subtitle">Postres Buey</div>
+                      {renderProductosGrid(otrosPostres)}
+                    </>
+                  )}
+                </div>
+              ) : (
+                renderProductosGrid(productos)
+              )
           ) : (
             <div className="carta-empty">
               <p>No hay productos en esta categoría</p>

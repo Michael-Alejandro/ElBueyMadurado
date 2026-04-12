@@ -12,8 +12,7 @@ export interface MenuItem {
   incluye?: string;
   tipo?: string;
 
-  // ✅ Nuevo (opcional, solo lo usaremos en Bebidas)
-  subcategoria?: "Cervezas" | "Refrescos" | "Vinos";
+  subcategoria?: "Cervezas" | "Refrescos" | "Vinos" | "Cafes" | "Cavas";
 }
 
 export const menuItems: MenuItem[] = [
@@ -288,7 +287,26 @@ export const menuItems: MenuItem[] = [
     precio: "28€",
     detalle: "200 g",
   },
-
+  {
+    id: "ham-12",
+    categoria: "Hamburguesas",
+    tipo: "Hamburguesa",
+    nombre: "Bandeja de patatas fritas",
+    descripcion:
+      "",
+    precio: "5€",
+    detalle: "200 g",
+  }, 
+    {
+    id: "ham-13",
+    categoria: "Hamburguesas",
+    tipo: "Hamburguesa",
+    nombre: "Bandeja de boniato frito",
+    descripcion:
+      "",
+    precio: "6€",
+    detalle: "200 g",
+  }, 
   // =========================
   // CARNES
   // =========================
@@ -352,7 +370,7 @@ export const menuItems: MenuItem[] = [
     categoria: "Postres",
     nombre: "Postre carnívoro",
     descripcion:
-      "Helado de queso parmesano con picaña de buey con 500 días de maduración.",
+      "Helado de queso parmesano con picaña de buey con 500 días de maduración y Peta Zetas de chocolate.",
     precio: "7.5€",
   },
 {
@@ -363,14 +381,7 @@ export const menuItems: MenuItem[] = [
     "⭐ Tarta del mes · Tarta de queso cremosa con sabor a huesitos.",
   precio: "7.5€",
 },
-    {
-    id: "pos-1",
-    categoria: "Postres",
-    nombre: "Tarta de queso con cazalla y naranja",
-    descripcion:
-      "Tarta de queso con cazalla y naranja con topping de chocolate blanco.",
-    precio: "7.5€",
-  },
+
   {
     id: "pos-2",
     categoria: "Postres",
@@ -439,7 +450,7 @@ export const menuItems: MenuItem[] = [
     precio: "3,20€",
   },
     {
-    id: "beb-cer-2",
+    id: "beb-cer-10",
     categoria: "Bebidas",
     subcategoria: "Cervezas",
     nombre: "Stella Artois",
@@ -536,6 +547,95 @@ export const menuItems: MenuItem[] = [
     descripcion: "",
     precio: "2,50€",
   },
+  // ☕ CAFÉS
+{
+  id: "beb-caf-1",
+  categoria: "Bebidas",
+  subcategoria: "Cafes",
+  nombre: "Solo",
+  descripcion: "",
+  precio: "1,6€",
+},
+{
+  id: "beb-caf-2",
+  categoria: "Bebidas",
+  subcategoria: "Cafes",
+  nombre: "Cortado",
+  descripcion: "",
+  precio: "1,8€",
+},
+{
+  id: "beb-caf-3",
+  categoria: "Bebidas",
+  subcategoria: "Cafes",
+  nombre: "Bombón",
+  descripcion: "",
+  precio: "1,9€",
+},
+{
+  id: "beb-caf-4",
+  categoria: "Bebidas",
+  subcategoria: "Cafes",
+  nombre: "Café con leche",
+  descripcion: "",
+  precio: "2,2€",
+},
+{
+  id: "beb-caf-5",
+  categoria: "Bebidas",
+  subcategoria: "Cafes",
+  nombre: "Carajillo",
+  descripcion: "",
+  precio: "2,4€",
+},
+{
+  id: "beb-caf-6",
+  categoria: "Bebidas",
+  subcategoria: "Cafes",
+  nombre: "Infusión",
+  descripcion: "",
+  precio: "1,5€",
+},
+{
+  id: "beb-caf-7",
+  categoria: "Bebidas",
+  subcategoria: "Cafes",
+  nombre: "Americano",
+  descripcion: "",
+  precio: "2€",
+},
+{
+  id: "beb-caf-8",
+  categoria: "Bebidas",
+  subcategoria: "Cafes",
+  nombre: "Copa licor",
+  descripcion: "",
+  precio: "5€",
+},
+{
+  id: "beb-caf-9",
+  categoria: "Bebidas",
+  subcategoria: "Cafes",
+  nombre: "Chupito",
+  descripcion: "",
+  precio: "2,5€",
+},
+{
+  id: "beb-cav-1",
+  categoria: "Bebidas",
+  subcategoria: "Cavas",
+  nombre: "Cava blanco",
+  descripcion: "",
+  precio: "20€",
+},
+{
+  id: "beb-cav-2",
+  categoria: "Bebidas",
+  subcategoria: "Cavas",
+  nombre: "Cava rosé",
+  descripcion: "",
+  precio: "25€",
+},
 
   // 🍷 VINOS
   // Copas
