@@ -657,7 +657,15 @@ export const menuItems: MenuItem[] = [
     descripcion: "Copa, tinto",
     precio: "3,50€",
   },
-
+  {
+    id: "beb-vin-18",
+    categoria: "Bebidas",
+    subcategoria: "Vinos",
+    tipo: "Copa",
+    nombre: "Copa Ribera/Rioja",
+    descripcion: "Copa, tinto",
+    precio: "4€",
+  },
   // Botella - Blanco
   {
     id: "beb-vin-3",
