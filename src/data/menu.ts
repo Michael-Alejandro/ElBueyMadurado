@@ -158,8 +158,8 @@ export const menuItems: MenuItem[] = [
     tipo: "Entrante",
     nombre: "Calamar de playa XXL",
     descripcion:
-      "Calamar de playa XXL en dos texturas, acompañado con mayonesa de ajo puerro y cecina.",
-    precio: "19€",
+      "Calamar de playa XXL en dos texturas con salsa de ajo y perejil, acompañado con mayonesa de ajo puerro y cecina.",
+    precio: "22€",
   },
   {
     id: "ent-16",
@@ -360,6 +360,15 @@ export const menuItems: MenuItem[] = [
     descripcion:
       "Chuletón de vaca Simmental con 150 días de maduración. Selección especial Juan Navarro.",
     precio: "120€/kg",
+    detalle: "€/kg",
+  },
+  {
+    id: "car-7",
+    categoria: "Carnes",
+    nombre: "Chuletón BUEY NACIONAL (+250 días)",
+    descripcion:
+      "Chuletón de buey nacional con más de 250 días de maduración, otro nivel.",
+    precio: "150€/kg",
     detalle: "€/kg",
   },
 
