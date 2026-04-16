@@ -1334,3 +1334,28 @@ html.modal-open {
     padding: 1rem 0;
   }
 }
+.carta-postres-section {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.carta-postres-divider {
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(120, 120, 120, 0.35),
+    transparent
+  );
+  margin: 0.5rem 0;
+}
+.carta-postres-subtitle {
+  text-align: center;
+  font-size: 0.95rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(80, 80, 80, 0.85);
+  margin-top: 0.5rem;
+}

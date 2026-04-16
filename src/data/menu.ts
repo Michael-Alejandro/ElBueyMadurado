@@ -12,8 +12,7 @@ export interface MenuItem {
   incluye?: string;
   tipo?: string;
 
-  // ✅ Nuevo (opcional, solo lo usaremos en Bebidas)
-  subcategoria?: "Cervezas" | "Refrescos" | "Vinos";
+  subcategoria?: "Cervezas" | "Refrescos" | "Vinos" | "Cafes" | "Cavas";
 }
 
 export const menuItems: MenuItem[] = [
@@ -61,7 +60,7 @@ export const menuItems: MenuItem[] = [
     tipo: "Frío",
     nombre: "Rueda de queso",
     descripcion:
-      "Queso de leche cruda de oveja con virutas de cecina en su interior.",
+      "Cubos de queso de leche cruda de oveja con virutas de cecina en su interior.",
     precio: "12€",
   },
   {
@@ -159,8 +158,8 @@ export const menuItems: MenuItem[] = [
     tipo: "Entrante",
     nombre: "Calamar de playa XXL",
     descripcion:
-      "Calamar de playa XXL en dos texturas, acompañado con mayonesa de ajo puerro y cecina.",
-    precio: "19€",
+      "Calamar de playa XXL en dos texturas con salsa de ajo y perejil, acompañado con mayonesa de ajo puerro y cecina.",
+    precio: "22€",
   },
   {
     id: "ent-16",
@@ -204,6 +203,15 @@ export const menuItems: MenuItem[] = [
       "Añade 180 g extra de carne de buey madurado 500 días.",
     precio: "8€",
     unidad: true,
+  },
+    {
+    id: "ham-11",
+    categoria: "Hamburguesas",
+    tipo: "Hamburguesa",
+    nombre: "LA CAVERNÍCOLA",
+    descripcion:
+      '⭐ Burguer del mes · Carne de vaca 150 días y carne de buey 500 días. Queso comté, salsa "Hotbuey" espectacular, picaña de buey gallego, acompañada de tuétano de vaca madurada para que lo untes tu mismo.',
+    precio: "19€",
   },
   {
     id: "ham-8",
@@ -279,7 +287,26 @@ export const menuItems: MenuItem[] = [
     precio: "28€",
     detalle: "200 g",
   },
-
+  {
+    id: "ham-12",
+    categoria: "Hamburguesas",
+    tipo: "Hamburguesa",
+    nombre: "Bandeja de patatas fritas",
+    descripcion:
+      "",
+    precio: "5€",
+    detalle: "200 g",
+  }, 
+    {
+    id: "ham-13",
+    categoria: "Hamburguesas",
+    tipo: "Hamburguesa",
+    nombre: "Bandeja de boniato frito",
+    descripcion:
+      "",
+    precio: "6€",
+    detalle: "200 g",
+  }, 
   // =========================
   // CARNES
   // =========================
@@ -335,6 +362,15 @@ export const menuItems: MenuItem[] = [
     precio: "120€/kg",
     detalle: "€/kg",
   },
+  {
+    id: "car-7",
+    categoria: "Carnes",
+    nombre: "Chuletón BUEY NACIONAL (+250 días)",
+    descripcion:
+      "Chuletón de buey nacional con más de 250 días de maduración, otro nivel.",
+    precio: "150€/kg",
+    detalle: "€/kg",
+  },
 
   // POSTRES
   // =========================
@@ -343,17 +379,18 @@ export const menuItems: MenuItem[] = [
     categoria: "Postres",
     nombre: "Postre carnívoro",
     descripcion:
-      "Helado de queso parmesano con picaña de buey con 500 días de maduración.",
+      "Helado de queso parmesano con picaña de buey con 500 días de maduración y Peta Zetas de chocolate.",
     precio: "7.5€",
   },
-  {
-    id: "pos-1",
-    categoria: "Postres",
-    nombre: "Tarta de queso con cazalla y naranja",
-    descripcion:
-      "⭐ Tarta del mes de marzo · Tarta de queso con cazalla y naranja con topping de chocolate blanco.",
-    precio: "7.5€",
-  },
+{
+  id: "pos-6",
+  categoria: "Postres",
+  nombre: "Tarta de queso huesitos",
+  descripcion:
+    "⭐ Tarta del mes · Tarta de queso cremosa con sabor a huesitos.",
+  precio: "7.5€",
+},
+
   {
     id: "pos-2",
     categoria: "Postres",
@@ -376,19 +413,35 @@ export const menuItems: MenuItem[] = [
       "Base cremosa con el intenso e irresistible sabor de Nutella.",
     precio: "7.5€",
   },
+    {
+    id: "pos-7",
+    categoria: "Postres",
+    nombre: "Coulant de Lotus",
+    descripcion:
+      "Cremoso coulant con sabor a lotus con una bola de helado a elegir (Vainilla o nata con nueces).",
+    precio: "7.5€",
+  },
+  {
+    id: "pos-8",
+    categoria: "Postres",
+    nombre: "Coulant de Baileys",
+    descripcion:
+      "Cremoso coulant con sabor a Baileys con una bola de helado a elegir (Vainilla o nata con nueces).",
+    precio: "7.5€",
+  },
+    {
+    id: "pos-9",
+    categoria: "Postres",
+    nombre: "Helado",
+    descripcion:
+      "2 bolas de helado a elegir (Vainilla o nata con nueces), combínalas como quieras.",
+    precio: "6€",
+  },
   // =========================
   // BEBIDAS
   // =========================
 
   // 🍺 CERVEZAS
-  {
-    id: "beb-cer-1",
-    categoria: "Bebidas",
-    subcategoria: "Cervezas",
-    nombre: "Founders Porter",
-    descripcion: "Cerveza negra.",
-    precio: "4,30€",
-  },
   {
     id: "beb-cer-9",
     categoria: "Bebidas",
@@ -402,6 +455,14 @@ export const menuItems: MenuItem[] = [
     categoria: "Bebidas",
     subcategoria: "Cervezas",
     nombre: "Alhambra Reserva 1925",
+    descripcion: "",
+    precio: "3,20€",
+  },
+    {
+    id: "beb-cer-10",
+    categoria: "Bebidas",
+    subcategoria: "Cervezas",
+    nombre: "Stella Artois",
     descripcion: "",
     precio: "3,20€",
   },
@@ -495,6 +556,95 @@ export const menuItems: MenuItem[] = [
     descripcion: "",
     precio: "2,50€",
   },
+  // ☕ CAFÉS
+{
+  id: "beb-caf-1",
+  categoria: "Bebidas",
+  subcategoria: "Cafes",
+  nombre: "Solo",
+  descripcion: "",
+  precio: "1,6€",
+},
+{
+  id: "beb-caf-2",
+  categoria: "Bebidas",
+  subcategoria: "Cafes",
+  nombre: "Cortado",
+  descripcion: "",
+  precio: "1,8€",
+},
+{
+  id: "beb-caf-3",
+  categoria: "Bebidas",
+  subcategoria: "Cafes",
+  nombre: "Bombón",
+  descripcion: "",
+  precio: "1,9€",
+},
+{
+  id: "beb-caf-4",
+  categoria: "Bebidas",
+  subcategoria: "Cafes",
+  nombre: "Café con leche",
+  descripcion: "",
+  precio: "2,2€",
+},
+{
+  id: "beb-caf-5",
+  categoria: "Bebidas",
+  subcategoria: "Cafes",
+  nombre: "Carajillo",
+  descripcion: "",
+  precio: "2,4€",
+},
+{
+  id: "beb-caf-6",
+  categoria: "Bebidas",
+  subcategoria: "Cafes",
+  nombre: "Infusión",
+  descripcion: "",
+  precio: "1,5€",
+},
+{
+  id: "beb-caf-7",
+  categoria: "Bebidas",
+  subcategoria: "Cafes",
+  nombre: "Americano",
+  descripcion: "",
+  precio: "2€",
+},
+{
+  id: "beb-caf-8",
+  categoria: "Bebidas",
+  subcategoria: "Cafes",
+  nombre: "Copa licor",
+  descripcion: "",
+  precio: "5€",
+},
+{
+  id: "beb-caf-9",
+  categoria: "Bebidas",
+  subcategoria: "Cafes",
+  nombre: "Chupito",
+  descripcion: "",
+  precio: "2,5€",
+},
+{
+  id: "beb-cav-1",
+  categoria: "Bebidas",
+  subcategoria: "Cavas",
+  nombre: "Cava blanco",
+  descripcion: "",
+  precio: "20€",
+},
+{
+  id: "beb-cav-2",
+  categoria: "Bebidas",
+  subcategoria: "Cavas",
+  nombre: "Cava rosé",
+  descripcion: "",
+  precio: "25€",
+},
 
   // 🍷 VINOS
   // Copas
@@ -516,7 +666,15 @@ export const menuItems: MenuItem[] = [
     descripcion: "Copa, tinto",
     precio: "3,50€",
   },
-
+  {
+    id: "beb-vin-18",
+    categoria: "Bebidas",
+    subcategoria: "Vinos",
+    tipo: "Copa",
+    nombre: "Copa Ribera/Rioja",
+    descripcion: "Copa, tinto",
+    precio: "4€",
+  },
   // Botella - Blanco
   {
     id: "beb-vin-3",
