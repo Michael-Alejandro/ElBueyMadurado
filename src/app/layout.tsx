@@ -3,7 +3,6 @@ import { Analytics } from "@vercel/analytics/react";
 import './globals.css';
 import Navbar from '@/components/Navbar/Navbar';
 import Footer from '@/components/Footer/Footer';
-import FirstVisitNotice from '@/components/ui/FirstVisitNotice';
 import WhatsAppButton from '@/components/ui/WhatsAppButton';
 
 export const metadata: Metadata = {
@@ -32,7 +31,6 @@ export default function RootLayout({
           {children}
         </main>
         <Footer />
-        <FirstVisitNotice />
         <WhatsAppButton />
 
         {/* Vercel Analytics */}
