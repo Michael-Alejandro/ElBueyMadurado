@@ -341,7 +341,7 @@ export const menuItems: MenuItem[] = [
     nombre: "Chuletón GOLD (50 días)",
     descripcion:
       "Chuletón de vaca Simmental con 50 días de maduración. Selección especial Juan Navarro.",
-    precio: "70€/kg",
+    precio: "80€/kg",
     detalle: "€/kg",
   },
   {
