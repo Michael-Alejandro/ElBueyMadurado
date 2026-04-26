@@ -724,15 +724,6 @@ export const menuItems: MenuItem[] = [
     precio: "28€",
   },
   {
-    id: "beb-vin-7",
-    categoria: "Bebidas",
-    subcategoria: "Vinos",
-    tipo: "Tinto",
-    nombre: "Abadía San Quirce (Crianza)",
-    descripcion: "Ribera del Duero · Botella, tinto.",
-    precio: "30€",
-  },
-  {
     id: "beb-vin-6",
     categoria: "Bebidas",
     subcategoria: "Vinos",
