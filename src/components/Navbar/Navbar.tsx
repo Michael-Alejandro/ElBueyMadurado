@@ -9,7 +9,7 @@ const navItems = [
   { href: '/', label: 'Home' },
   { href: '/carta', label: 'Carta' },
   { href: '/reservas', label: 'Reservar' },
-  //{ href: '/sorteo', label: 'Sorteo' },
+  { href: '/sorteo', label: 'Sorteo' },
   { href: '/sobre-nosotros', label: 'Sobre Nosotros' },
   { href: '/contacto', label: 'Contacto' },
 ] as const;
