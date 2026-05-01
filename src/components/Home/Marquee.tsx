@@ -7,22 +7,24 @@ export default function Marquee() {
         <div className="marquee-track">
           <span>
             🍔 BURGER DEL MES 🍔
-            LA CAVERNÍCOLA 🔥
-            Carne de vaca 150 días + buey 500 días · 
-            queso comté · 
-            salsa hotbuey · 
-            picaña de buey gallego · 
-            tuétano de vaca madurada
+            LA REINA DEL BUEY 🔥
+            Carne de vaca 150 días · 
+            Queso cheddar inglés · 
+            cebolla caramelizada · 
+            bacon al horno caramelizado · 
+            glaseado de demiglace de buey caramelizada ·
+            tarta de queso manchego al romero
           </span>
 
           <span>
             🍔 BURGER DEL MES 🍔
-            LA CAVERNÍCOLA 🔥
-            Carne de vaca 150 días + buey 500 días · 
-            queso comté · 
-            salsa hotbuey · 
-            picaña de buey gallego · 
-            tuétano de vaca madurada
+            LA REINA DEL BUEY 🔥
+            Carne de vaca 150 días · 
+            Queso cheddar inglés · 
+            cebolla caramelizada · 
+            bacon al horno caramelizado · 
+            glaseado de demiglace de buey caramelizada ·
+            tarta de queso manchego al romero
           </span>
         </div>
       </div>

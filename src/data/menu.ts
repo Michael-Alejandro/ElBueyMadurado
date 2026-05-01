@@ -208,10 +208,10 @@ export const menuItems: MenuItem[] = [
     id: "ham-11",
     categoria: "Hamburguesas",
     tipo: "Hamburguesa",
-    nombre: "LA CAVERNÍCOLA",
+    nombre: "LA REINA DEL BUEY",
     descripcion:
-      '⭐ Burguer del mes · Carne de vaca 150 días y carne de buey 500 días. Queso comté, salsa "Hotbuey" espectacular, picaña de buey gallego, acompañada de tuétano de vaca madurada para que lo untes tu mismo.',
-    precio: "19€",
+      '⭐ Burguer del mes · Carne de vaca 150 días. Queso cheddar inglés, cebolla caramelizada, bacon al horno caramelizado, glaseado de demiglace de buey caramelizada, tarta de queso manchego al romero.',
+    precio: "17€",
   },
   {
     id: "ham-8",
