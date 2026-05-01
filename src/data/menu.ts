@@ -107,15 +107,6 @@ export const menuItems: MenuItem[] = [
     unidad: true,
   },
   {
-    id: "ent-10",
-    categoria: "Entrantes",
-    tipo: "Entrante",
-    nombre: "Gyozas de vaca rubia gallega con demiglace",
-    descripcion: "Gyozas de vaca rubia gallega con demiglace de Pedro Ximenéz.",
-    precio: "12€",
-    detalle: "4 unidades",
-  },
-  {
     id: "ent-11",
     categoria: "Entrantes",
     tipo: "Entrante",

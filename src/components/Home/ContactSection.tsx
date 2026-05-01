@@ -1,6 +1,7 @@
 // components/Home/ContactSection.tsx
 'use client';
 
+import AvSmartechSignature from "@/components/ui/AvSmartechSignature";
 import { FaWhatsapp } from "react-icons/fa";
 
 const WHATSAPP_URL = "https://wa.me/34670775786";
@@ -168,6 +169,10 @@ const ContactSection = () => {
             </a>
           </div>
         </div>
+      </div>
+
+      <div className="mt-7 flex justify-center">
+        <AvSmartechSignature variant="contact" />
       </div>
     </section>
   );
