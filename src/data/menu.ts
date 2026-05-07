@@ -121,7 +121,7 @@ export const menuItems: MenuItem[] = [
     tipo: "Entrante",
     nombre: "Buñuelos de vaca madurada",
     descripcion:
-      "Masa de buñuelo valenciano relleno de vaca madurada y queso de tetilla con reducción de Pedro Ximénez, 2 unidades.",
+      "Masa de buñuelo valenciano relleno de vaca madurada y queso de tetilla, acompañados con salsa de trufa, 2 unidades.",
     precio: "10€",
     detalle: "2 unidades",
   },
@@ -373,15 +373,14 @@ export const menuItems: MenuItem[] = [
       "Helado de queso parmesano con picaña de buey con 500 días de maduración y Peta Zetas de chocolate.",
     precio: "7.5€",
   },
-{
-  id: "pos-6",
-  categoria: "Postres",
-  nombre: "Tarta de queso huesitos",
-  descripcion:
-    "⭐ Tarta del mes · Tarta de queso cremosa con sabor a huesitos.",
-  precio: "7.5€",
-},
-
+  {
+    id: "pos-6",
+    categoria: "Postres",
+    nombre: "Tarta de queso sabor piruleta",
+    descripcion:
+      "⭐ Tarta del mes · Tarta de queso cremosa, con un toque de licor de piruleta.",
+    precio: "7.5€",
+  },
   {
     id: "pos-2",
     categoria: "Postres",
@@ -399,9 +398,9 @@ export const menuItems: MenuItem[] = [
   {
     id: "pos-4",
     categoria: "Postres",
-    nombre: "Tarta de queso Nutella",
+    nombre: "Tarta de queso huesitos",
     descripcion:
-      "Base cremosa con el intenso e irresistible sabor de Nutella.",
+      "Tarta de queso cremosa con sabor a huesitos.",
     precio: "7.5€",
   },
     {
