@@ -150,7 +150,7 @@ export const menuItems: MenuItem[] = [
     nombre: "Calamar de playa XXL",
     descripcion:
       "Calamar de playa XXL en dos texturas con salsa de ajo y perejil, acompañado con mayonesa de ajo puerro y cecina.",
-    precio: "22€",
+    precio: "24€",
   },
   {
     id: "ent-16",
