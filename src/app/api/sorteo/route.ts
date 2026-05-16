@@ -1,15 +1,17 @@
 import { NextResponse } from 'next/server';
 
-const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwsLdZBu6Xp-zi4m6otwBEFGodsX4MHnQPESkhRayBH4KUv-BCA8onQXaH6G8Y30rZc/exec';
-type SorteoPayload = {
+const APPS_SCRIPT_URL =
+  'https://script.google.com/macros/s/AKfycbzr20UApqplefxx4R7Jsr92PFNhc83XhryzBBEDhK4DPB749yn19cu5pyO6p9yopbWA/exec';
+
+type NewsletterPayload = {
   nombre?: string;
   email?: string;
   aceptaCondi?: boolean;
-  aceptaPubli?: boolean;
+  suscrito?: boolean;
 };
 
 type AppsScriptResponse = {
-  result?: 'success' | 'duplicate' | 'error' | string;
+  result?: 'success' | 'error' | string;
   error?: string;
   message?: string;
 };
@@ -18,21 +20,6 @@ const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 function normalizeText(value: unknown) {
   return typeof value === 'string' ? value.trim() : '';
-}
-
-function getClientIp(request: Request) {
-  const forwardedFor = normalizeText(request.headers.get('x-forwarded-for'));
-
-  if (forwardedFor) {
-    return forwardedFor.split(',')[0]?.trim() || 'unknown';
-  }
-
-  return (
-    normalizeText(request.headers.get('cf-connecting-ip')) ||
-    normalizeText(request.headers.get('x-real-ip')) ||
-    normalizeText(request.headers.get('x-client-ip')) ||
-    'unknown'
-  );
 }
 
 function formatRegistrationDate(date: Date) {
@@ -54,24 +41,24 @@ function getAppsScriptErrorMessage(upstreamData: AppsScriptResponse | null) {
   const upstreamError = normalizeText(upstreamData?.error);
 
   if (
-    upstreamError.includes("Cannot read properties of null") &&
+    upstreamError.includes('Cannot read properties of null') &&
     upstreamError.includes('getLastRow')
   ) {
-    return 'El Apps Script no encuentra la hoja "Sorteo". Revisa que la pestana se llame exactamente asi.';
+    return 'El Apps Script no encuentra la hoja configurada para la newsletter.';
   }
 
   return (
     upstreamError ||
     normalizeText(upstreamData?.message) ||
-    'El servicio del sorteo no ha aceptado la participacion.'
+    'El servicio de newsletter no ha aceptado la solicitud.'
   );
 }
 
 export async function POST(request: Request) {
-  let payload: SorteoPayload;
+  let payload: NewsletterPayload;
 
   try {
-    payload = (await request.json()) as SorteoPayload;
+    payload = (await request.json()) as NewsletterPayload;
   } catch {
     return NextResponse.json(
       { error: 'No se ha podido leer el formulario enviado.' },
@@ -81,17 +68,9 @@ export async function POST(request: Request) {
 
   const nombre = normalizeText(payload.nombre);
   const email = normalizeText(payload.email).toLowerCase();
-  const aceptaCondi = Boolean(payload.aceptaCondi);
-  const aceptaPubli = Boolean(payload.aceptaPubli);
+  const aceptaCondi = payload.aceptaCondi === true;
+  const suscrito = payload.suscrito !== false;
   const fecha = formatRegistrationDate(new Date());
-  const ip = getClientIp(request);
-
-  if (!nombre) {
-    return NextResponse.json(
-      { error: 'Indica tu nombre y apellidos para completar tu inscripción.' },
-      { status: 400 }
-    );
-  }
 
   if (!email || !emailRegex.test(email)) {
     return NextResponse.json(
@@ -100,11 +79,19 @@ export async function POST(request: Request) {
     );
   }
 
+  if (suscrito && !nombre) {
+    return NextResponse.json(
+      { error: 'Indica tu nombre para suscribirte a la newsletter.' },
+      { status: 400 }
+    );
+  }
+
   if (!aceptaCondi) {
     return NextResponse.json(
       {
-        error:
-          'Acepta las bases legales y condiciones del sorteo para validar tu participación.',
+        error: suscrito
+          ? 'Acepta las condiciones y la política de privacidad para recibir la newsletter.'
+          : 'Confirma que quieres darte de baja de la newsletter.',
       },
       { status: 400 }
     );
@@ -117,20 +104,17 @@ export async function POST(request: Request) {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        nombre,
+        nombre: suscrito ? nombre : '',
         email,
         acepta_condi: aceptaCondi ? 'SI' : 'NO',
-        acepta_publi: aceptaPubli ? 'SI' : 'NO',
         fecha,
-        ip,
+        suscrito: suscrito ? 'SI' : 'NO',
       }),
       cache: 'no-store',
       redirect: 'follow',
     });
 
     const upstreamBody = await upstreamResponse.text();
-    console.log(upstreamBody);
-
     let upstreamData: AppsScriptResponse | null = null;
 
     if (upstreamBody) {
@@ -139,17 +123,6 @@ export async function POST(request: Request) {
       } catch {
         upstreamData = null;
       }
-    }
-
-    if (upstreamData?.result === 'duplicate') {
-      return NextResponse.json(
-        {
-          error:
-            normalizeText(upstreamData.error) ||
-            'Ya existe una participación asociada a esta persona. Solo se permite una inscripción por participante.',
-        },
-        { status: 409 }
-      );
     }
 
     if (!upstreamResponse.ok || upstreamData?.result === 'error') {
@@ -173,15 +146,15 @@ export async function POST(request: Request) {
 
     return NextResponse.json({
       ok: true,
-      message:
-        normalizeText(upstreamData.message) ||
-        '¡Participación confirmada! Ya estás dentro del sorteo. Mucha suerte 🍀',
+      message: suscrito
+        ? 'Te has suscrito correctamente. Pronto recibirás descuentos y novedades en tu email.'
+        : 'Te has desuscrito correctamente. Ya no recibirás nuestras promociones por email.',
     });
   } catch {
     return NextResponse.json(
       {
         error:
-          'No hemos podido conectar con el servicio del sorteo. Intentalo de nuevo en unos segundos.',
+          'No hemos podido conectar con el servicio de newsletter. Inténtalo de nuevo en unos segundos.',
       },
       { status: 502 }
     );

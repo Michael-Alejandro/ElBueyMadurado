@@ -64,16 +64,6 @@ export const menuItems: MenuItem[] = [
     precio: "12€",
   },
   {
-    id: "ent-6",
-    categoria: "Entrantes",
-    tipo: "Frío",
-    nombre: "Secreto de buey gallego selección LYO",
-    descripcion:
-      "Secreto de buey gallego selección LYO con 500 días de maduración.",
-    precio: "25€",
-    detalle: "150 g",
-  },
-  {
     id: "ent-7",
     categoria: "Entrantes",
     tipo: "Frío",

@@ -1,12 +1,12 @@
 import type { Metadata } from 'next';
-import SorteoExperience from '@/components/Sorteo/SorteoExperience';
+import NewsletterExperience from '@/components/Sorteo/SorteoExperience';
 
 export const metadata: Metadata = {
-  title: 'Sorteo comida para 2 | El Buey Madurado',
+  title: 'Newsletter de descuentos | El Buey Madurado',
   description:
-    'Participa gratis en el sorteo de una comida o cena para 2 personas valorada en 150€ en El Buey Madurado.',
+    'Suscríbete a la newsletter de El Buey Madurado y recibe descuentos, promociones y novedades especiales en tu email.',
 };
 
-export default function SorteoPage() {
-  return <SorteoExperience />;
+export default function NewsletterPage() {
+  return <NewsletterExperience />;
 }
