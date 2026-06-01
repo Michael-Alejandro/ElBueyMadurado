@@ -7,24 +7,24 @@ export default function Marquee() {
         <div className="marquee-track">
           <span>
             🍔 BURGER DEL MES 🍔
-            LA REINA DEL BUEY 🔥
-            Carne de vaca 150 días · 
-            Queso cheddar inglés · 
-            cebolla caramelizada · 
-            bacon al horno caramelizado · 
-            glaseado de demiglace de buey caramelizada ·
-            tarta de queso manchego al romero
+            CP BARBER 🔥
+            Carne de vaca rubia gallega +150 días ·
+            salsa casera de bits con quesos ·
+            carne desmechada de vaca ·
+            mermelada de cecina ·
+            pan untado con grasa de buey ·
+            bits crujientes y parmesano
           </span>
 
           <span>
             🍔 BURGER DEL MES 🍔
-            LA REINA DEL BUEY 🔥
-            Carne de vaca 150 días · 
-            Queso cheddar inglés · 
-            cebolla caramelizada · 
-            bacon al horno caramelizado · 
-            glaseado de demiglace de buey caramelizada ·
-            tarta de queso manchego al romero
+            CP BARBER 🔥
+            Carne de vaca rubia gallega +150 días ·
+            salsa casera de bits con quesos ·
+            carne desmechada de vaca ·
+            mermelada de cecina ·
+            pan untado con grasa de buey ·
+            bits crujientes y parmesano
           </span>
         </div>
       </div>

@@ -585,9 +585,25 @@
   margin: 0;
 }
 
+.carta-product-allergens {
+  margin: 0;
+  font-size: 0.78rem;
+  line-height: 1.45;
+  color: rgba(124, 45, 18, 0.82);
+}
+
+.carta-product-allergens span {
+  font-weight: 800;
+  color: #92400e;
+}
+
 @media (min-width: 768px) {
   .carta-product-description {
     font-size: 1rem;
+  }
+
+  .carta-product-allergens {
+    font-size: 0.85rem;
   }
 }
 

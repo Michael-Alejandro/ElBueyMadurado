@@ -5,6 +5,7 @@ export interface MenuItem {
   categoria: "Entrantes" | "Carnes" | "Hamburguesas" | "Postres" | "Bebidas";
   nombre: string;
   descripcion: string;
+  alergenos?: string;
   precio: string;
   imagen?: string;
   unidad?: boolean;
@@ -189,10 +190,10 @@ export const menuItems: MenuItem[] = [
     id: "ham-11",
     categoria: "Hamburguesas",
     tipo: "Hamburguesa",
-    nombre: "LA REINA DEL BUEY",
+    nombre: "CP Barber",
     descripcion:
-      '⭐ Burguer del mes · Carne de vaca 150 días. Queso cheddar inglés, cebolla caramelizada, bacon al horno caramelizado, glaseado de demiglace de buey caramelizada, tarta de queso manchego al romero.',
-    precio: "17€",
+      "Burger del mes en colaboración con CP Barber.\n\n 180 g de carne de vaca rubia gallega con más de 150 días de maduración, salsa casera de bits elaborada con quesos, carne desmechada de vaca y mermelada de cecina.\n\nEl pan va untado con grasa de buey para potenciar el sabor y la jugosidad. Para terminar, se corona con bits crujientes y queso parmesano por encima.",
+    precio: "18€",
   },
   {
     id: "ham-8",
@@ -366,31 +367,56 @@ export const menuItems: MenuItem[] = [
   {
     id: "pos-6",
     categoria: "Postres",
-    nombre: "Tarta de queso sabor piruleta",
+    nombre: "Carrot Cake / Tarta de Zanahoria",
     descripcion:
-      "⭐ Tarta del mes · Tarta de queso cremosa, con un toque de licor de piruleta.",
+      "Base de bizcocho de zanahoria bañada en nuestro sirope de la casa, cubierta con una crema de chocolate blanco y un toque de mascarpone, finalizada con nueces por encima.",
+    alergenos:
+      "contiene gluten, leche, huevo, soja y nueces. Puede contener otros frutos de cáscara.",
     precio: "7.5€",
   },
   {
     id: "pos-2",
     categoria: "Postres",
     nombre: "Tarta de queso Kinder",
-    descripcion: "Base cremosa con el inconfundible sabor a chocolate Kinder.",
+    descripcion:
+      "Tarta de queso cremosa con el sabor inconfundible de Kinder, suave, dulce y perfecta para los más golosos.",
+    alergenos: "pendiente de confirmar.",
     precio: "7.5€",
   },
   {
     id: "pos-3",
     categoria: "Postres",
-    nombre: "Tarta de queso Donuts",
-    descripcion: "Inspirada en el clásico Donuts, dulce y sorprendente.",
+    nombre: "Red Velvet",
+    descripcion:
+      "Base de bizcocho Red Velvet bañada en nuestro sirope de la casa, cubierta con una crema trufada de chocolate blanco, queso crema y un toque de limón.",
+    alergenos: "contiene gluten, leche, huevo, soja y nueces.",
     precio: "7.5€",
   },
   {
     id: "pos-4",
     categoria: "Postres",
-    nombre: "Tarta de queso huesitos",
+    nombre: "Flan Casero",
     descripcion:
-      "Tarta de queso cremosa con sabor a huesitos.",
+      "Flan cremoso elaborado a base de huevos, nata y leche condensada, con una textura suave y un sabor tradicional.",
+    alergenos: "contiene huevo y leche. Sin gluten.",
+    precio: "7.5€",
+  },
+  {
+    id: "pos-10",
+    categoria: "Postres",
+    nombre: "Tiramisú",
+    descripcion:
+      "Base de bizcocho de cacao bañada en sirope de café, cubierta con una suave crema de mascarpone y chocolate blanco, finalizada con cacao en polvo.",
+    alergenos: "contiene gluten, leche, huevo y soja.",
+    precio: "7.5€",
+  },
+  {
+    id: "pos-11",
+    categoria: "Postres",
+    nombre: "Tarta de queso de coco y maracuyá",
+    descripcion:
+      "Tarta de queso cremosa con coco y maracuyá, una combinación tropical, fresca y equilibrada entre dulzor y acidez.",
+    alergenos: "pendiente de confirmar.",
     precio: "7.5€",
   },
     {

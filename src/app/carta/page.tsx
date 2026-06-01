@@ -145,6 +145,12 @@ export default function CartaPage() {
             {producto.descripcion}
           </p>
 
+          {producto.alergenos && (
+            <p className="carta-product-allergens">
+              <span>Alérgenos:</span> {producto.alergenos}
+            </p>
+          )}
+
           <div
             className={`carta-product-price-bottom ${
               esSuplemento ? 'text-amber-700 font-bold text-lg' : ''
@@ -184,13 +190,19 @@ export default function CartaPage() {
     const esCarnes = categoria === 'Carnes';
     const bebidasPrincipales = ['Cervezas', 'Refrescos', 'Cafes', 'Cavas'] as const;
     const esPostres = categoria === 'Postres';
+    const postresBuey = [
+      'postre carnívoro',
+      'coulant de lotus',
+      'coulant de baileys',
+      'helado',
+    ];
 
     const postresLetis = productos.filter((item) =>
-      item.nombre.toLowerCase().includes('tarta de queso')
+      !postresBuey.includes(item.nombre.toLowerCase())
     );
 
     const otrosPostres = productos.filter(
-      (item) => !item.nombre.toLowerCase().includes('tarta de queso')
+      (item) => postresBuey.includes(item.nombre.toLowerCase())
     );
     const vinos = productos.filter((item) => item.subcategoria === 'Vinos');
     const vinosPorTipo = [
@@ -234,7 +246,7 @@ export default function CartaPage() {
                 </span>
 
                 <p className="carta-letis-description">
-                  Tartas de queso elaboradas artesanalmente en Xàtiva.
+                  Postres elaborados artesanalmente en Xàtiva.
                 </p>
               </div>
             </div>
