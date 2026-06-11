@@ -35,7 +35,7 @@ export const menuItems: MenuItem[] = [
     tipo: "Frío",
     nombre: "Trilogía del buey",
     descripcion:
-      "Secreto de buey gallego selección LYO con 500 días de maduración, picaña de buey gallego selección LYO con 500 días de maduración y cecina de wagyu.",
+      "Secreto de buey gallego selección LYO con 200 días de maduración, picaña de buey gallego selección LYO con 500 días de maduración y cecina de wagyu.",
     precio: "28€",
   },
   {
@@ -77,11 +77,21 @@ export const menuItems: MenuItem[] = [
   // =========================
   // ENTRANTES (CALIENTES)
   // =========================
+    {
+    id: "ent-17",
+    categoria: "Entrantes",
+    tipo: "Entrante",
+    nombre: "Croquetas de chuletón",
+    descripcion:
+      "Espectacular croqueta de chuletón acompañada con mayonesa de grasa de chuletón.\nMínimo 2 unidades.",
+    precio: "4€/ud",
+    unidad: true,
+  },
   {
     id: "ent-8",
     categoria: "Entrantes",
     tipo: "Entrante",
-    nombre: "La croqueta del buey",
+    nombre: "Las croquetas del buey",
     descripcion:
       "Croqueta de cecina de buey con leche de oveja envuelta con cecina de buey, sobre palomitas de torrezno deshidratado. Pídela y nosotros te diremos cómo comértela.\nMínimo 2 unidades.",
     precio: "4€/ud",
@@ -93,7 +103,7 @@ export const menuItems: MenuItem[] = [
     tipo: "Entrante",
     nombre: "Croquetas de gamba roja al ajillo con kimchi",
     descripcion:
-      "Croquetas de gamba roja al ajillo con kimchi. Mínimo 2 unidades.",
+      "Croqueta de gamba roja al ajillo con kimchi.\nMínimo 2 unidades.",
     precio: "3€/ud",
     unidad: true,
   },
@@ -103,7 +113,7 @@ export const menuItems: MenuItem[] = [
     tipo: "Entrante",
     nombre: "Patatas EL BUEY",
     descripcion:
-      "Patata natural, pastrami de vaca madurada premium selección LYO, salsa de trufa negra y queso parmesano.",
+      "Patata natural, pastrami de vaca madurada premium, salsa de trufa negra y queso parmesano.",
     precio: "15€",
   },
   {
@@ -292,6 +302,14 @@ export const menuItems: MenuItem[] = [
   // =========================
   // CARNES
   // =========================
+    {
+    id: "car-8",
+    categoria: "Carnes",
+    nombre: "★ Edición especial · Tomahawk Wagyu",
+    descripcion: "Tomahawk de buey Wagyu con un marmoleado de escándalo. Piezas limitadas.\nCortes de 2kg aprox.\nNo te lo pierdas.",
+    precio: "60€/kg",
+    detalle: "",
+  },
   {
     id: "car-1",
     categoria: "Carnes",
@@ -380,7 +398,6 @@ export const menuItems: MenuItem[] = [
     nombre: "Tarta de queso Kinder",
     descripcion:
       "Tarta de queso cremosa con el sabor inconfundible de Kinder, suave, dulce y perfecta para los más golosos.",
-    alergenos: "pendiente de confirmar.",
     precio: "7.5€",
   },
   {
@@ -416,7 +433,6 @@ export const menuItems: MenuItem[] = [
     nombre: "Tarta de queso de coco y maracuyá",
     descripcion:
       "Tarta de queso cremosa con coco y maracuyá, una combinación tropical, fresca y equilibrada entre dulzor y acidez.",
-    alergenos: "pendiente de confirmar.",
     precio: "7.5€",
   },
     {
@@ -545,6 +561,14 @@ export const menuItems: MenuItem[] = [
     nombre: "Agua con gas",
     descripcion: "",
     precio: "2,50€",
+  },
+  {
+    id: "beb-ref-6",
+    categoria: "Bebidas",
+    subcategoria: "Refrescos",
+    nombre: "Tinto de verano",
+    descripcion: "",
+    precio: "4,50€",
   },
   {
     id: "beb-ref-4",
