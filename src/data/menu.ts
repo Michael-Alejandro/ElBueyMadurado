@@ -8,7 +8,7 @@ export interface MenuItem {
   alergenos?: string;
   precio: string;
   imagen?: string;
-  unidad?: boolean;
+  unidad?: boolean; 
   detalle?: string;
   incluye?: string;
   tipo?: string;
