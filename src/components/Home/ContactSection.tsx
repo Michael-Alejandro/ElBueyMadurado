@@ -5,7 +5,7 @@ import AvSmartechSignature from "@/components/ui/AvSmartechSignature";
 import { FaWhatsapp } from "react-icons/fa";
 
 const WHATSAPP_URL = "https://wa.me/34670775786";
-
+ 
 const GOOGLE_REVIEWS_URL =
   "https://www.google.com/search?sca_esv=2e0ce5bd22b7d86a&rlz=1C1UEAD_esES1083ES1083&si=AL3DRZEsmMGCryMMFSHJ3StBhOdZ2-6yYkXd_doETEE1OR-qOZQSB00aZ9I88OJyJo2CaVn39NapAOp2oRtRFPSbooL-VkyvtQ4Aj3t2f9UyQEvOI7IyvclMC-FVOZ18KA_xjmI4EhBRdN1gAUgChJ6eZhUQ7Tu0EQ%3D%3D&q=Restaurante+el+buey+madurado+Rese%C3%B1as&sa=X&ved=2ahUKEwiB7ua3_v6RAxXuVKQEHU-dHooQ0bkNegQINRAE&biw=1536&bih=695&dpr=1.25&aic=0&zx=1767979934420&no_sw_cr=1";
 
