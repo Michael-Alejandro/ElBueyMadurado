@@ -53,7 +53,7 @@ export const menuItems: MenuItem[] = [
     tipo: "Frío",
     nombre: "Tabla de cecina de wagyu",
     descripcion: "Cecina de auténtico wagyu.",
-    precio: "27€",
+    precio: "20€",
   },
   {
     id: "ent-5",
@@ -416,7 +416,7 @@ export const menuItems: MenuItem[] = [
     descripcion:
       "Flan cremoso elaborado a base de huevos, nata y leche condensada, con una textura suave y un sabor tradicional.",
     alergenos: "contiene huevo y leche. Sin gluten.",
-    precio: "7.5€",
+    precio: "6€",
   },
   {
     id: "pos-10",
