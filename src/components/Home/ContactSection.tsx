@@ -3,6 +3,7 @@
 
 import AvSmartechSignature from "@/components/ui/AvSmartechSignature";
 import { FaWhatsapp } from "react-icons/fa";
+import ConditionalMap from "@/components/Cookies/ConditionalMap";
 
 const WHATSAPP_URL = "https://wa.me/34670775786";
  
@@ -96,7 +97,7 @@ const ContactSection = () => {
             <p>
               <strong className="text-gray-200">Email:</strong>{" "}
               <a
-                href="mailto:elbueymadurado@gmail.com"
+                href="mailto:elbueymaduradoxativa@gmail.com"
                 className="text-amber-500 hover:underline"
               >
                 elbueymaduradoxativa@gmail.com
@@ -145,29 +146,9 @@ const ContactSection = () => {
           </div>
         </div>
 
-        {/* Mapa */}
+        {/* Mapa — condicional según consentimiento funcional */}
         <div className="relative rounded-xl overflow-hidden border border-gray-800 shadow-lg h-[220px] md:h-[280px]">
-          <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d193.823107430763!2d-0.5263494328058195!3d38.988622750395706!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd61a3a2f5215229%3A0x7ecfefdab1c14599!2sRestaurante%20el%20buey%20madurado!5e0!3m2!1ses!2ses!4v1767974032149!5m2!1ses!2ses"
-            className="w-full h-full"
-            style={{ border: 0 }}
-            allowFullScreen
-            loading="lazy"
-            referrerPolicy="no-referrer-when-downgrade"
-            title="Mapa El Buey Madurado"
-          />
-
-          {/* Overlay botones (pro) */}
-          <div className="absolute bottom-4 right-4 flex gap-2">
-            <a
-              href={MAPS_DIRECTIONS_URL}
-              target="_blank"
-              rel="noreferrer"
-              className="px-3 py-2 text-xs font-semibold rounded-md bg-black/60 text-white border border-white/15 hover:bg-black/70 backdrop-blur transition"
-            >
-              Abrir Maps
-            </a>
-          </div>
+          <ConditionalMap />
         </div>
       </div>
 
