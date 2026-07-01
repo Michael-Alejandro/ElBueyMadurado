@@ -196,14 +196,14 @@ export const menuItems: MenuItem[] = [
     precio: "8€",
     unidad: true,
   },
-    {
+  {
     id: "ham-11",
     categoria: "Hamburguesas",
     tipo: "Hamburguesa",
-    nombre: "CP Barber",
+    nombre: "Cuarto del Buey",
     descripcion:
-      "Burger del mes en colaboración con CP Barber.\n\n 180 g de carne de vaca rubia gallega con más de 150 días de maduración, salsa casera de bits elaborada con quesos, carne desmechada de vaca y mermelada de cecina.\n\nEl pan va untado con grasa de buey para potenciar el sabor y la jugosidad. Para terminar, se corona con bits crujientes y queso parmesano por encima.",
-    precio: "18€",
+      "La burger del mes de julio: nuestra versión madurada de un clásico americano.\n\n180 g de carne de vaca rubia gallega con más de 150 días de maduración, doble cheddar en el pan, doble cheddar sobre la carne, cebolla cruda, pepinillo, mostaza y ketchup.\n\nLa de siempre, pero con el sello inconfundible de El Buey Madurado.",
+    precio: "16€",
   },
   {
     id: "ham-8",

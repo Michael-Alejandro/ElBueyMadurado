@@ -2,29 +2,29 @@
 
 export default function Marquee() {
   return (
-    <section className="marquee-section" aria-label="Marquee">
+    <section className="marquee-section" aria-label="Burger del mes">
       <div className="marquee">
         <div className="marquee-track">
           <span>
-            🍔 BURGER DEL MES 🍔
-            CP BARBER 🔥
-            Carne de vaca rubia gallega +150 días ·
-            salsa casera de bits con quesos ·
-            carne desmechada de vaca ·
-            mermelada de cecina ·
-            pan untado con grasa de buey ·
-            bits crujientes y parmesano
+            🍔 BURGER DEL MES DE JULIO 🍔
+            CUARTO DEL BUEY 🔥
+            180 g de vaca rubia gallega +150 días ·
+            doble cheddar en el pan ·
+            doble cheddar sobre la carne ·
+            cebolla cruda ·
+            pepinillo ·
+            mostaza y ketchup
           </span>
 
           <span>
-            🍔 BURGER DEL MES 🍔
-            CP BARBER 🔥
-            Carne de vaca rubia gallega +150 días ·
-            salsa casera de bits con quesos ·
-            carne desmechada de vaca ·
-            mermelada de cecina ·
-            pan untado con grasa de buey ·
-            bits crujientes y parmesano
+            🍔 BURGER DEL MES DE JULIO 🍔
+            CUARTO DEL BUEY 🔥
+            180 g de vaca rubia gallega +150 días ·
+            doble cheddar en el pan ·
+            doble cheddar sobre la carne ·
+            cebolla cruda ·
+            pepinillo ·
+            mostaza y ketchup
           </span>
         </div>
       </div>
