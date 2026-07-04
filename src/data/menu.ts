@@ -157,9 +157,9 @@ export const menuItems: MenuItem[] = [
     id: "ent-16",
     categoria: "Entrantes",
     tipo: "Entrante",
-    nombre: "Cesta de panes gourmet.",
+    nombre: "Cesta de pan.",
     descripcion:
-      "Pan de tomate. Pan de cereales. Pan tradicional. Pan de aceitunas.",
+      "4 unidades.",
     precio: "6€",
   },
 
