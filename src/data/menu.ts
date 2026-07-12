@@ -302,14 +302,7 @@ export const menuItems: MenuItem[] = [
   // =========================
   // CARNES
   // =========================
-    {
-    id: "car-8",
-    categoria: "Carnes",
-    nombre: "★ Edición especial · Tomahawk Wagyu",
-    descripcion: "Tomahawk de buey Wagyu con un marmoleado de escándalo. Piezas limitadas.\nCortes de 2kg aprox.\nNo te lo pierdas.",
-    precio: "60€/kg",
-    detalle: "",
-  },
+
   {
     id: "car-1",
     categoria: "Carnes",
@@ -440,7 +433,7 @@ export const menuItems: MenuItem[] = [
     categoria: "Postres",
     nombre: "Coulant de Lotus",
     descripcion:
-      "Cremoso coulant con sabor a lotus con una bola de helado a elegir (Vainilla o nata con nueces).",
+      "Cremoso coulant con sabor a lotus con una bola de helado a elegir (Vainilla, nata o chocolate).",
     precio: "7.5€",
   },
   {
@@ -448,7 +441,7 @@ export const menuItems: MenuItem[] = [
     categoria: "Postres",
     nombre: "Coulant de Baileys",
     descripcion:
-      "Cremoso coulant con sabor a Baileys con una bola de helado a elegir (Vainilla o nata con nueces).",
+      "Cremoso coulant con sabor a Baileys con una bola de helado a elegir (Vainilla, nata o chocolate).",
     precio: "7.5€",
   },
     {
@@ -456,7 +449,7 @@ export const menuItems: MenuItem[] = [
     categoria: "Postres",
     nombre: "Helado",
     descripcion:
-      "2 bolas de helado a elegir (Vainilla o nata con nueces), combínalas como quieras.",
+      "2 bolas de helado a elegir (Vainilla, nata o chocolate), combínalas como quieras.",
     precio: "6€",
   },
   // =========================
