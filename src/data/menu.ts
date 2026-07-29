@@ -323,9 +323,9 @@ export const menuItems: MenuItem[] = [
   {
     id: "car-3",
     categoria: "Carnes",
-    nombre: "Entrecot buey de wagyu",
-    descripcion: "Entrecot exclusivo hasta fin de existencias. 500gr aprox.",
-    precio: "50€",
+    nombre: "Oferta especial vaca Wagyu",
+    descripcion: "Pieza exclusiva hasta fin de existencias.",
+    precio: "100€/kg",
     detalle: "50€",
   },
   {
