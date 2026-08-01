@@ -6,25 +6,25 @@ export default function Marquee() {
       <div className="marquee">
         <div className="marquee-track">
           <span>
-            🍔 BURGER DEL MES DE JULIO 🍔
-            CUARTO DEL BUEY 🔥
+            🍔 BURGER DEL MES DE AGOSTO 🍔
+            LA CARBONARA
             180 g de vaca rubia gallega +150 días ·
-            doble cheddar en el pan ·
-            doble cheddar sobre la carne ·
-            cebolla cruda ·
-            pepinillo ·
-            mostaza y ketchup
+            emulsión de yema con aceite de guanciale ·
+            guanciale fundido ·
+            queso trufado ·
+            chips de guanciale ·
+            queso pecorino rallado sobre el pan
           </span>
 
           <span>
-            🍔 BURGER DEL MES DE JULIO 🍔
-            CUARTO DEL BUEY 🔥
+            🍔 BURGER DEL MES DE AGOSTO 🍔
+            LA CARBONARA
             180 g de vaca rubia gallega +150 días ·
-            doble cheddar en el pan ·
-            doble cheddar sobre la carne ·
-            cebolla cruda ·
-            pepinillo ·
-            mostaza y ketchup
+            emulsión de yema con aceite de guanciale ·
+            guanciale fundido ·
+            queso trufado ·
+            chips de guanciale ·
+            queso pecorino rallado sobre el pan
           </span>
         </div>
       </div>

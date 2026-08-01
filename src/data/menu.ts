@@ -200,10 +200,10 @@ export const menuItems: MenuItem[] = [
     id: "ham-11",
     categoria: "Hamburguesas",
     tipo: "Hamburguesa",
-    nombre: "Cuarto del Buey",
+    nombre: "La carbonara",
     descripcion:
-      "La burger del mes de julio: nuestra versión madurada de un clásico americano.\n\n180 g de carne de vaca rubia gallega con más de 150 días de maduración, doble cheddar en el pan, doble cheddar sobre la carne, cebolla cruda, pepinillo, mostaza y ketchup.\n\nLa de siempre, pero con el sello inconfundible de El Buey Madurado.",
-    precio: "16€",
+      "La burger del mes de Agosto: 180 g de carne de vaca rubia gallega con más de 150 días de maduración, emulsión de yema con aceite de guanciale, guanciale fundido sobre la hamburguesa, queso trufado, chips de guanciale, queso pecorina rayado por encima del pan. \n\nBuon appetito.",
+    precio: "17€",
   },
   {
     id: "ham-8",
