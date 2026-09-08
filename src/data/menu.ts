@@ -30,15 +30,6 @@ export const menuItems: MenuItem[] = [
     precio: "24€",
   },
   {
-    id: "ent-2",
-    categoria: "Entrantes",
-    tipo: "Frío",
-    nombre: "Trilogía del buey",
-    descripcion:
-      "Secreto de buey gallego selección LYO con 200 días de maduración, picaña de buey gallego selección LYO con 500 días de maduración y cecina de wagyu.",
-    precio: "28€",
-  },
-  {
     id: "ent-3",
     categoria: "Entrantes",
     tipo: "Frío",
@@ -54,6 +45,15 @@ export const menuItems: MenuItem[] = [
     nombre: "Tabla de cecina de wagyu",
     descripcion: "Cecina de auténtico wagyu.",
     precio: "20€",
+  },
+  {
+    id: "ent-2",
+    categoria: "Entrantes",
+    tipo: "Frío",
+    nombre: "Tabla mixta",
+    descripcion:
+      "Combinación de picaña de buey y cecina de wagyu.",
+    precio: "26€",
   },
   {
     id: "ent-5",
