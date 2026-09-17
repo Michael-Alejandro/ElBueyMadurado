@@ -376,14 +376,20 @@ export const menuItems: MenuItem[] = [
     precio: "7.5€",
   },
   {
-    id: "pos-6",
+    id: "pos-12",
     categoria: "Postres",
-    nombre: "Carrot Cake / Tarta de Zanahoria",
+    nombre: "Torrija brioche caramelizada",
     descripcion:
-      "Base de bizcocho de zanahoria bañada en nuestro sirope de la casa, cubierta con una crema de chocolate blanco y un toque de mascarpone, finalizada con nueces por encima.",
-    alergenos:
-      "contiene gluten, leche, huevo, soja y nueces. Puede contener otros frutos de cáscara.",
+      "Torrija de pan brioche caramelizada con helado de vainilla.",
     precio: "7.5€",
+  },
+  {
+    id: "pos-13",
+    categoria: "Postres",
+    nombre: "Cookie de chocolate",
+    descripcion:
+      "Cookie de chocolate con helado de vainilla y sirope a elegir (chocolate blanco, Kinder o pistacho).",
+    precio: "7€",
   },
   {
     id: "pos-2",
@@ -394,13 +400,12 @@ export const menuItems: MenuItem[] = [
     precio: "7.5€",
   },
   {
-    id: "pos-3",
+    id: "pos-14",
     categoria: "Postres",
-    nombre: "Red Velvet",
+    nombre: "Tarta de la abuela",
     descripcion:
-      "Base de bizcocho Red Velvet bañada en nuestro sirope de la casa, cubierta con una crema trufada de chocolate blanco, queso crema y un toque de limón.",
-    alergenos: "contiene gluten, leche, huevo, soja y nueces.",
-    precio: "7.5€",
+      "Vainilla, galleta y chocolate.",
+    precio: "6€",
   },
   {
     id: "pos-4",
@@ -412,13 +417,12 @@ export const menuItems: MenuItem[] = [
     precio: "6€",
   },
   {
-    id: "pos-10",
+    id: "pos-15",
     categoria: "Postres",
-    nombre: "Tiramisú",
+    nombre: "Tarta crujiente de almendras",
     descripcion:
-      "Base de bizcocho de cacao bañada en sirope de café, cubierta con una suave crema de mascarpone y chocolate blanco, finalizada con cacao en polvo.",
-    alergenos: "contiene gluten, leche, huevo y soja.",
-    precio: "7.5€",
+      "Tarta crujiente de almendras con caramelo.",
+    precio: "6€",
   },
   {
     id: "pos-11",

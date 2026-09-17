@@ -156,6 +156,10 @@ export default function CartaPage() {
       'coulant de lotus',
       'coulant de baileys',
       'helado',
+      'cookie de chocolate',
+      'torrija brioche caramelizada',
+      'tarta de la abuela',
+      'tarta crujiente de almendras',
     ];
 
     const postresLetis = productos.filter(
