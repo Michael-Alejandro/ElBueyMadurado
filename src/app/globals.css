@@ -23,6 +23,14 @@ body {
   color: white;
 }
 
+/* Altura del Navbar fijo. El Navbar pone el offset visible a 0px cuando se
+   esconde al hacer scroll, y los elementos fijos que van debajo (como la barra
+   de categorías de la carta) lo usan para subir con él. */
+:root {
+  --site-header-height: 80px;
+  --site-header-visible-offset: var(--site-header-height);
+}
+
 @keyframes fadeIn {
   from {
     opacity: 0;

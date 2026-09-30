@@ -106,7 +106,7 @@ const ContactSection = () => {
 
             <p>
               <strong className="text-gray-200">Dirección:</strong>{" "}
-              Calle Reina, 41. Xátiva, Valencia
+              Calle Reina, 41. Xàtiva, Valencia
             </p>
 
             {/* Bloque reseñas */}

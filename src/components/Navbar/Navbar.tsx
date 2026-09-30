@@ -2,6 +2,7 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
+import { usePathname } from 'next/navigation';
 import Logo from './Logo';
 import NavLink from './NavLink';
 
@@ -16,14 +17,45 @@ const navItems = [
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
+  const [navHidden, setNavHidden] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const lastScrollY = useRef(0);
   const menuRef = useRef<HTMLDivElement>(null);
+  const pathname = usePathname();
+
+  // Solo en la carta se esconde al bajar y reaparece al subir, para dejar más
+  // espacio a la barra de categorías y a los platos. En el resto, siempre fijo.
+  const hideOnScroll = pathname === '/carta';
+  const isHidden = hideOnScroll && navHidden && !menuOpen;
 
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 50);
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+      const scrollDelta = currentScrollY - lastScrollY.current;
+
+      setScrolled(currentScrollY > 50);
+
+      if (currentScrollY < 60) {
+        setNavHidden(false);
+      } else if (!menuOpen && scrollDelta > 8 && currentScrollY > 120) {
+        setNavHidden(true);
+      } else if (scrollDelta < -8) {
+        setNavHidden(false);
+      }
+
+      lastScrollY.current = currentScrollY;
+    };
+
+    // Al recargar o cambiar de página, el navegador puede restaurar la posición
+    // sin disparar scroll: partimos de la posición real y visible, para no verlo
+    // transparente a mitad de página ni esconderlo en el primer scroll.
+    lastScrollY.current = window.scrollY;
+    setNavHidden(false);
+    handleScroll();
+
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [menuOpen, pathname]);
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -40,11 +72,27 @@ export default function Navbar() {
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, [menuOpen]);
 
+  // Avisa a los elementos fijos que van debajo del Navbar (ver globals.css)
+  useEffect(() => {
+    document.documentElement.style.setProperty(
+      '--site-header-visible-offset',
+      isHidden ? '0px' : 'var(--site-header-height)'
+    );
+
+    return () => {
+      document.documentElement.style.setProperty(
+        '--site-header-visible-offset',
+        'var(--site-header-height)'
+      );
+    };
+  }, [isHidden]);
+
   const bgClass = scrolled || menuOpen ? 'bg-black shadow-md' : 'bg-black/50';
+  const visibilityClass = isHidden ? '-translate-y-full' : 'translate-y-0';
 
   return (
     <nav
-      className={`fixed left-0 top-0 z-50 w-full transition-all duration-300 ease-in-out ${bgClass}`}
+      className={`fixed left-0 top-0 z-50 w-full transition-all duration-300 ease-in-out ${bgClass} ${visibilityClass}`}
     >
       <div className="flex h-20 w-full items-center justify-between px-4">
         <Logo />

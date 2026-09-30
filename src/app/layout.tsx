@@ -9,8 +9,9 @@ import CookiePanel from '@/components/Cookies/CookiePanel';
 import AnalyticsLoader from '@/components/Cookies/AnalyticsLoader';
 
 export const metadata: Metadata = {
-  title: 'El Buey Madurado - Carne Madurada Premium',
-  description: 'Tienda online de carne madurada...',
+  title: 'El Buey Madurado | Restaurante de carne madurada en Xàtiva',
+  description:
+    'Restaurante en Xàtiva especializado en carne madurada: chuletones, buey gallego con 500 días de maduración, wagyu y burgers de autor. Reserva tu mesa.',
   icons: {
     icon: '/logo-fondo-blanco.ico',
   },
@@ -31,7 +32,7 @@ export default function RootLayout({
       <body className="bg-[#160a00] text-white overflow-x-hidden">
         <ConsentProvider>
           <Navbar />
-          <main className="relative min-h-screen pt-20">
+          <main className="relative min-h-screen pt-[var(--site-header-height)]">
             {children}
           </main>
           <Footer />
