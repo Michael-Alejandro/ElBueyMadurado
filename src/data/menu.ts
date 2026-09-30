@@ -229,7 +229,7 @@ export const menuItems: MenuItem[] = [
     tipo: "Hamburguesa",
     nombre: "Los Cuñaos",
     descripcion:
-      "Carne de vaca 150 días y carne de buey 500 días. Mayonesa de tuétano. Secreto de buey gallego 200 días de maduración. Demiglace de buey caramelizada. Queso cheddar madurado picante.",
+      "180 g de carne mitad buey nacional mitad rubia gallega. Mayonesa de tuétano. Secreto de buey gallego 200 días de maduración. Demiglace de buey caramelizada. Queso cheddar madurado picante.",
     precio: "20€",
   },
   {
