@@ -1,7 +1,17 @@
 /* ===== BARRA DE NAVEGACIÓN DE CATEGORÍAS - FIJA ===== */
 .carta-nav-categorias {
   position: fixed;
-  top: var(--site-header-visible-offset, var(--site-header-height));
+  /* Siempre colocada bajo el Navbar; cuando este se esconde, sube con
+     transform (lo mueve la GPU) en vez de animar top, que da tirones en móvil */
+  top: var(--site-header-height);
+  transform: translateY(
+    calc(
+      var(--site-header-visible-offset, var(--site-header-height)) -
+        var(--site-header-height)
+    )
+  );
+  transition: transform var(--site-header-transition);
+  will-change: transform;
   left: 0;
   right: 0;
   z-index: 40;
@@ -14,9 +24,7 @@
   padding: 0.75rem 1rem;
   flex-wrap: wrap;
 
-  backdrop-filter: blur(10px);
   background: rgba(0, 0, 0, 0.95);
-  transition: top 0.3s ease-in-out;
 }
 
 /* BOTÓN DE NAVEGACIÓN - INACTIVO */

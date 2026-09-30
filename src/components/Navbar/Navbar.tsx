@@ -15,11 +15,22 @@ const navItems = [
   { href: '/contacto', label: 'Contacto' },
 ] as const;
 
+// Recorrido seguido (en px) hacia abajo para esconder el Navbar en la carta, y
+// hacia arriba para mostrarlo. Se mide la distancia, no la velocidad, para que
+// también reaccione al deslizar despacio con el dedo.
+const HIDE_AFTER_SCROLL = 10;
+const SHOW_AFTER_SCROLL = 10;
+// No se esconde hasta pasar esta posición, para que al entrar se vea completo
+const HIDE_FROM_Y = 80;
+
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [navHidden, setNavHidden] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const lastScrollY = useRef(0);
+  // Posición donde empezó el movimiento actual (último cambio de dirección)
+  const directionStartY = useRef(0);
+  const lastDirection = useRef(0);
   const menuRef = useRef<HTMLDivElement>(null);
   const pathname = usePathname();
 
@@ -32,14 +43,22 @@ export default function Navbar() {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
       const scrollDelta = currentScrollY - lastScrollY.current;
+      const direction = Math.sign(scrollDelta);
+
+      // Al cambiar de dirección, el recorrido se empieza a medir desde ahí
+      if (direction !== 0 && direction !== lastDirection.current) {
+        directionStartY.current = lastScrollY.current;
+        lastDirection.current = direction;
+      }
+      const travelled = currentScrollY - directionStartY.current;
 
       setScrolled(currentScrollY > 50);
 
       if (currentScrollY < 60) {
         setNavHidden(false);
-      } else if (!menuOpen && scrollDelta > 8 && currentScrollY > 120) {
+      } else if (!menuOpen && travelled > HIDE_AFTER_SCROLL && currentScrollY > HIDE_FROM_Y) {
         setNavHidden(true);
-      } else if (scrollDelta < -8) {
+      } else if (travelled < -SHOW_AFTER_SCROLL) {
         setNavHidden(false);
       }
 
@@ -50,6 +69,8 @@ export default function Navbar() {
     // sin disparar scroll: partimos de la posición real y visible, para no verlo
     // transparente a mitad de página ni esconderlo en el primer scroll.
     lastScrollY.current = window.scrollY;
+    directionStartY.current = window.scrollY;
+    lastDirection.current = 0;
     setNavHidden(false);
     handleScroll();
 
@@ -92,7 +113,7 @@ export default function Navbar() {
 
   return (
     <nav
-      className={`fixed left-0 top-0 z-50 w-full transition-all duration-300 ease-in-out ${bgClass} ${visibilityClass}`}
+      className={`site-header fixed left-0 top-0 z-50 w-full ${bgClass} ${visibilityClass}`}
     >
       <div className="flex h-20 w-full items-center justify-between px-4">
         <Logo />
