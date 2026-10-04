@@ -326,7 +326,7 @@ export const menuItems: MenuItem[] = [
     tipo: "Kebab",
     nombre: "Tradicional",
     descripcion:
-      "Carne madurada, lechuga, tomate, cebolla, salsa de ajo y salsa de yogur.",
+      "Lechuga, tomate, cebolla, salsa de ajo y salsa de yogur.",
     precio: "12€",
   },
   {
@@ -335,7 +335,7 @@ export const menuItems: MenuItem[] = [
     tipo: "Kebab",
     nombre: "Calixto XIII",
     descripcion:
-      "Carne madurada, patatas fritas, cebolla caramelizada, queso cheddar inglés ahumado y salsa curry española de pimientos asados.",
+      "Patatas fritas, cebolla caramelizada, queso cheddar inglés ahumado y salsa curry española de pimientos asados.",
     precio: "13€",
   },
   {
@@ -344,7 +344,7 @@ export const menuItems: MenuItem[] = [
     tipo: "Kebab",
     nombre: "Sultán",
     descripcion:
-      "Carne madurada, patatas fritas, pastrami de carne madurada, queso cheddar inglés madurado y salsa de trufa.",
+      "Patatas fritas, pastrami de carne madurada, queso cheddar inglés madurado y salsa de trufa.",
     precio: "13€",
   },
   // =========================
