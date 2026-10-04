@@ -396,8 +396,11 @@ export default function CartaPage() {
                           De domingo a jueves
                         </div>
                         <p className="carta-guarnicion-name carta-guarnicion-nota">
-                          Elaboración limitada. Consulta disponibilidad con
+                          Elaboración limitada, consulta disponibilidad con
                           nuestro equipo.
+                          <span className="carta-guarnicion-destacado">
+                            A elegir entre carne madurada o pollo de corral.
+                          </span>
                         </p>
                       </div>
                     )}

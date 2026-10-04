@@ -840,6 +840,15 @@ body {
   text-align: center;
 }
 
+/* Línea resaltada dentro de la nota (p. ej. opciones de carne en kebabs) */
+.carta-guarnicion-destacado {
+  display: block;
+  margin-top: 6px;
+  font-style: normal;
+  font-weight: 700;
+  color: #92400e;
+}
+
 /* Separador visual entre opciones si caben en una fila */
 .carta-guarnicion-item:not(:last-child)::after {
   content: "|";
