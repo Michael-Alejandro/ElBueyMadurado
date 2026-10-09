@@ -42,8 +42,8 @@ export const menuItems: MenuItem[] = [
     id: "ent-4",
     categoria: "Entrantes",
     tipo: "Frío",
-    nombre: "Tabla de cecina de wagyu",
-    descripcion: "Cecina de auténtico wagyu.",
+    nombre: "Tabla de cecina",
+    descripcion: "Cecina de auténtico buey.",
     precio: "20€",
   },
   {
@@ -52,7 +52,7 @@ export const menuItems: MenuItem[] = [
     tipo: "Frío",
     nombre: "Tabla mixta",
     descripcion:
-      "Combinación de picaña de buey y cecina de wagyu.",
+      "Combinación de picaña y cecina de buey.",
     precio: "26€",
   },
   {
