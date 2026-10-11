@@ -369,6 +369,14 @@ export const menuItems: MenuItem[] = [
     detalle: "300–350 g",
   },
   {
+    id: "car-8",
+    categoria: "Carnes",
+    nombre: "★ Edición especial · Tomahawk Vaca",
+    descripcion: "Tomahawk de vaca madurada con un marmoleado de escándalo. Piezas limitadas.\nNo te lo pierdas.",
+    precio: "60€/kg",
+    detalle: "",
+  },
+  {
     id: "car-3",
     categoria: "Carnes",
     nombre: "Chuletón VACA WAGYU",
