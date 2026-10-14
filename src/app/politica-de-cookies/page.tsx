@@ -120,6 +120,20 @@ export default function PoliticaDeCookiesPage() {
                   <td>24 meses</td>
                 </tr>
                 <tr>
+                  <td><code>ebm_pwa_installed</code></td>
+                  <td>Propia</td>
+                  <td>Técnica / necesaria</td>
+                  <td>Recordar si has instalado la app o has elegido no instalarla, para no volver a preguntarte</td>
+                  <td>Persistente (hasta que borres los datos del navegador)</td>
+                </tr>
+                <tr>
+                  <td><code>ebm_pwa_dismissed_at</code></td>
+                  <td>Propia</td>
+                  <td>Técnica / necesaria</td>
+                  <td>Recordar si has instalado la app o has elegido no instalarla, para no volver a preguntarte</td>
+                  <td>Persistente (hasta que borres los datos del navegador)</td>
+                </tr>
+                <tr>
                   <td>CoverManager</td>
                   <td>Tercero (CoverManager, S.L.)</td>
                   <td>Técnica / funcional</td>

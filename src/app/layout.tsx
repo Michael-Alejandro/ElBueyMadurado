@@ -7,6 +7,7 @@ import { ConsentProvider } from '@/contexts/ConsentContext';
 import CookieBanner from '@/components/Cookies/CookieBanner';
 import CookiePanel from '@/components/Cookies/CookiePanel';
 import AnalyticsLoader from '@/components/Cookies/AnalyticsLoader';
+import InstallAppPrompt from '@/components/InstallApp/InstallAppPrompt';
 
 
 export const metadata: Metadata = {
@@ -53,6 +54,7 @@ export default function RootLayout({
           <WhatsAppButton />
           <CookieBanner />
           <CookiePanel />
+          <InstallAppPrompt />
           <AnalyticsLoader />
         </ConsentProvider>
       </body>
