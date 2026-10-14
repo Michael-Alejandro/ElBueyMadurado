@@ -10,6 +10,7 @@ export default function Logo() {
   return (
     <Link
       href="/"
+      translate="no"
       className="flex items-center gap-3 group"
       onClick={() => setAnimKey((k) => k + 1)}
       aria-label="Ir al inicio"
