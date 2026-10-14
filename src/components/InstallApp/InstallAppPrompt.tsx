@@ -4,22 +4,19 @@ import Image from 'next/image';
 import { useCallback, useEffect, useId, useRef, useState, type ReactNode } from 'react';
 import { useConsent } from '@/contexts/ConsentContext';
 import { trackPwaEvent, type PwaEvent } from '@/lib/trackPwaEvent';
+import type { BeforeInstallPromptEvent } from './earlyInstallPrompt';
 
 const INSTALLED_KEY = 'ebm_pwa_installed';
 const DISMISSED_KEY = 'ebm_pwa_dismissed_at';
 const OPENED_AS_APP_KEY = 'ebm_pwa_opened_as_app';
+const VISIBLE_MS_KEY = 'ebm_pwa_visible_ms';
 const DISMISS_DAYS = 30;
 const RETURNING_DELAY_MS = 3000;
+const ANDROID_FALLBACK_MS = 45000;
 const ANIMATION_MS = 300;
 
 type Platform = 'ios' | 'android';
 type Step = 'ask' | 'tutorial';
-
-// No viene en los tipos del DOM: solo existe en navegadores Chromium
-interface BeforeInstallPromptEvent extends Event {
-  prompt: () => Promise<void>;
-  userChoice: Promise<{ outcome: 'accepted' | 'dismissed'; platform: string }>;
-}
 
 function readItem(key: string, session = false): string | null {
   try {
@@ -104,6 +101,8 @@ export default function InstallAppPrompt() {
   const [open, setOpen] = useState(false);
   const [visible, setVisible] = useState(false);
   const [step, setStep] = useState<Step>('ask');
+  const [promptReady, setPromptReady] = useState(false);
+  const [waitedEnough, setWaitedEnough] = useState(false);
   const deferredPrompt = useRef<BeforeInstallPromptEvent | null>(null);
   const decidedOnLoad = useRef<boolean | null>(null);
   const hasShown = useRef(false);
@@ -167,9 +166,19 @@ export default function InstallAppPrompt() {
 
   useEffect(() => {
     if (!platform) return;
+    // Lo que el script del layout haya capturado antes de montarnos
+    if (window.__ebmAppInstalled) {
+      markInstalled();
+      return;
+    }
+    if (window.__ebmInstallPrompt) {
+      deferredPrompt.current = window.__ebmInstallPrompt;
+      setPromptReady(true);
+    }
     const onBeforeInstall = (e: Event) => {
       e.preventDefault();
       deferredPrompt.current = e as BeforeInstallPromptEvent;
+      setPromptReady(true);
     };
     const onInstalled = () => {
       deferredPrompt.current = null;
@@ -184,21 +193,70 @@ export default function InstallAppPrompt() {
     };
   }, [platform, markInstalled, close]);
 
-  // Justo tras decidir las cookies; si ya venían decididas de otra visita, a los 3 s
+  // Android: suma el tiempo con la pestaña visible durante la visita, también entre
+  // páginas y recargas. Se guarda en sessionStorage al ocultarse o salir de la página
+  useEffect(() => {
+    if (platform !== 'android' || waitedEnough) return;
+    const readVisibleMs = () => Number(readItem(VISIBLE_MS_KEY, true)) || 0;
+    let visibleSince: number | null = null;
+    let timer: number | undefined;
+
+    const pause = () => {
+      window.clearTimeout(timer);
+      if (visibleSince === null) return;
+      const total = readVisibleMs() + performance.now() - visibleSince;
+      visibleSince = null;
+      writeItem(VISIBLE_MS_KEY, String(Math.round(total)), true);
+    };
+    const resume = () => {
+      if (visibleSince !== null || document.visibilityState !== 'visible') return;
+      const remaining = ANDROID_FALLBACK_MS - readVisibleMs();
+      if (remaining <= 0) {
+        setWaitedEnough(true);
+        return;
+      }
+      visibleSince = performance.now();
+      timer = window.setTimeout(() => {
+        pause();
+        setWaitedEnough(true);
+      }, remaining);
+    };
+    const onVisibilityChange = () => {
+      if (document.visibilityState === 'visible') resume();
+      else pause();
+    };
+
+    resume();
+    document.addEventListener('visibilitychange', onVisibilityChange);
+    window.addEventListener('pagehide', pause);
+    window.addEventListener('pageshow', resume);
+    return () => {
+      pause();
+      document.removeEventListener('visibilitychange', onVisibilityChange);
+      window.removeEventListener('pagehide', pause);
+      window.removeEventListener('pageshow', resume);
+    };
+  }, [platform, waitedEnough]);
+
+  // Siempre después de decidir las cookies.
+  // iPhone: justo tras decidirlas; si ya venían decididas de otra visita, a los 3 s.
+  // Android: en cuanto llega `beforeinstallprompt` (instalar con un toque) o, si no
+  // llega, tras 45 s viendo la web; entonces "Sí" lleva al tutorial
   useEffect(() => {
     if (!isLoaded) return;
     if (decidedOnLoad.current === null) decidedOnLoad.current = decided;
     if (!platform || !decided || hasShown.current) return;
+    if (platform === 'android' && !promptReady && !waitedEnough) return;
     const timer = window.setTimeout(
       () => {
         hasShown.current = true;
         setOpen(true);
         track('shown');
       },
-      decidedOnLoad.current ? RETURNING_DELAY_MS : 0
+      platform === 'ios' && decidedOnLoad.current ? RETURNING_DELAY_MS : 0
     );
     return () => window.clearTimeout(timer);
-  }, [isLoaded, decided, platform, track]);
+  }, [isLoaded, decided, platform, promptReady, waitedEnough, track]);
 
   // Doble rAF para que el navegador pinte la posición inicial antes de animar
   useEffect(() => {
@@ -244,6 +302,7 @@ export default function InstallAppPrompt() {
     }
     // El evento solo se puede usar una vez
     deferredPrompt.current = null;
+    window.__ebmInstallPrompt = null;
     try {
       await promptEvent.prompt();
       const { outcome } = await promptEvent.userChoice;

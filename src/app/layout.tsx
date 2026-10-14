@@ -8,6 +8,7 @@ import CookieBanner from '@/components/Cookies/CookieBanner';
 import CookiePanel from '@/components/Cookies/CookiePanel';
 import AnalyticsLoader from '@/components/Cookies/AnalyticsLoader';
 import InstallAppPrompt from '@/components/InstallApp/InstallAppPrompt';
+import { EARLY_INSTALL_PROMPT_SCRIPT } from '@/components/InstallApp/earlyInstallPrompt';
 
 
 export const metadata: Metadata = {
@@ -44,6 +45,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="es" data-scroll-behavior="smooth">
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: EARLY_INSTALL_PROMPT_SCRIPT }} />
+      </head>
       <body className="bg-[#160a00] text-white overflow-x-hidden">
         <ConsentProvider>
           <Navbar />

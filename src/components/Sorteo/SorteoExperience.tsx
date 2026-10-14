@@ -103,7 +103,7 @@ export default function NewsletterExperience() {
       return subscribeFeedback;
     }
 
-    return 'Sin ruido: solo descuentos, promociones.';
+    return 'Sin ruido: solo descuentos.';
   }, [subscribeFeedback, subscribeState]);
 
   const updateSubscribeField = <K extends keyof SubscribeFormState>(
@@ -276,7 +276,7 @@ export default function NewsletterExperience() {
   return (
     <section className="relative isolate overflow-hidden bg-[#080502]">
       <Image
-        src="/assets/images/carne3.jpeg"
+        src="/assets/images/cecina.webp"
         alt=""
         fill
         priority

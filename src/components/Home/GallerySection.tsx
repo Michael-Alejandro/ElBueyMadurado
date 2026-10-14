@@ -5,7 +5,15 @@ import { useEffect, useMemo, useRef, useState } from 'react';
 
 const SLIDE_MS = 3200;
 
-type Slide = { src: string; alt: string };
+// Tablet: 2 fotos (md, w-1/2). Ordenador: 3 fotos (lg, lg:w-1/3)
+const TABLET_QUERY = '(min-width: 768px)';
+const DESKTOP_QUERY = '(min-width: 1024px)';
+
+// Ancho real de cada foto: max-w-6xl (1152px) en 3 con 24px de separación = 368px; por debajo, menos de 1/3 o 1/2 del ancho
+const DESKTOP_SIZES = '(min-width: 1200px) 368px, (min-width: 1024px) 33vw, 50vw';
+
+// position: encuadre propio (clase object-*) para fotos que el recorte de móvil corta mal
+type Slide = { src: string; alt: string; position?: string };
 
 function shuffle<T>(arr: T[]) {
   const a = [...arr];
@@ -19,18 +27,18 @@ function shuffle<T>(arr: T[]) {
 export default function GallerySection() {
   const baseImages: Slide[] = useMemo(
     () => [
-      { src: '/assets/images/local1img.jpeg', alt: 'El local' },
-      { src: '/assets/images/local2img.jpeg', alt: 'El local' },
-      { src: '/assets/images/local3img.jpeg', alt: 'El local' },
-      { src: '/assets/images/carne1.jpeg', alt: 'Carne' },
-      { src: '/assets/images/carne2.jpeg', alt: 'Carne' },
-      { src: '/assets/images/carne3.jpeg', alt: 'Carne' },
-      { src: '/assets/images/carne4.PNG', alt: 'Carne' },
-      { src: '/assets/images/carne5.jpeg', alt: 'Carne' },
-      { src: '/assets/images/carne6.jpeg', alt: 'Carne' },
-      { src: '/assets/images/carne7.PNG', alt: 'Carne' },
-      { src: '/assets/images/carne9.PNG', alt: 'Carne' },
-      { src: '/assets/images/carne10.jpeg', alt: 'Carne' },
+      { src: '/assets/images/local-fachada.webp', alt: 'Fachada de El Buey Madurado', position: 'object-[65%_center]' },
+      { src: '/assets/images/local-sala.webp', alt: 'Sala del restaurante con las mesas preparadas', position: 'object-[85%_center]' },
+      { src: '/assets/images/local-camara-maduracion.webp', alt: 'Cámara de maduración con piezas de carne', position: 'object-[25%_center]' },
+      { src: '/assets/images/chuleton-corte.webp', alt: 'Chuletón madurado cortado en lonchas' },
+      { src: '/assets/images/chuleton-bandeja.webp', alt: 'Chuletón fileteado servido en bandeja' },
+      { src: '/assets/images/cecina.webp', alt: 'Plato de cecina en lonchas con sal en escamas' },
+      { src: '/assets/images/burger-salsa.webp', alt: 'Hamburguesa con queso fundido y salsa' },
+      { src: '/assets/images/burger-cecina.webp', alt: 'Hamburguesa con cecina y patatas fritas' },
+      { src: '/assets/images/carne6.webp', alt: 'Pieza de carne madurada muy veteada junto al fuego' },
+      { src: '/assets/images/carne7.webp', alt: 'Lomo de vaca madurado sobre una mesa de madera' },
+      { src: '/assets/images/burger-cheddar.webp', alt: 'Hamburguesa con cheddar fundido y salsa' },
+      { src: '/assets/images/local-equipo.webp', alt: 'Dos personas se abrazan en el local' },
     ],
     []
   );
@@ -38,9 +46,14 @@ export default function GallerySection() {
   // SSR/CSR primer render determinista
   const [images, setImages] = useState<Slide[]>(baseImages);
 
-  // Desktop crossfade
-  const [index, setIndex] = useState(0);
+  // Tablet/desktop carrusel: fotos visibles a la vez (0 en móvil)
+  const [visible, setVisible] = useState(0);
+  // index: primera foto visible; furthest: el index más alto alcanzado (decide qué fotos se montan)
+  const [pos, setPos] = useState({ index: 0, furthest: 0 });
   const desktopDirRef = useRef<1 | -1>(1);
+  const desktopRef = useRef<HTMLDivElement | null>(null);
+  const [inView, setInView] = useState(false);
+  const [activated, setActivated] = useState(false);
 
   // Mobile scroller
   const scrollerRef = useRef<HTMLDivElement | null>(null);
@@ -59,7 +72,7 @@ export default function GallerySection() {
     const shuffled = shuffle(baseImages);
     setImages(shuffled);
 
-    setIndex(0);
+    setPos({ index: 0, furthest: 0 });
     desktopDirRef.current = 1;
 
     mobileIndexRef.current = 0;
@@ -68,23 +81,65 @@ export default function GallerySection() {
     scrollerRef.current?.scrollTo({ left: 0, behavior: 'auto' });
   }, [baseImages]);
 
-  // Desktop ping-pong
+  // Desktop: cuántas fotos caben según el breakpoint
+  useEffect(() => {
+    const md = window.matchMedia(TABLET_QUERY);
+    const lg = window.matchMedia(DESKTOP_QUERY);
+    const update = () => setVisible(lg.matches ? 3 : md.matches ? 2 : 0);
+
+    update();
+    md.addEventListener('change', update);
+    lg.addEventListener('change', update);
+    return () => {
+      md.removeEventListener('change', update);
+      lg.removeEventListener('change', update);
+    };
+  }, []);
+
+  // Desktop: solo carga y avanza cuando la galería está (casi) en pantalla
+  useEffect(() => {
+    const el = desktopRef.current;
+    if (!el) return;
+
+    const io = new IntersectionObserver(
+      ([entry]) => {
+        setInView(entry.isIntersecting);
+        if (entry.isIntersecting) setActivated(true);
+      },
+      { rootMargin: '200px 0px' }
+    );
+    io.observe(el);
+    return () => io.disconnect();
+  }, []);
+
+  // Al pasar de 2 a 3 fotos, que no quede hueco vacío al final
+  const maxIndex = Math.max(0, images.length - visible);
+  useEffect(() => {
+    setPos((p) => (p.index > maxIndex ? { ...p, index: maxIndex } : p));
+  }, [maxIndex]);
+
+  // Desktop ping-pong, de una en una
   useEffect(() => {
     const n = images.length;
-    if (n <= 1) return;
+    if (!visible || !inView || n <= visible) return;
+    const max = n - visible;
 
     const id = window.setInterval(() => {
-      setIndex((prev) => {
+      setPos(({ index, furthest }) => {
         let dir = desktopDirRef.current;
-        if (prev === n - 1) dir = -1;
-        else if (prev === 0) dir = 1;
+        if (index >= max) dir = -1;
+        else if (index <= 0) dir = 1;
         desktopDirRef.current = dir;
-        return prev + dir;
+        const next = index + dir;
+        return { index: next, furthest: Math.max(furthest, next) };
       });
     }, SLIDE_MS);
 
     return () => window.clearInterval(id);
-  }, [images.length]);
+  }, [images.length, visible, inView]);
+
+  // Se montan las fotos ya vistas + la siguiente que va a entrar por la derecha
+  const mountUpTo = activated ? pos.furthest + visible : -1;
 
   // Mobile ping-pong
   useEffect(() => {
@@ -174,7 +229,8 @@ export default function GallerySection() {
           </p>
         </div>
 
-        <div className="relative overflow-hidden rounded-3xl ring-1 ring-white/10 shadow-2xl">
+        {/* En md+ solo recorta el carrusel; el borde lo lleva cada foto */}
+        <div className="relative overflow-hidden rounded-3xl ring-1 ring-white/10 shadow-2xl md:ring-0 md:shadow-none">
           {/* MÓVIL */}
           <div className="md:hidden -mx-4">
             <div
@@ -209,7 +265,7 @@ export default function GallerySection() {
                       fill
                       sizes="100vw"
                       priority={i === 0}
-                      className="object-cover object-center"
+                      className={`object-cover ${img.position ?? 'object-center'}`}
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/35 via-transparent to-transparent" />
                   </div>
@@ -219,29 +275,27 @@ export default function GallerySection() {
           </div>
 
           {/* DESKTOP */}
-          <div className="hidden md:block">
-            <div className="relative w-full aspect-[16/7] bg-black">
+          <div ref={desktopRef} className="hidden md:block">
+            {/* Separación con padding + margen negativo: cada paso sigue siendo 100%/visible del track */}
+            <div
+              className="flex -mx-2 lg:-mx-3 transition-transform duration-700 ease-in-out"
+              style={visible ? { transform: `translateX(-${(pos.index * 100) / visible}%)` } : undefined}
+            >
               {images.map((img, i) => (
-                <div
-                  key={img.src}
-                  className={`absolute inset-0 transition-opacity duration-700 ${
-                    i === index ? 'opacity-100' : 'opacity-0'
-                  }`}
-                >
-                  <Image
-                    src={img.src}
-                    alt=""
-                    fill
-                    sizes="(min-width: 768px) 1200px, 100vw"
-                    className="object-cover blur-2xl scale-110 opacity-50"
-                  />
-                  <Image
-                    src={img.src}
-                    alt={img.alt}
-                    fill
-                    sizes="(min-width: 768px) 1200px, 100vw"
-                    className="object-cover object-center"
-                  />
+                <div key={img.src} className="w-1/2 lg:w-1/3 flex-none px-2 lg:px-3">
+                  <div className="relative aspect-[3/4] overflow-hidden rounded-3xl bg-black">
+                    {i <= mountUpTo && (
+                      <Image
+                        src={img.src}
+                        alt={img.alt}
+                        fill
+                        loading="eager"
+                        sizes={DESKTOP_SIZES}
+                        className={`object-cover ${img.position ?? 'object-center'}`}
+                      />
+                    )}
+                    <div className="pointer-events-none absolute inset-0 rounded-3xl ring-1 ring-inset ring-white/10" />
+                  </div>
                 </div>
               ))}
             </div>

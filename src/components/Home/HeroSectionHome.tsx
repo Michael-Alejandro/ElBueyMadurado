@@ -17,6 +17,7 @@ export default function HeroSectionHome() {
           loop
           playsInline
           preload="metadata"
+          poster="/hero-poster.webp"
           className="absolute inset-0 w-full h-full object-cover"
         >
           <source src="/hero.mp4" type="video/mp4" />

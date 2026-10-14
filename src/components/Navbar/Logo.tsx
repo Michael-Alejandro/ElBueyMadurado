@@ -1,7 +1,7 @@
 'use client';
 
+import Image from 'next/image';
 import Link from 'next/link';
-import { CldImage } from 'next-cloudinary';
 import { useState } from 'react';
 
 export default function Logo() {
@@ -16,12 +16,13 @@ export default function Logo() {
       aria-label="Ir al inicio"
     >
       {/* Logo Icono */}
-      <CldImage
-        src="Logo-Buey_t9mc4b"
+      <Image
+        src="/logo-buey.png"
         alt="El Buey Madurado"
         width={56}
         height={56}
         className="object-contain"
+        priority
       />
 
       <div className="flex flex-col justify-center">
