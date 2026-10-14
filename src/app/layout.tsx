@@ -8,14 +8,28 @@ import CookieBanner from '@/components/Cookies/CookieBanner';
 import CookiePanel from '@/components/Cookies/CookiePanel';
 import AnalyticsLoader from '@/components/Cookies/AnalyticsLoader';
 
+
 export const metadata: Metadata = {
   title: 'El Buey Madurado | Restaurante de carne madurada en Xàtiva',
   description:
     'Restaurante en Xàtiva especializado en carne madurada: chuletones, buey gallego con 500 días de maduración, wagyu y burgers de autor. Reserva tu mesa.',
   icons: {
     icon: '/logo-fondo-blanco.ico',
+    apple: [
+      {
+        url: '/apple-touch-icon.png',
+        sizes: '180x180',
+        type: 'image/png',
+      },
+    ],
+  },
+  appleWebApp: {
+    capable: true,
+    title: 'El Buey',
+    statusBarStyle: 'default',
   },
 };
+
 
 export const viewport: Viewport = {
   width: 'device-width',
