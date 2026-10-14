@@ -105,8 +105,8 @@ export default function GoogleReviews() {
                     </p>
                     <div className="inline-flex items-center gap-3 text-amber-400 mb-6">
                         <FaStar className="text-3xl" />
-                        <span className="text-3xl md:text-4xl font-bold">5.0</span>
-                        <span className="text-white/80 text-lg md:text-xl">(55 reseñas en Google)</span>
+                        <span className="text-3xl md:text-4xl font-bold">4.8</span>
+                        <span className="text-white/80 text-lg md:text-xl">(+400 reseñas en Google)</span>
                     </div>
                 </motion.div>
 
