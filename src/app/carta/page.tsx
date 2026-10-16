@@ -166,6 +166,10 @@ export default function CartaPage() {
       'torrija brioche caramelizada',
       'tarta de la abuela',
       'tarta crujiente de almendras',
+      'tarta dubái',
+      'tarta de leche merengada',
+      'tiramisú de pistacho',
+      'tarta de queso donostiarra con turrón',
     ];
 
     const postresLetis = productos.filter(
@@ -181,10 +185,12 @@ export default function CartaPage() {
       { tipo: 'Tinto', titulo: 'Tintos' },
     ] as const;
     const chuletones = productos.filter((item) =>
-      item.nombre.startsWith('Chulet')
+      item.nombre.startsWith('Chulet') ||
+      item.nombre.startsWith('🔥 Chulet')
     );
-    const carnesBase = productos.filter(
-      (item) => !item.nombre.startsWith('Chulet')
+    const carnesBase = productos.filter((item) =>
+      !item.nombre.startsWith('Chulet') &&
+      !item.nombre.startsWith('🔥 Chulet')
     );
 
     if (productos.length === 0) {

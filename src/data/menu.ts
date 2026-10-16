@@ -420,7 +420,15 @@ export const menuItems: MenuItem[] = [
     precio: "150€/kg",
     detalle: "€/kg",
   },
-
+  {
+    id: "car-9",
+    categoria: "Carnes",
+    nombre: "🔥 Chuletón de vaca\n MADURACIÓN EXTREMA",
+    descripcion:
+      "Chuletón de vaca nacional con más de 500 días de maduración.\n Una vez que lo pruebes, entenderás por qué la espera de meses vale la pena. Porque la verdadera excelencia nunca tiene prisa.",
+    precio: "150€/kg",
+    detalle: "€/kg",
+  },
   // POSTRES
   // =========================
   {
@@ -469,7 +477,6 @@ export const menuItems: MenuItem[] = [
     nombre: "Flan casero",
     descripcion:
       "Flan cremoso elaborado a base de huevos, nata y leche condensada, con una textura suave y un sabor tradicional.",
-    alergenos: "contiene huevo y leche. Sin gluten.",
     precio: "6€",
   },
   {
@@ -504,14 +511,47 @@ export const menuItems: MenuItem[] = [
       "Cremoso coulant con sabor a Baileys con una bola de helado a elegir (vainilla, nata o chocolate).",
     precio: "7,50€",
   },
-    {
-    id: "pos-9",
-    categoria: "Postres",
-    nombre: "Helado",
-    descripcion:
-      "2 bolas de helado a elegir (vainilla, nata o chocolate), combínalas como quieras.",
-    precio: "6€",
-  },
+  {
+  id: "pos-16",
+  categoria: "Postres",
+  nombre: "Tarta Dubái",
+  descripcion:
+    "Tarta de chocolate con crema de pistacho y crujiente de kataifi, inspirada en el irresistible chocolate Dubái.",
+  precio: "7€",
+},
+{
+  id: "pos-17",
+  categoria: "Postres",
+  nombre: "Tarta de leche merengada",
+  descripcion:
+    "Suave y cremosa tarta de leche merengada con delicados toques de canela y limón.",
+  precio: "7€",
+},
+{
+  id: "pos-18",
+  categoria: "Postres",
+  nombre: "Tiramisú de pistacho",
+  descripcion:
+    "Una versión del clásico tiramisú con suave crema de mascarpone y el intenso sabor del pistacho.",
+  precio: "7€",
+},
+{
+  id: "pos-19",
+  categoria: "Postres",
+  nombre: "Tarta de queso donostiarra con turrón",
+  descripcion:
+    "Cremosa tarta de queso al estilo donostiarra con el sabor tradicional del turrón.",
+  precio: "7€",
+},
+{
+  id: "pos-9",
+  categoria: "Postres",
+  nombre: "Helado",
+  descripcion:
+    "2 bolas de helado a elegir (vainilla, nata o chocolate), combínalas como quieras.",
+  precio: "6€",
+},
+  
   // =========================
   // BEBIDAS
   // =========================
