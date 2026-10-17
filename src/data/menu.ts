@@ -524,7 +524,7 @@ export const menuItems: MenuItem[] = [
   categoria: "Postres",
   nombre: "Tarta de leche merengada",
   descripcion:
-    "Suave y cremosa tarta de leche merengada con delicados toques de canela y limón.",
+    "Suave y cremosa tarta de leche merengada con toques de canela y limón.",
   precio: "7€",
 },
 {
