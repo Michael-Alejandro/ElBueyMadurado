@@ -1,0 +1,35 @@
+.burger-offer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+  padding: 0 0.75rem;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.burger-offer strong {
+  font-weight: 700;
+}
+
+.burger-offer:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: -4px;
+}
+
+.burger-offer-text-short {
+  display: none;
+}
+
+@media (max-width: 359px) {
+  .burger-offer-text {
+    display: none;
+  }
+
+  .burger-offer-text-short {
+    display: inline;
+  }
+}

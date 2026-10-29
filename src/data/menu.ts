@@ -7,6 +7,7 @@ export interface MenuItem {
   descripcion: string;
   alergenos?: string;
   precio: string;
+  precioAnterior?: string;
   imagen?: string;
   unidad?: boolean; 
   detalle?: string;
@@ -203,7 +204,8 @@ export const menuItems: MenuItem[] = [
     nombre: "La Nacional",
     descripcion:
       "Burger del mes de octubre: 180 g de carne mitad buey nacional mitad rubia gallega, mayonesa de pimientos del piquillo, queso de oveja curado en manteca y jamón ibérico de bellota.",
-    precio: "17€",
+    precio: "12€",
+    precioAnterior: "17€",
   },
   {
     id: "ham-14",
@@ -212,7 +214,8 @@ export const menuItems: MenuItem[] = [
     nombre: "La Carbonara",
     descripcion:
       "180 g de carne de vaca rubia gallega con más de 150 días de maduración, emulsión de yema con aceite de guanciale, guanciale fundido sobre la hamburguesa, queso trufado, chips de guanciale, queso pecorino rallado por encima del pan.",
-    precio: "17€",
+    precio: "12€",
+    precioAnterior: "17€",
   },
   {
     id: "ham-15",
@@ -221,7 +224,8 @@ export const menuItems: MenuItem[] = [
     nombre: "Boss",
     descripcion:
       "180 g de carne de vaca rubia gallega con más de 150 días de maduración, queso brie, mermelada de bacon, queso cheddar y demiglace de salsa barbacoa.",
-    precio: "17€",
+    precio: "12€",
+    precioAnterior: "17€",
   },
   {
     id: "ham-8",
@@ -230,7 +234,8 @@ export const menuItems: MenuItem[] = [
     nombre: "Los Cuñaos",
     descripcion:
       "180 g de carne mitad buey nacional mitad rubia gallega. Mayonesa de tuétano. Secreto de buey gallego 200 días de maduración. Demiglace de buey caramelizada. Queso cheddar madurado picante.",
-    precio: "20€",
+    precio: "15€",
+    precioAnterior: "20€",
   },
   {
     id: "ham-1",
@@ -239,7 +244,8 @@ export const menuItems: MenuItem[] = [
     nombre: "Búfalo",
     descripcion:
       "180 g de carne de vaca rubia gallega con +150 días de maduración (selección especial LYO), costilla de vaca rubia gallega, queso ahumado y glaseado de barbacoa de Coca-Cola.",
-    precio: "18€",
+    precio: "13€",
+    precioAnterior: "18€",
   },
   {
     id: "ham-2",
@@ -248,7 +254,8 @@ export const menuItems: MenuItem[] = [
     nombre: "EsMMY Buey",
     descripcion:
       "180 g de carne de vaca rubia gallega con +150 días de maduración (selección especial LYO), cebolla caramelizada, queso ahumado, salsa EMMY, envuelta en picaña de buey gallego con 500 días de maduración.",
-    precio: "18€",
+    precio: "13€",
+    precioAnterior: "18€",
   },
   {
     id: "ham-3",
@@ -257,7 +264,8 @@ export const menuItems: MenuItem[] = [
     nombre: "La Suprema",
     descripcion:
       "180 g de carne de vaca rubia gallega con +150 días de maduración (selección especial LYO), cecina de buey, queso de tetilla estilo raclette y mayonesa de ajo puerro y cecina.",
-    precio: "18€",
+    precio: "13€",
+    precioAnterior: "18€",
   },
   {
     id: "ham-4",
@@ -266,7 +274,8 @@ export const menuItems: MenuItem[] = [
     nombre: "Buey",
     descripcion:
       "180 g de carne de vaca rubia gallega con +150 días de maduración (selección especial LYO), pastrami de vaca selección LYO, queso cheddar inglés madurado y crema de trufa negra.",
-    precio: "18€",
+    precio: "13€",
+    precioAnterior: "18€",
   },
   {
     id: "ham-5",
@@ -275,7 +284,8 @@ export const menuItems: MenuItem[] = [
     nombre: "Doritos Cheese Lover",
     descripcion:
       "180 g de carne de vaca rubia gallega con +150 días de maduración (selección especial LYO), tortita de queso mozzarella, queso ahumado, crema de queso azul, mayonesa de chili dulce y topping de doritos.",
-    precio: "16€",
+    precio: "11€",
+    precioAnterior: "16€",
   },
   {
     id: "ham-6",
@@ -284,7 +294,8 @@ export const menuItems: MenuItem[] = [
     nombre: "Carlos Catalá",
     descripcion:
       "180 g de carne de vaca rubia gallega con +150 días de maduración (selección especial LYO), panceta cocinada a baja temperatura y ahumada, queso ahumado, salsa hotney y relish de pepinillo.",
-    precio: "18€",
+    precio: "13€",
+    precioAnterior: "18€",
     detalle: "200 g",
   },
   {
@@ -294,7 +305,8 @@ export const menuItems: MenuItem[] = [
     nombre: "👑 The Golden Burger",
     descripcion:
       "180 g de auténtico buey gallego (cárnicas LYO) con maduración extrema de 500 días, auténtico wagyu japonés A5, queso ahumado, toque de mayonesa yakitori con grasa de vaca madurada, brioche envuelto en oro de 24k.",
-    precio: "28€",
+    precio: "23€",
+    precioAnterior: "28€",
     detalle: "200 g",
   },
   {

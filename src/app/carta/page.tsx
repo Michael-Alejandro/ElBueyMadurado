@@ -84,6 +84,7 @@ export default function CartaPage() {
     const className = [
       'carta-product-item',
       'carta-product-item--noimage',
+      producto.precioAnterior ? 'carta-product-item--oferta' : '',
       itemClassName,
       esSuplemento
         ? 'bg-gradient-to-br from-amber-50 to-amber-100 border-2 border-amber-500 shadow-lg shadow-amber-300 ring-2 ring-amber-400'
@@ -104,13 +105,26 @@ export default function CartaPage() {
               {esSuplemento && '⭐ '}
               {producto.nombre}
             </h3>
-            <span
-              className={`carta-product-price ${
-                esSuplemento ? 'text-amber-700 font-bold text-lg' : ''
-              }`}
-            >
-              {producto.precio}
-            </span>
+            {producto.precioAnterior ? (
+              <div className="carta-product-offer">
+                <span className="sr-only">Antes:</span>
+                <s className="carta-product-price-original">
+                  {producto.precioAnterior}
+                </s>
+                <span className="sr-only">Ahora:</span>
+                <span className="carta-product-price carta-product-price--oferta">
+                  {producto.precio}
+                </span>
+              </div>
+            ) : (
+              <span
+                className={`carta-product-price ${
+                  esSuplemento ? 'text-amber-700 font-bold text-lg' : ''
+                }`}
+              >
+                {producto.precio}
+              </span>
+            )}
           </div>
 
           {producto.descripcion && (
@@ -338,6 +352,7 @@ export default function CartaPage() {
                 return (
                   <div
                     key={slide.key}
+                    id={slide.key === 'Hamburguesas' ? 'burgers' : undefined}
                     ref={(el) => {
                       sectionRefs.current[index] = el;
                     }}
