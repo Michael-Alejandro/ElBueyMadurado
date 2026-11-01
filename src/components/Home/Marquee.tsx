@@ -6,21 +6,19 @@ export default function Marquee() {
       <div className="marquee">
         <div className="marquee-track">
           <span>
-            🍔 BURGER DEL MES DE OCTUBRE 🍔
-            LA NACIONAL
-            180 g de carne mitad buey nacional mitad rubia gallega ·
-            mayonesa de pimientos del piquillo ·
-            queso de oveja curado en manteca ·
-            jamón ibérico de bellota
+            🍔 BURGER DEL MES DE NOVIEMBRE 🍔 LA NAVARRA ·
+            Carne de vaca frisona madurada ·
+            queso Idiazábal de oveja ahumado ·
+            pimientos del piquillo ·
+            mayonesa de chistorra
           </span>
 
           <span>
-            🍔 BURGER DEL MES DE OCTUBRE 🍔
-            LA NACIONAL
-            180 g de carne mitad buey nacional mitad rubia gallega ·
-            mayonesa de pimientos del piquillo ·
-            queso de oveja curado en manteca ·
-            jamón ibérico de bellota
+            🍔 BURGER DEL MES DE NOVIEMBRE 🍔 LA NAVARRA ·
+            Carne de vaca frisona madurada ·
+            queso Idiazábal de oveja ahumado ·
+            pimientos del piquillo ·
+            mayonesa de chistorra
           </span>
         </div>
       </div>

@@ -201,9 +201,9 @@ export const menuItems: MenuItem[] = [
     id: "ham-11",
     categoria: "Hamburguesas",
     tipo: "Hamburguesa",
-    nombre: "La Nacional",
+    nombre: "La Navarra",
     descripcion:
-      "Burger del mes de octubre: 180 g de carne mitad buey nacional mitad rubia gallega, mayonesa de pimientos del piquillo, queso de oveja curado en manteca y jamón ibérico de bellota.",
+      "Burger del mes de noviembre: carne de vaca frisona madurada, queso Idiazábal de oveja ahumado, pimientos del piquillo y mayonesa de chistorra.",
     precio: "12€",
     precioAnterior: "17€",
   },
