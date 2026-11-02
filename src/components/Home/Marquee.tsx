@@ -7,7 +7,7 @@ export default function Marquee() {
         <div className="marquee-track">
           <span>
             🍔 BURGER DEL MES DE NOVIEMBRE 🍔 LA NAVARRA ·
-            Carne de vaca frisona madurada ·
+            Carne de chuletón de vaca frisona madurada ·
             queso Idiazábal de oveja ahumado ·
             pimientos del piquillo ·
             mayonesa de chistorra
@@ -15,7 +15,7 @@ export default function Marquee() {
 
           <span>
             🍔 BURGER DEL MES DE NOVIEMBRE 🍔 LA NAVARRA ·
-            Carne de vaca frisona madurada ·
+            Carne de chuletón de vaca frisona madurada ·
             queso Idiazábal de oveja ahumado ·
             pimientos del piquillo ·
             mayonesa de chistorra
